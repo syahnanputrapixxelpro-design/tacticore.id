@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Berita - TACTICORE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN SYSTEM --- */
+        :root {
+            --bg-deep: #0B0F19;       
+            --bg-panel: #161F32;      
+            --accent-blue: #3B82F6;   
+            --accent-gold: #F59E0B;   
+            --text-white: #FFFFFF;    
+            --text-light: #E2E8F0;    
+            --text-grey: #94A3B8;     
+            --border-line: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, .nav-link, .btn, .widget-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-white);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid var(--border-line);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
+
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+        }
+        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
+
+        /* HERO SECTION */
+        .page-header {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.8), var(--bg-deep)), url('asset/img/gambar paintball/senjatapaintball.webp');
+            background-size: cover; background-position: center;
+            padding: 80px 0 50px; border-bottom: 1px solid var(--border-line);
+        }
+
+        /* --- BLOG LAYOUT --- */
+        .blog-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: 0.3s;
+            display: none; /* Hidden by default, JS will show */
+        }
+        .blog-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        
+        .blog-thumb {
+            width: 100%; 
+            height: 400px; /* Tinggi gambar diperbesar */
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .blog-content { padding: 25px; }
+        
+        .blog-meta { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 10px; display: flex; gap: 15px; }
+        .blog-meta i { color: var(--accent-gold); margin-right: 5px; }
+        
+        .blog-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; }
+        .blog-title a { color: var(--text-white); text-decoration: none; transition: 0.3s; }
+        .blog-title a:hover { color: var(--accent-blue); }
+        
+        .blog-excerpt { color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+
+        .btn-read-more {
+            color: var(--accent-blue); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 2px solid transparent; transition: 0.3s;
+        }
+        .btn-read-more:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        /* --- SIDEBAR WIDGETS --- */
+        .sidebar-widget {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .widget-title {
+            font-size: 1.4rem; border-bottom: 2px solid var(--border-line); padding-bottom: 15px; margin-bottom: 20px;
+            position: relative;
+        }
+        .widget-title::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--accent-blue);
+        }
+
+        /* Search Input */
+        .search-form { position: relative; }
+        .search-input {
+            width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--border-line);
+            padding: 12px 15px; padding-right: 45px; border-radius: 6px; color: var(--text-white);
+        }
+        .search-input:focus { outline: none; border-color: var(--accent-blue); }
+        .search-btn {
+            position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: var(--text-grey); cursor: pointer;
+        }
+        .search-btn:hover { color: var(--accent-blue); }
+
+        /* Recent Posts */
+        .recent-post-item { display: flex; align-items: center; margin-bottom: 15px; }
+        .recent-thumb { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; margin-right: 15px; }
+        .recent-info h6 { margin: 0 0 5px; line-height: 1.3; }
+        .recent-info h6 a { color: var(--text-white); text-decoration: none; font-family: 'Inter'; font-weight: 600; font-size: 0.95rem; }
+        .recent-info h6 a:hover { color: var(--accent-blue); }
+        .recent-date { font-size: 0.8rem; color: var(--text-grey); }
+
+        /* Sticky Sidebar */
+        @media (min-width: 992px) {
+            .sticky-sidebar { position: sticky; top: 100px; }
+        }
+
+        #noResults {
+            display: none; text-align: center; padding: 40px; background: var(--bg-panel); border-radius: 12px; border: 1px dashed var(--text-grey);
+        }
+
+        /* --- CUSTOM PAGINATION --- */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .page-custom {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            color: var(--text-white);
+            padding: 10px 20px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+            cursor: pointer;
+        }
+
+        .page-custom:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .page-custom.active {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .page-custom.disabled {
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.2); 
+            cursor: default;
+            pointer-events: none;
+        }
+
+        /* FOOTER */
+        footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
+        .footer-icon { color: var(--accent-blue); margin-right: 10px; }
+        footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            </a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> KONTAK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">BERITA & TIPS</h1>
+            <p class="text-light lead">Informasi terbaru seputar dunia paintball dan tips strategi.</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-8">
+                    
+                    <div id="blogContainer">
+                        
+                        <div class="blog-card" data-title="Tips Strategi Menang Paintball Pemula">
+                            <img src="asset/img/gambar paintball/download.webp" alt="Blog 1" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 12 Jan 2024</span><span><i class="fas fa-folder"></i> Tips & Trik</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball untuk Pemula</a></h3>
+                                <p class="blog-excerpt">Jangan hanya asal tembak! Pelajari formasi dasar dan komunikasi tim yang efektif agar tidak mudah tereliminasi di menit awal permainan.</p>
+                                <a href="blog-detail-1.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Perlengkapan Keamanan Wajib Safety Gear">
+                            <img src="asset/img/gambar paintball/download2.webp" alt="Blog 2" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 08 Feb 2024</span><span><i class="fas fa-folder"></i> Edukasi</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-2.html">Mengenal Gear Paintball: Safety First!</a></h3>
+                                <p class="blog-excerpt">Mengapa masker tidak boleh dilepas? Apa fungsi body vest? Simak penjelasan lengkap mengenai standar keamanan internasional yang kami gunakan.</p>
+                                <a href="blog-detail-2.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Manfaat Gathering Kantor Corporate Team Building">
+                            <img src="asset/img/gambar paintball/download3.webp" alt="Blog 3" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 20 Feb 2024</span><span><i class="fas fa-folder"></i> Corporate</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-3.html">Paintball untuk Team Building Perusahaan?</a></h3>
+                                <p class="blog-excerpt">Studi menunjukkan simulasi tempur dapat meningkatkan kerjasama antar divisi dan melatih leadership dalam kondisi di bawah tekanan.</p>
+                                <a href="blog-detail-3.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Sejarah Paintball Dunia">
+                            <img src="asset/img/gambar paintball/download4.webp" alt="Blog 4" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 05 Mar 2024</span><span><i class="fas fa-folder"></i> Trivia</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-4.html">Asal Usul Paintball: Dari Peternakan ke Medan Tempur</a></h3>
+                                <p class="blog-excerpt">Tahukah Anda bahwa senjata paintball awalnya digunakan untuk menandai ternak sapi? Simak sejarah unik olahraga ekstrem ini.</p>
+                                <a href="blog-detail-4.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Marker Paintball Elektronik Mekanik">
+                            <img src="asset/img/gambar paintball/download5.webp" alt="Blog 5" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 25 Mar 2024</span><span><i class="fas fa-folder"></i> Review Gear</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-5.html">Memilih Marker: Elektronik vs Mekanik</a></h3>
+                                <p class="blog-excerpt">Bingung memilih senjata untuk turnamen? Pelajari perbedaan mendasar antara marker sistem mekanik yang bandel dan elektronik yang presisi.</p>
+                                <a href="blog-detail-5.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Psikologi Adrenalin Paintball">
+                            <img src="asset/img/gambar paintball/download6.webp" alt="Blog 6" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 10 Apr 2024</span><span><i class="fas fa-folder"></i> Edukasi</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-6.html">Psikologi di Balik Adrenalin Paintball</a></h3>
+                                <p class="blog-excerpt">Mengapa jantung berdebar saat bersembunyi di balik bunker? Temukan fakta ilmiah tentang respon 'Fight or Flight' dalam simulasi tempur.</p>
+                                <a href="blog-detail-6.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Istilah Kamus Paintball Wajib">
+                            <img src="asset/img/gambar paintball/download7.webp" alt="Blog 7" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 22 Apr 2024</span><span><i class="fas fa-folder"></i> Tips Pemula</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-7.html">Kamus Paintball: Istilah yang Wajib Diketahui</a></h3>
+                                <p class="blog-excerpt">Jangan bingung saat Marshal berteriak "Blind Fire" atau "Dead Man Walking". Pelajari kode komunikasi standar di arena internasional.</p>
+                                <a href="blog-detail-7.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Tips Merawat Google Mask Anti Embun">
+                            <img src="asset/img/gambar paintball/download8.webp" alt="Blog 8" class="blog-thumb">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 05 Mei 2024</span><span><i class="fas fa-folder"></i> Tips & Trik</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-8.html">Cara Merawat Masker Agar Tidak Cepat Berembun</a></h3>
+                                <p class="blog-excerpt">Embun pada lensa adalah musuh utama pemain. Simak tips sederhana merawat lensa thermal agar pandangan tetap jernih sepanjang permainan.</p>
+                                <a href="blog-detail-8.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="noResults">
+                        <i class="fas fa-search fa-3x text-grey mb-3"></i>
+                        <h4 class="text-white">Artikel Tidak Ditemukan</h4>
+                        <p class="text-grey">Coba gunakan kata kunci lain.</p>
+                    </div>
+
+                    <div class="pagination-container">
+                        <a href="javascript:void(0)" class="page-custom disabled" id="btnPrev" onclick="changePage('prev')">
+                            <i class="fas fa-arrow-left me-2"></i> PREVIOUS
+                        </a>
+
+                        <a href="javascript:void(0)" class="page-custom active" id="btnPage1" onclick="changePage(1)">1</a>
+                        <a href="javascript:void(0)" class="page-custom" id="btnPage2" onclick="changePage(2)">2</a>
+
+                        <a href="javascript:void(0)" class="page-custom" id="btnNext" onclick="changePage('next')">
+                            NEXT <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sticky-sidebar">
+                        
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">CARI ARTIKEL</h4>
+                            <div class="search-form">
+                                <input type="text" id="searchInput" class="search-input" placeholder="Ketik kata kunci...">
+                                <button type="button" class="search-btn"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">TERPOPULER</h4>
+                            
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <span class="recent-date">12 Jan 2024</span>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download3.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-3.html">Manfaat Team Building Kantor</a></h6>
+                                    <span class="recent-date">20 Feb 2024</span>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download2.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-2.html">Review Gear Paintball Safety</a></h6>
+                                    <span class="recent-date">08 Feb 2024</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
+                    <p class="text-grey small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">NAVIGASI</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-grey hover-white">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-grey hover-white">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-grey hover-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">KONTAK ADMIN</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <small class="text-grey">© 2024 Tacticore Paintball Provider. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // CONFIG
+        const itemsPerPage = 4;
+        let currentPage = 1;
+        const totalItems = 8; // Total artikel di HTML
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        // DOM Elements
+        const blogCards = document.querySelectorAll('.blog-card');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        const btnPage1 = document.getElementById('btnPage1');
+        const btnPage2 = document.getElementById('btnPage2');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // Initial Load
+        showPage(1);
+
+        // FUNGSI GANTI HALAMAN
+        function changePage(action) {
+            if (action === 'prev') {
+                if (currentPage > 1) currentPage--;
+            } else if (action === 'next') {
+                if (currentPage < totalPages) currentPage++;
+            } else {
+                currentPage = action;
+            }
+            showPage(currentPage);
+        }
+
+        // FUNGSI TAMPILKAN ARTIKEL
+        function showPage(page) {
+            // Scroll ke atas sedikit (UX smooth)
+            document.getElementById('blogContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Hitung Index
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            // Reset Search jika ada (agar pagination normal kembali)
+            if(searchInput.value === '') {
+                blogCards.forEach((card, index) => {
+                    if (index >= start && index < end) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            updateButtons(page);
+        }
+
+        // UPDATE TOMBOL (Active / Disabled)
+        function updateButtons(page) {
+            // Reset Active
+            btnPage1.classList.remove('active');
+            btnPage2.classList.remove('active');
+
+            // Set Active
+            if(page === 1) btnPage1.classList.add('active');
+            if(page === 2) btnPage2.classList.add('active');
+
+            // Handle Prev Disabled
+            if(page === 1) {
+                btnPrev.classList.add('disabled');
+            } else {
+                btnPrev.classList.remove('disabled');
+            }
+
+            // Handle Next Disabled
+            if(page === totalPages) {
+                btnNext.classList.add('disabled');
+            } else {
+                btnNext.classList.remove('disabled');
+            }
+        }
+
+        // SEARCH FUNCTION
+        searchInput.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            if (term.length > 0) {
+                blogCards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    const contentText = card.innerText.toLowerCase();
+
+                    if (title.includes(term) || contentText.includes(term)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                document.querySelector('.pagination-container').style.display = 'none';
+
+                if (visibleCount === 0) noResults.style.display = 'block';
+                else noResults.style.display = 'none';
+
+            } else {
+                noResults.style.display = 'none';
+                document.querySelector('.pagination-container').style.display = 'flex';
+                showPage(currentPage);
+            }
+        });
+    </script>
+</body>
+</html>

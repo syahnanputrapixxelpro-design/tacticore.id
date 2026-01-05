@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Aksi - TACTICORE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN SYSTEM --- */
+        :root {
+            --bg-deep: #0B0F19;       
+            --bg-panel: #161F32;      
+            --accent-blue: #3B82F6;   
+            --accent-gold: #F59E0B;   
+            --text-white: #FFFFFF;    
+            --text-light: #E2E8F0;    
+            --text-grey: #94A3B8;     
+            --border-line: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, .nav-link, .btn, .gallery-cat {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-white);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid var(--border-line);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
+
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+        }
+        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
+
+        /* HERO SECTION */
+        .page-header {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.7), var(--bg-deep)), url('https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            padding: 100px 0 60px; border-bottom: 1px solid var(--border-line);
+        }
+
+        /* --- VIDEO HIGHLIGHT SECTION --- */
+        .video-section {
+            padding: 60px 0;
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border-line);
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--border-line);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .video-wrapper iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        /* --- CREATIVE MASONRY GALLERY --- */
+        .filter-nav {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-line);
+            color: var(--text-grey);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: 'Barlow Condensed', sans-serif;
+            letter-spacing: 1px;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Masonry Layout */
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 20px;
+        }
+        @media (max-width: 992px) { .gallery-masonry { column-count: 2; } }
+        @media (max-width: 576px) { .gallery-masonry { column-count: 1; } }
+
+        /* ITEM GALLERY - UPDATED FOR ANIMATION */
+        .gallery-item {
+            position: relative;
+            margin-bottom: 20px;
+            break-inside: avoid;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--border-line);
+            
+            /* Properti Animasi */
+            transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* State Hover */
+        .gallery-item:hover { transform: translateY(-5px) scale(1.02); border-color: var(--accent-gold); }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.5s ease;
+        }
+        
+        /* Overlay Effect */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0; top: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2) 50%, transparent);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+        .gallery-item:hover img { transform: scale(1.1); } /* Zoom gambar dalam frame */
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .gallery-cat { font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 5px; display: block; }
+        .gallery-title { font-size: 1.2rem; font-weight: 700; color: white; margin: 0; }
+
+        /* --- LIGHTBOX (POPUP) --- */
+        .lightbox {
+            display: none;
+            position: fixed; z-index: 9999; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center; align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .lightbox-content {
+            max-width: 90%; max-height: 90%;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            border-radius: 4px;
+        }
+        .close-btn {
+            position: absolute; top: 20px; right: 40px;
+            color: #fff; font-size: 50px; font-weight: bold;
+            cursor: pointer; transition: 0.3s; z-index: 10000; line-height: 1;
+        }
+        .close-btn:hover { color: var(--accent-gold); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* FOOTER */
+        footer { background: #05080f; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
+        .footer-icon { color: var(--accent-blue); margin-right: 10px; }
+        footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+
+    <div id="galleryLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            </a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> KONTAK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">MEDAN TEMPUR KAMI</h1>
+            <p class="lead text-light">Dokumentasi momen adrenalin, strategi, dan kemenangan.</p>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-4">
+                        <h3 class="text-white"><i class="fas fa-play-circle text-gold me-2"></i>HIGHLIGHT VIDEO</h3>
+                    </div>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            
+            <div class="filter-nav">
+                <button class="filter-btn active" onclick="filterGallery('all', event)">SEMUA</button>
+                <button class="filter-btn" onclick="filterGallery('action', event)">GAMEPLAY</button>
+                <button class="filter-btn" onclick="filterGallery('squad', event)">TEAM SQUAD</button>
+                <button class="filter-btn" onclick="filterGallery('venue', event)">VENUE</button>
+            </div>
+
+            <div class="gallery-masonry">
+                
+                <div class="gallery-item action">
+                    <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop" alt="Gameplay">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">GAMEPLAY</span>
+                        <h4 class="gallery-title">Close Combat</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item squad">
+                    <img src="https://images.unsplash.com/photo-1533560906234-54e645738520?q=80&w=2070&auto=format&fit=crop" alt="Squad">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">SQUAD</span>
+                        <h4 class="gallery-title">Tim Alpha</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item venue">
+                    <img src="https://images.unsplash.com/photo-1558363313-8704e8740fb7?q=80&w=2070&auto=format&fit=crop" alt="Venue">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">VENUE</span>
+                        <h4 class="gallery-title">Jungle Arena</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item action">
+                    <img src="https://images.unsplash.com/photo-1605152902546-5351d2310021?q=80&w=1974&auto=format&fit=crop" alt="Gear">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">GAMEPLAY</span>
+                        <h4 class="gallery-title">Tactical Reload</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item squad">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop" alt="Briefing">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">SQUAD</span>
+                        <h4 class="gallery-title">Briefing Strategi</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item venue">
+                    <img src="https://images.unsplash.com/photo-1563299796-b729d0af54a5?q=80&w=1925&auto=format&fit=crop" alt="Hideout">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">VENUE</span>
+                        <h4 class="gallery-title">Urban Warzone</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item action">
+                    <img src="https://images.unsplash.com/photo-1558525043-f1665a57022d?q=80&w=2070&auto=format&fit=crop" alt="Sniper">
+                    <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
+                        <span class="gallery-cat">GAMEPLAY</span>
+                        <h4 class="gallery-title">Sniper Position</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
+                    <p class="text-grey small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">NAVIGASI</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-grey hover-white">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-grey hover-white">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="paket.html" class="text-decoration-none text-grey hover-white">Daftar Paket</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">KONTAK ADMIN</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <small class="text-grey">© 2024 Tacticore Paintball Provider. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Lightbox Functions
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('galleryLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = imgElement.src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('galleryLightbox').style.display = 'none';
+        }
+        
+        document.getElementById('galleryLightbox').addEventListener('click', function(e) {
+            if (e.target !== document.getElementById('lightboxImg')) {
+                closeLightbox();
+            }
+        });
+
+        // ANIMATED FILTER FUNCTION
+        function filterGallery(category, event) {
+            // 1. Update Active Button
+            if(event) {
+                const buttons = document.querySelectorAll('.filter-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                event.target.classList.add('active');
+            }
+
+            const items = document.querySelectorAll('.gallery-item');
+
+            // 2. Tahap 1: Fade Out Semua
+            items.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
+            });
+
+            // 3. Tahap 2: Tunggu transisi selesai (300ms), lalu atur display & Fade In
+            setTimeout(() => {
+                items.forEach(item => {
+                    if (category === 'all' || item.classList.contains(category)) {
+                        item.style.display = 'block'; // Tampilkan dalam layout
+                        
+                        // Sedikit delay agar browser merender 'display:block' dulu sebelum animasi opacity
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none'; // Hilangkan dari layout
+                    }
+                });
+            }, 300); // Waktu ini harus sama dengan CSS transition (0.3s/0.4s)
+        }
+    </script>
+</body>
+</html>

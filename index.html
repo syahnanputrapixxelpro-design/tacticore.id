@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TACTICORE - Jasa Provider Paintball & Outbound Malang</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* KUSTOMISASI WARNA DI ATAS BOOTSTRAP */
+        :root {
+            --bg-darkest: #0f172a;
+            --bg-main: #1e293b;
+            --accent-blue: #3b82f6;   
+            --accent-yellow: #fbbf24; 
+            --accent-green: #4ade80;  
+            --text-light: #f8fafc;    
+            --text-dim: #cbd5e1;      
+            --border-color: #334155;
+        }
+
+        body {
+            background-color: var(--bg-darkest);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        /* TYPOGRAPHY KHUSUS */
+        h1, h2, h3, h4, .btn, .nav-link, .price-text, .gallery-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 { font-weight: 800; }
+        
+        /* OVERRIDE BOOTSTRAP NAVBAR */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        .navbar-brand { 
+            font-size: 1.8rem; font-weight: 800; font-style: italic; 
+            color: white !important; 
+        }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { color: var(--text-dim) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent-yellow) !important; }
+
+        /* BOOTSTRAP BUTTONS CUSTOM */
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-primary-custom:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+        }
+        .btn-outline-custom {
+            border: 2px solid var(--text-dim);
+            color: var(--text-light);
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-outline-custom:hover {
+            border-color: var(--accent-yellow);
+            color: var(--accent-yellow);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            padding: 100px 0 120px;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), var(--bg-darkest)), url('asset/img/gambar paintball/senjatapaintball.webp');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        /* CARDS CUSTOMIZATION */
+        .step-card, .pricing-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .step-card { padding: 30px; position: relative; height: 100%; }
+        .step-card:hover { transform: translateY(-5px); border-color: var(--accent-yellow); }
+        .step-number {
+            font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.05);
+            position: absolute; top: 10px; right: 20px;
+        }
+        .step-icon { color: var(--accent-yellow); font-size: 1.5rem; margin-right: 10px; }
+
+        /* GALLERY STYLES */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            height: 250px;
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        .gallery-card:hover img { transform: scale(1.1); }
+        .gallery-card:hover .gallery-overlay { opacity: 1; }
+        .gallery-title { color: var(--accent-yellow); font-size: 1.2rem; font-weight: bold; }
+
+        /* LIGHTBOX STYLES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            border-radius: 4px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 40px;
+            color: #fff; font-size: 50px; font-weight: bold;
+            cursor: pointer; transition: 0.3s; z-index: 10000; line-height: 1;
+        }
+        .close-btn:hover { color: var(--accent-yellow); transform: scale(1.1); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* PRICING CARD FLEXBOX */
+        .pricing-card { display: flex; flex-direction: column; overflow: hidden; }
+        .pricing-card.popular {
+            border: 2px solid var(--accent-blue);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            z-index: 2;
+        }
+        .pricing-header {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.2);
+        }
+        .price-text { font-size: 3.5rem; font-weight: 800; color: white; line-height: 1; }
+        
+        .text-blue { color: var(--accent-blue) !important; }
+        .text-yellow { color: var(--accent-yellow) !important; }
+        .text-green { color: var(--accent-green) !important; }
+        .sub-heading {
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .list-unstyled i { color: var(--accent-green); }
+        .badge-popular {
+            background-color: var(--accent-yellow); color: #000; font-weight: 800;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px;
+        }
+
+        /* FACILITIES */
+        .facility-item {
+            display: flex; align-items: center;
+            background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-bottom: 15px;
+            border-left: 3px solid transparent; transition: 0.3s;
+        }
+        .facility-item:hover {
+            border-left: 3px solid var(--accent-green); background: rgba(255,255,255,0.05);
+        }
+        .facility-icon {
+            width: 40px; height: 40px; background: rgba(59, 130, 246, 0.1); color: var(--accent-blue);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;
+        }
+
+        /* ACCORDION */
+        .accordion-item { background: transparent; border: 1px solid var(--border-color); margin-bottom: 10px; }
+        .accordion-button { background: var(--bg-main); color: white; font-weight: bold; }
+        .accordion-button:not(.collapsed) { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); box-shadow: none; }
+        .accordion-body { background: var(--bg-main); color: var(--text-dim); }
+
+        /* FOOTER */
+        footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-color); }
+        .footer-icon { color: var(--accent-blue); margin-right: 10px; }
+        footer a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body id="about">
+
+    <div id="galleryLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            </a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>KONTAK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="d-inline-block px-3 py-1 rounded-pill mb-3 hero-badge">
+                        <small class="fw-bold tracking-wide"><i class="fas fa-check-circle me-1"></i> PROVIDER OUTBOUND TERPERCAYA</small>
+                    </div>
+                    <h1 class="display-3 mb-4 text-white">JADIKAN MOMEN GATHERING<br>
+                        <span class="text-yellow">LEBIH MEMACU ADRENALIN</span>
+                    </h1>
+                    <p class="lead text-dim mb-5 mx-auto" style="max-width: 700px;">
+                        Kami menyediakan jasa penyewaan lapangan paintball lengkap dengan instruktur, peralatan keamanan, dan skenario permainan seru.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="paket.html" class="btn btn-primary-custom btn-lg">CEK HARGA PAKET</a>
+                        <a href="gallery.html" class="btn btn-outline-custom btn-lg">LIHAT GALERI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-bottom border-top" style="border-color: var(--border-color) !important; background: var(--bg-main);">
+        <div class="container py-4">
+            <div class="row text-center g-4">
+                <div class="col-md-3 col-6">
+                    <h2 class="h1 mb-0 text-blue">3+</h2>
+                    <small class="text-dim text-uppercase fw-bold">Pilihan Arena</small>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="h1 mb-0 text-blue">500+</h2>
+                    <small class="text-dim text-uppercase fw-bold">Event Sukses</small>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="h1 mb-0 text-green">100%</h2>
+                    <small class="text-dim text-uppercase fw-bold">Safety Record</small>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="h1 mb-0 text-blue">Full</h2>
+                    <small class="text-dim text-uppercase fw-bold">Service Team</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="sub-heading">PROSES MUDAH</span>
+                <h2>CARA RESERVASI JADWAL</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <span class="step-number">01</span>
+                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-list-alt step-icon"></i>PILIH PAKET</h4>
+                        <p class="text-dim">Tentukan paket yang sesuai dengan budget dan jumlah peserta tim Anda (Min. 10 Orang).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <span class="step-number">02</span>
+                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-calendar-check step-icon"></i>BOOKING TANGGAL</h4>
+                        <p class="text-dim">Hubungi admin kami via WhatsApp untuk cek ketersediaan slot lapangan di tanggal yang diinginkan.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <span class="step-number">03</span>
+                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-gamepad step-icon"></i>DATANG & MAIN</h4>
+                        <p class="text-dim">Datang ke lokasi sesuai jadwal. Briefing, pemakaian alat, dan permainan akan dipandu instruktur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5" style="background: var(--bg-main);">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="sub-heading">DOKUMENTASI AKSI</span>
+                <h2>GALERI PERTEMPURAN</h2>
+                <p class="text-dim">Klik gambar untuk memperbesar.</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="asset/img/gambar paintball/download.webp" alt="Arena Urban">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="asset/img/gambar paintball/download1.webp" alt="Team Action">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="asset/img/gambar paintball/download2.webp" alt="Equipment">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="asset/img/gambar paintball/download3.webp" alt="Briefing">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="asset/img/gambar paintball/download4.webp" alt="Action Shot">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="asset/img/gambar paintball/download5.webp" alt="Jungle">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="paket" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="sub-heading">DAFTAR HARGA SEWA</span>
+                <h2>PAKET BERMAIN (ALL-IN)</h2>
+                <p class="text-dim">Harga transparan. Sudah termasuk alat & instruktur.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card h-100 d-flex flex-column">
+                        <div class="pricing-header text-center">
+                            <h4 class="text-white">BASIC WAR</h4>
+                            <div class="price-text">85K</div>
+                            <span class="price-unit">Per Orang / Sesi</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <ul class="list-unstyled text-light lh-lg mb-4">
+                                <li><i class="fas fa-check-circle me-2"></i>Sewa Senjata (Marker)</li>
+                                <li><i class="fas fa-check-circle me-2"></i>30 Butir Peluru</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Seragam Tim & Google Mask</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Durasi 60 Menit</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Air Mineral</li>
+                            </ul>
+                            <a href="paket-basic.html" class="btn btn-outline-custom w-100 mt-auto">LIHAT DETAIL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card popular h-100 d-flex flex-column">
+                        <div class="pricing-header text-center bg-primary bg-opacity-10">
+                            <span class="badge-popular">PALING LARIS</span>
+                            <h4 class="text-white">FULL COMBAT</h4>
+                            <div class="price-text text-blue">135K</div>
+                            <span class="price-unit">Per Orang / Sesi</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <ul class="list-unstyled text-light lh-lg fw-bold mb-4">
+                                <li><i class="fas fa-check-circle me-2"></i>Sewa Senjata (Marker)</li>
+                                <li><i class="fas fa-check-circle me-2"></i><strong>100 Butir Peluru</strong></li>
+                                <li><i class="fas fa-check-circle me-2"></i>Seragam & Google Mask</li>
+                                <li><i class="fas fa-check-circle me-2"></i><strong>Body Vest (Rompi)</strong></li>
+                                <li><i class="fas fa-check-circle me-2"></i>Durasi 90-120 Menit</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Dokumentasi Foto</li>
+                            </ul>
+                            <a href="paket-full.html" class="btn btn-primary-custom w-100 mt-auto">LIHAT DETAIL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card h-100 d-flex flex-column">
+                        <div class="pricing-header text-center">
+                            <h4 class="text-white">CORPORATE</h4>
+                            <div class="price-text">250K</div>
+                            <span class="price-unit">Per Orang / Full Day</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <ul class="list-unstyled text-light lh-lg mb-4">
+                                <li><i class="fas fa-check-circle me-2"></i>Paket Full Combat (100 Peluru)</li>
+                                <li><i class="fas fa-check-circle me-2"></i><strong>Makan Siang (Box)</strong></li>
+                                <li><i class="fas fa-check-circle me-2"></i>Coffee Break & Snack</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Aula / Ruang Meeting</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Program Team Building</li>
+                            </ul>
+                            <a href="paket-corporate.html" class="btn btn-outline-custom w-100 mt-auto">LIHAT DETAIL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fasilitas" class="py-5" style="background: var(--bg-main);">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <span class="sub-heading">KENYAMANAN ANDA</span>
+                    <h2 class="mb-4 text-white">FASILITAS VENUE KAMI</h2>
+                    <p class="text-dim mb-4">Selain arena tempur yang menantang, kami menyediakan fasilitas pendukung agar acara gathering kantor atau komunitas Anda berjalan nyaman.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="facility-item">
+                                <div class="facility-icon"><i class="fas fa-parking"></i></div>
+                                <div><span class="text-white fw-bold">Area Parkir Luas</span><br><small class="text-dim">Bus & Mobil Pribadi</small></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="facility-item">
+                                <div class="facility-icon"><i class="fas fa-shower"></i></div>
+                                <div><span class="text-white fw-bold">Toilet & Shower</span><br><small class="text-dim">Bersih & Terpisah</small></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="facility-item">
+                                <div class="facility-icon"><i class="fas fa-mosque"></i></div>
+                                <div><span class="text-white fw-bold">Musholla</span><br><small class="text-dim">Kapasitas 20 Orang</small></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="facility-item">
+                                <div class="facility-icon"><i class="fas fa-utensils"></i></div>
+                                <div><span class="text-white fw-bold">Kantin / Cafe</span><br><small class="text-dim">Makanan Berat & Ringan</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card bg-dark border-0 overflow-hidden rounded-3 shadow">
+                        <div style="width: 100%; height: 400px; background-color: #2a2a2a; display: flex; align-items: center; justify-content: center; color: #555;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.437194682023!2d112.61248431450983!3d-7.953686694271383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827924d28ceb%3A0xaa542ad1d9a26315!2sLowokwaru%2C%20Malang%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1625550000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="card-body bg-dark border-top border-secondary">
+                            <h5 class="text-white"><i class="fas fa-map-marker-alt text-blue me-2"></i>LOKASI BASECAMP</h5>
+                            <p class="text-dim small mb-0">Jl. Raya Tlogomas No. 99, Kec. Lowokwaru, Kota Malang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="py-5 bg-black">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 text-white">INFO & TIPS TERBARU</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item bg-dark border-secondary mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Tips Aman Bermain Paintball untuk Pemula
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-dim">
+                                    Sangat penting untuk selalu memakai masker pelindung wajah selama berada di arena. Instruktur kami akan memberikan briefing keamanan dan cara penggunaan alat sebelum permainan dimulai.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-dark border-secondary mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Apa yang harus disiapkan sebelum datang?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-dim">
+                                    Anda cukup membawa sepatu olahraga yang nyaman dan baju ganti. Semua perlengkapan (senjata, masker, seragam) sudah disediakan dalam paket sewa.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-dark border-secondary mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Apakah sakit jika terkena tembakan paintball?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-dim">
+                                    Terkena peluru paintball mungkin akan terasa sedikit menyengat seperti dijepret karet gelang, namun aman. Kami menyediakan seragam tebal dan body vest (untuk paket tertentu) untuk meminimalisir dampak tersebut.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-dark border-secondary mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Berapa minimal usia untuk bisa bermain?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-dim">
+                                    Usia minimal peserta adalah 10 tahun. Anak-anak di bawah 14 tahun disarankan bermain dengan pendampingan orang tua atau instruktur khusus.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
+                    <p class="text-dim small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3 text-uppercase">Navigasi</h5>
+                    <ul class="list-unstyled text-dim small">
+                        <li class="mb-2"><a href="index.html">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="paket.html">Paket</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3 text-uppercase">Kontak Admin</h5>
+                    <ul class="list-unstyled text-dim small">
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <small class="text-dim">© 2024 Tacticore Paintball Provider. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('galleryLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = imgElement.src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('galleryLightbox').style.display = 'none';
+        }
+        
+        // Tutup jika user klik di area hitam (bukan gambar)
+        document.getElementById('galleryLightbox').addEventListener('click', function(e) {
+            if (e.target !== document.getElementById('lightboxImg')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Paintball - TACTICORE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN SYSTEM KONSISTEN --- */
+        :root {
+            --bg-deep: #0B0F19;       
+            --bg-panel: #161F32;      
+            --accent-blue: #3B82F6;   
+            --accent-gold: #F59E0B;   
+            --text-white: #FFFFFF;    
+            --text-light: #E2E8F0;    
+            --text-grey: #94A3B8;     
+            --border-line: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, .nav-link, .btn {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-white);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid var(--border-line);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
+
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+        }
+        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
+
+        /* HERO MINI */
+        .page-header {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.9), var(--bg-deep)), url('https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            padding: 60px 0 40px; border-bottom: 1px solid var(--border-line);
+        }
+        .breadcrumb-item a { color: var(--text-grey); text-decoration: none; }
+        .breadcrumb-item.active { color: var(--accent-blue); }
+
+        /* --- ARTICLE STYLES --- */
+        .article-container {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .article-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .article-meta {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-line);
+        }
+        .article-meta i { color: var(--accent-gold); margin-right: 8px; margin-left: 15px; }
+        .article-meta i:first-child { margin-left: 0; }
+
+        .article-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        .article-content h3 {
+            color: var(--text-white);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 15px;
+        }
+
+        .article-content p { margin-bottom: 20px; }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-white);
+        }
+
+        /* FOOTER */
+        footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
+        .footer-icon { color: var(--accent-blue); margin-right: 10px; }
+        footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            </a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> KONTAK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">TRIVIA & SEJARAH</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail Artikel</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-10">
+                    <div class="article-container">
+                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop" alt="Sejarah Paintball" class="article-img">
+                        
+                        <div class="article-meta">
+                            <span class="me-3"><i class="fas fa-calendar"></i> 05 Mar 2024</span>
+                            <span class="me-3"><i class="fas fa-user"></i> Admin Tacticore</span>
+                            <span><i class="fas fa-folder"></i> Trivia</span>
+                        </div>
+
+                        <h1 class="display-5 fw-bold text-white mb-4">ASAL USUL PAINTBALL: DARI PETERNAKAN KE MEDAN TEMPUR</h1>
+
+                        <div class="article-content">
+                            <p>Saat ini, paintball dikenal sebagai salah satu olahraga ekstrem paling populer di dunia dengan jutaan pemain aktif. Namun, tahukah Anda bahwa asal-usul permainan ini sangat jauh dari dunia militer atau olahraga? Sejarah paintball dimulai dari hutan dan peternakan di Amerika Serikat pada tahun 1960-an.</p>
+
+                            <div class="highlight-box">
+                                "Tahukah Anda? Marker paintball pertama, Nel-Spot 007, diciptakan bukan untuk menembak lawan bermain, melainkan untuk menandai pohon dan sapi dari jarak jauh."
+                            </div>
+
+                            <h3>1. ERA 1960-an: ALAT KERJA KEHUTANAN</h3>
+                            <p>Pada pertengahan tahun 1960-an, Charles Nelson dari Nelson Paint Company bekerja sama dengan Crosman (produsen senapan angin) untuk menciptakan alat yang efisien bagi pekerja kehutanan dan peternak. Mereka membutuhkan cara untuk menandai pohon yang akan ditebang atau sapi di kawanan besar tanpa harus mendekatinya satu per satu.</p>
+                            <p>Lahirlah <strong>Nel-Spot 007</strong>, sebuah pistol bertenaga CO2 yang menembakkan bola cat berisi minyak. Saat itu, terkena tembakannya sangat sakit karena cangkang pelurunya belum serapuh sekarang!</p>
+
+                            <h3>2. JUNI 1981: PERMAINAN PERTAMA DI DUNIA</h3>
+                            <p>Gagasan menjadikan alat ini sebagai permainan muncul dari perdebatan antara dua teman: Hayes Noel (pialang saham) dan Charles Gaines (penulis). Mereka berdebat tentang apakah insting bertahan hidup (survival) adalah bakat alami atau sesuatu yang dipelajari.</p>
+                            <p>Pada 27 Juni 1981, di hutan New Hampshire, permainan paintball pertama digelar. Melibatkan 12 pemain dengan aturan "Capture the Flag". Uniknya, pemenang game pertama ini, Ritchie White, menang tanpa menembakkan satu butir peluru pun. Dia memenangkan permainan dengan cara mengendap-endap dan strategi sembunyi yang sempurna.</p>
+
+                            <h3>3. EVOLUSI MENJADI "THE SURVIVAL GAME"</h3>
+                            <p>Setelah kesuksesan game pertama, Noel dan Gaines melihat potensi bisnis. Mereka menciptakan paket permainan bernama "National Survival Game" (NSG). Pada tahun 1982, lapangan komersial pertama dibuka. Perlengkapan mulai berevolusi; dari kacamata toko bangunan menjadi masker khusus, dan peluru cat berbasis minyak diganti menjadi berbasis air agar mudah dicuci.</p>
+
+                            <h3>4. ERA MODERN: SPEEDBALL & WOODSBALL</h3>
+                            <p>Di tahun 1990-an hingga 2000-an, paintball meledak menjadi olahraga global. Muncul format <strong>Speedball</strong> yang dimainkan di lapangan datar dengan bunker balon udara (inflatables), yang lebih cepat dan kompetitif. Sementara format <strong>Woodsball</strong> (seperti di Tacticore Malang) tetap mempertahankan nuansa simulasi militer di hutan alami.</p>
+
+                            <hr class="border-secondary my-5">
+
+                            <h4 class="mb-3">KESIMPULAN</h4>
+                            <p>Dari alat penanda sapi menjadi olahraga yang memacu adrenalin, paintball telah menempuh perjalanan panjang. Saat Anda memegang marker di arena Tacticore nanti, ingatlah bahwa Anda sedang memegang sepotong sejarah unik yang lahir dari kreativitas dan semangat petualangan.</p>
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <a href="blog.html" class="btn btn-outline-light px-5 py-2 fw-bold"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
+                    <p class="text-grey small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">NAVIGASI</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-grey hover-white">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-grey hover-white">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-grey hover-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">KONTAK ADMIN</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <small class="text-grey">© 2024 Tacticore Paintball Provider. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

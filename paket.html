@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Paket & Harga - TACTICORE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- STYLE CSS SAMA PERSIS DENGAN INDEX --- */
+        :root {
+            --bg-darkest: #0f172a;
+            --bg-main: #1e293b;
+            --accent-blue: #3b82f6;   
+            --accent-yellow: #fbbf24; 
+            --accent-green: #4ade80;  
+            --text-light: #f8fafc;    
+            --text-dim: #cbd5e1;      
+            --border-color: #334155;
+            --text-white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-darkest);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, .btn, .nav-link, .price-text, .table-head, .cta-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 { font-weight: 800; }
+        
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { color: var(--text-dim) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-yellow) !important; }
+
+        /* BUTTONS */
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+        }
+        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-3px); color: white; }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--text-dim); color: var(--text-light); padding: 10px 25px; border-radius: 6px; font-weight: 700; text-decoration: none; transition: 0.3s;
+        }
+        .btn-outline-custom:hover { border-color: var(--accent-yellow); color: var(--accent-yellow); }
+
+        .btn-outline-light { border-width: 2px; font-weight: 700; padding: 12px 30px; }
+        .btn-outline-light:hover { background-color: white; color: black !important; }
+
+        /* HERO PAGE TITLE */
+        .page-header {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), var(--bg-darkest)), url('asset/img/gambar paintball/download10.webp');
+            background-size: cover; background-position: center;
+            padding: 80px 0 50px; border-bottom: 1px solid var(--border-color);
+        }
+
+        /* PRICING CARDS */
+        .pricing-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex; flex-direction: column;
+        }
+        .pricing-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .pricing-card.popular {
+            border: 2px solid var(--accent-blue);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            z-index: 2;
+        }
+        .pricing-header {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.2);
+        }
+        .price-text { font-size: 3.5rem; font-weight: 800; color: white; line-height: 1; }
+        .price-unit { font-size: 1rem; color: var(--text-dim); font-weight: 400; font-family: 'Inter'; }
+        
+        .list-unstyled i { color: var(--accent-green); }
+        .badge-popular {
+            background-color: var(--accent-yellow); color: #000; font-weight: 800; padding: 5px 15px;
+            border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px;
+        }
+
+        /* TABLE COMPARISON */
+        .table-custom {
+            background: var(--bg-main);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .table-custom th, .table-custom td {
+            background: transparent;
+            color: var(--text-dim);
+            border-color: var(--border-color);
+            padding: 15px;
+            vertical-align: middle;
+        }
+        .table-custom th { color: white; font-size: 1.2rem; background: rgba(0,0,0,0.2); }
+        .check-icon { color: var(--accent-green); }
+        .cross-icon { color: #ef4444; opacity: 0.5; }
+
+        /* ADDONS SECTION */
+        .addon-card {
+            border: 1px dashed var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* --- CTA SECTION (BARU) --- */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.95)), url('https://images.unsplash.com/photo-1625055008381-6cb9b3fb08d9?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed; /* Efek Parallax */
+            background-position: center;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .cta-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-white); }
+
+        /* FOOTER */
+        footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-color); }
+        .footer-icon { color: var(--accent-blue); margin-right: 10px; }
+        footer a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            </a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>KONTAK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-3 text-white mb-2">PILIH MISI ANDA</h1>
+            <p class="text-dim lead">Paket permainan fleksibel untuk individu, tim kecil, hingga korporat besar.</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 justify-content-center align-items-center">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card h-100 d-flex flex-column">
+                        <div class="pricing-header text-center">
+                            <h4 class="text-white">BASIC WAR</h4>
+                            <div class="price-text">85K</div>
+                            <span class="price-unit">Per Orang / Sesi</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <ul class="list-unstyled text-light lh-lg mb-4">
+                                <li><i class="fas fa-check-circle me-2"></i>Sewa Senjata (Marker)</li>
+                                <li><i class="fas fa-check-circle me-2"></i>30 Butir Peluru</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Seragam Tim & Google Mask</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Durasi 60 Menit</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Air Mineral</li>
+                            </ul>
+                            <a href="paket-basic.html" class="btn btn-outline-custom w-100 mt-auto" >BOOKING PAKET INI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card popular h-100 d-flex flex-column">
+                        <div class="pricing-header text-center bg-primary bg-opacity-10">
+                            <span class="badge-popular">PALING LARIS</span>
+                            <h4 class="text-white">FULL COMBAT</h4>
+                            <div class="price-text text-blue">135K</div>
+                            <span class="price-unit">Per Orang / Sesi</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <ul class="list-unstyled text-light lh-lg fw-bold mb-4">
+                                <li><i class="fas fa-check-circle me-2"></i>Sewa Senjata (Marker)</li>
+                                <li><i class="fas fa-check-circle me-2"></i><strong>100 Butir Peluru</strong></li>
+                                <li><i class="fas fa-check-circle me-2"></i>Seragam & Google Mask</li>
+                                <li><i class="fas fa-check-circle me-2"></i><strong>Body Vest (Rompi)</strong></li>
+                                <li><i class="fas fa-check-circle me-2"></i>Durasi 90-120 Menit</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Dokumentasi Foto</li>
+                            </ul>
+                            <a href="paket-full.html" class="btn btn-primary-custom w-100 mt-auto" >BOOKING PAKET INI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card h-100 d-flex flex-column">
+                        <div class="pricing-header text-center">
+                            <h4 class="text-white">CORPORATE</h4>
+                            <div class="price-text">250K</div>
+                            <span class="price-unit">Per Orang / Full Day</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <ul class="list-unstyled text-light lh-lg mb-4">
+                                <li><i class="fas fa-check-circle me-2"></i>Paket Full Combat (100 Peluru)</li>
+                                <li><i class="fas fa-check-circle me-2"></i><strong>Makan Siang (Box)</strong></li>
+                                <li><i class="fas fa-check-circle me-2"></i>Coffee Break & Snack</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Aula / Ruang Meeting</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Program Team Building</li>
+                            </ul>
+                            <a href="paket-corporate.html" class="btn btn-outline-custom w-100 mt-auto">BOOKING PAKET INI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <h3 class="text-center text-white mb-5">PERBANDINGAN FASILITAS</h3>
+            <div class="table-responsive">
+                <table class="table table-custom text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-start">FASILITAS</th>
+                            <th width="20%">BASIC WAR</th>
+                            <th width="20%" class="text-blue">FULL COMBAT</th>
+                            <th width="20%">CORPORATE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-start">Jumlah Peluru</td>
+                            <td>30 Butir</td>
+                            <td class="fw-bold text-white">100 Butir</td>
+                            <td class="fw-bold text-white">100 Butir</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Durasi Area</td>
+                            <td>60 Menit</td>
+                            <td>120 Menit</td>
+                            <td>Full Day (8 Jam)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Body Vest (Rompi)</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Dokumentasi Foto</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Konsumsi (Makan Besar)</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Fasilitas Meeting</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h3 class="text-white mb-4">TAMBAHAN (ADD-ONS)</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="addon-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <h5 class="text-white mb-1"><i class="fas fa-layer-group text-yellow me-2"></i>RELOAD PELURU</h5>
+                            <small class="text-dim">Tambah amunisi jika peluru habis saat permainan.</small>
+                        </div>
+                        <div class="text-end">
+                            <span class="d-block text-white fw-bold fs-5">Rp 25.000</span>
+                            <small class="text-dim">per 20 butir</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="addon-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <h5 class="text-white mb-1"><i class="fas fa-camera text-yellow me-2"></i>SEWA GOPRO</h5>
+                            <small class="text-dim">Rekam aksi POV (Point of View) permainan Anda.</small>
+                        </div>
+                        <div class="text-end">
+                            <span class="d-block text-white fw-bold fs-5">Rp 100.000</span>
+                            <small class="text-dim">per unit / sesi</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="cta-title">SUDAH MENENTUKAN PILIHAN?</h2>
+                    <p class="lead text-light mb-5">
+                        Amankan tanggal main Anda sekarang sebelum slot penuh. Tim kami siap membantu menyusun skenario permainan terbaik untuk grup Anda.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom btn-lg px-5 py-3 fs-5" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> BOOKING SEKARANG
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">
+                            gallery
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
+                    <p class="text-dim small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3 text-uppercase">Navigasi</h5>
+                    <ul class="list-unstyled text-dim small">
+                        <li class="mb-2"><a href="about.html">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="paket.html">Paket</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3 text-uppercase">Kontak Admin</h5>
+                    <ul class="list-unstyled text-dim small">
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <small class="text-dim">© 2024 Tacticore Paintball Provider. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
