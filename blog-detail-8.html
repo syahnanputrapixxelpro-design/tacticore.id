@@ -27,10 +27,10 @@
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px; /* Navbar pendek */
         }
 
-        h1, h2, h3, h4, h5, .nav-link, .btn {
+        h1, h2, h3, h4, h5, .nav-link, .btn, .toc-title, .author-name, .promo-title {
             font-family: 'Barlow Condensed', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -41,17 +41,17 @@
         .navbar {
             background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--border-line);
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
@@ -80,6 +80,14 @@
             border-radius: 8px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .content-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-line);
         }
 
         .article-meta {
@@ -110,6 +118,21 @@
 
         .article-content p { margin-bottom: 20px; }
 
+        /* TOC */
+        .toc-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-line);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-gold); }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: var(--text-light); text-decoration: none; transition: 0.3s; }
+        .toc-list a:hover { color: var(--accent-blue); padding-left: 5px; }
+
+        /* QUOTE */
         .highlight-box {
             background: rgba(59, 130, 246, 0.1);
             border-left: 4px solid var(--accent-blue);
@@ -117,7 +140,63 @@
             margin: 30px 0;
             font-style: italic;
             color: var(--text-white);
+            font-size: 1.2rem;
         }
+
+        /* FAQ */
+        .accordion-item { background: transparent; border: 1px solid var(--border-line); margin-bottom: 10px; }
+        .accordion-button { background: var(--bg-panel); color: var(--text-white); font-weight: bold; }
+        .accordion-button:not(.collapsed) { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); box-shadow: none; }
+        .accordion-body { color: var(--text-light); font-size: 0.95rem; }
+
+        /* AUTHOR */
+        .author-box {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 20px;
+            border-radius: 8px; margin-top: 40px; border: 1px solid var(--border-line);
+        }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 2px solid var(--accent-blue); }
+        .author-info h5 { margin: 0 0 5px; color: var(--accent-gold); }
+        .author-info p { margin: 0; font-size: 0.9rem; color: var(--text-grey); }
+
+        /* SHARE */
+        .social-share { margin-top: 30px; border-top: 1px solid var(--border-line); padding-top: 20px; }
+        .share-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--text-white);
+            margin-right: 10px; text-decoration: none; transition: 0.3s;
+        }
+        .share-btn:hover { background: var(--accent-blue); color: white; transform: translateY(-3px); }
+
+        /* SIDEBAR PROMO */
+        .promo-widget {
+            background: linear-gradient(135deg, var(--accent-blue), #1e40af);
+            border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 30px; color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .promo-price { font-size: 2.5rem; font-weight: 800; display: block; margin: 10px 0; }
+
+        /* SIDEBAR GENERAL */
+        .sidebar-widget { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .widget-title { font-size: 1.4rem; border-bottom: 2px solid var(--border-line); padding-bottom: 15px; margin-bottom: 20px; position: relative; }
+        .widget-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--accent-blue); }
+
+        /* RECENT POSTS */
+        .recent-post-item { display: flex; align-items: center; margin-bottom: 20px; text-decoration: none; }
+        .recent-thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px; flex-shrink: 0; border: 1px solid var(--border-line); }
+        .recent-info h6 { margin: 0 0 5px; line-height: 1.3; }
+        .recent-info h6 a { color: var(--text-white); text-decoration: none; font-family: 'Inter'; font-weight: 600; font-size: 0.95rem; }
+        .recent-info h6 a:hover { color: var(--accent-blue); }
+        .recent-date { font-size: 0.8rem; color: var(--text-grey); }
+
+        /* RELATED POSTS */
+        .related-card { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 8px; overflow: hidden; transition: 0.3s; height: 100%; }
+        .related-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .related-thumb { height: 180px; width: 100%; object-fit: cover; }
+        .related-content { padding: 20px; }
+        .related-title a { color: white; text-decoration: none; font-weight: 700; font-family: 'Barlow Condensed'; font-size: 1.2rem; }
+
+        /* STICKY SIDEBAR */
+        @media (min-width: 992px) { .sticky-sidebar { position: sticky; top: 100px; } }
 
         /* FOOTER */
         footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
@@ -166,19 +245,31 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="article-container">
                         <img src="https://images.unsplash.com/photo-1558525043-f1665a57022d?q=80&w=2070&auto=format&fit=crop" alt="Perawatan Masker Paintball" class="article-img">
                         
                         <div class="article-meta">
                             <span class="me-3"><i class="fas fa-calendar"></i> 05 Mei 2024</span>
-                            <span class="me-3"><i class="fas fa-user"></i> Admin Tacticore</span>
-                            <span><i class="fas fa-folder"></i> Tips & Trik</span>
+                            <span class="me-3"><i class="fas fa-folder"></i> Tips & Trik</span>
+                            <span class="me-3"><i class="fas fa-comments"></i> 2 Komentar</span>
                         </div>
 
                         <h1 class="display-5 fw-bold text-white mb-4">CARA MERAWAT MASKER AGAR TIDAK CEPAT BEREMBUN</h1>
+
+                        <div class="toc-box">
+                            <h5 class="toc-title">DAFTAR ISI</h5>
+                            <ul class="toc-list">
+                                <li><a href="#microfiber"><i class="fas fa-angle-right me-2"></i>1. Gunakan Kain Microfiber</a></li>
+                                <li><a href="#cairan"><i class="fas fa-angle-right me-2"></i>2. Hindari Pembersih Rumahan</a></li>
+                                <li><a href="#lensa"><i class="fas fa-angle-right me-2"></i>3. Jangan Sentuh Lensa Dalam</a></li>
+                                <li><a href="#kering"><i class="fas fa-angle-right me-2"></i>4. Keringkan Secara Alami</a></li>
+                                <li><a href="#simpan"><i class="fas fa-angle-right me-2"></i>5. Penyimpanan yang Benar</a></li>
+                                <li><a href="#faq"><i class="fas fa-angle-right me-2"></i>FAQ Masker</a></li>
+                            </ul>
+                        </div>
 
                         <div class="article-content">
                             <p>Dalam dunia paintball, musuh terbesarmu bukanlah lawan yang bersembunyi di semak-semak, melainkan masker yang berembun (fogging). Ketika pandangan terhalang kabut, kamu tidak bisa membidik, tidak bisa melihat serangan, dan pada dasarnya menjadi target berjalan. Berikut adalah tips profesional untuk merawat lensa masker agar tetap jernih.</p>
@@ -187,30 +278,146 @@
                                 "Lensa masker (Google Lens) adalah komponen terpenting kedua setelah nyawa. Jangan pernah membersihkannya dengan kaos kotor atau tisu kasar!"
                             </div>
 
-                            <h3>1. GUNAKAN KAIN MICROFIBER SAJA</h3>
+                            <h3 id="microfiber">1. GUNAKAN KAIN MICROFIBER SAJA</h3>
                             <p>Kesalahan pemula yang paling fatal adalah mengelap lensa menggunakan ujung baju (jersey) yang penuh keringat atau kotoran. Serat kain kasar dan partikel debu dapat menggores lapisan pelindung lensa. Selalu bawa kain microfiber bersih (seperti lap kacamata) di saku celanamu khusus untuk membersihkan lensa.</p>
 
-                            <h3>2. HINDARI PEMBERSIH KACA RUMAHAN</h3>
+                            <h3 id="cairan">2. HINDARI PEMBERSIH KACA RUMAHAN</h3>
                             <p>Jangan pernah menyemprotkan cairan pembersih kaca jendela (seperti Windex) ke lensa paintball. Cairan kimia keras tersebut dapat merusak lapisan <em>Anti-Fog Coating</em> yang sudah ada dari pabrik. Cukup gunakan air bersih atau cairan khusus pembersih lensa (lens cleaner) yang direkomendasikan toko paintball.</p>
 
-                            <h3>3. JANGAN SENTUH BAGIAN DALAM LENSA</h3>
+                            <img src="asset/img/gambar paintball/download8.webp" alt="Lensa Masker Bersih" class="content-img">
+                            <small class="d-block text-center text-grey mb-4">Lensa yang jernih adalah kunci kemenangan.</small>
+
+                            <h3 id="lensa">3. JANGAN SENTUH BAGIAN DALAM LENSA</h3>
                             <p>Lensa Thermal terdiri dari dua lapis kaca. Lapisan bagian dalam sangat sensitif dan lunak. Minyak dari jari tangan atau gesekan yang terlalu keras bisa merusak lapisan ini secara permanen. Jika ada kotoran di bagian dalam, tiup perlahan atau tepuk-tepuk lembut dengan microfiber, jangan digosok!</p>
 
-                            <h3>4. KERINGKAN SECARA ALAMI</h3>
+                            <h3 id="kering">4. KERINGKAN SECARA ALAMI</h3>
                             <p>Setelah bermain seharian, busa masker pasti basah oleh keringat. Jangan menjemur masker di bawah sinar matahari langsung karena panas berlebih dapat merusak lem perekat lensa dan membuat plastik masker menjadi getas. Cukup angin-anginkan di tempat teduh dengan sirkulasi udara yang baik.</p>
 
-                            <h3>5. PENYIMPANAN YANG BENAR</h3>
+                            <h3 id="simpan">5. PENYIMPANAN YANG BENAR</h3>
                             <p>Jangan menjejalkan masker ke dalam tas perlengkapan (gearbag) begitu saja hingga terhimpit sepatu atau tabung gas. Tekanan berlebih dapat membuat lensa melengkung atau retak halus. Gunakan sarung masker (mask bag) atau simpan di bagian atas tas agar bentuknya tetap terjaga.</p>
 
                             <hr class="border-secondary my-5">
 
-                            <h4 class="mb-3">KESIMPULAN</h4>
-                            <p>Masker yang terawat dengan baik bukan hanya soal kenyamanan, tapi juga soal keselamatan dan performa. Pandangan yang jernih adalah kunci kemenangan di medan tempur. Rawat maskermu, dan maskermu akan menyelamatkanmu di arena!</p>
+                            <h3 id="faq" class="mb-4">PERTANYAAN UMUM (FAQ)</h3>
+                            <div class="accordion mb-5" id="faqMasker">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            Berapa lama umur lensa masker?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqMasker">
+                                        <div class="accordion-body">
+                                            Jika dirawat dengan baik, lensa thermal bisa bertahan 1-2 tahun. Namun jika sudah banyak goresan yang mengganggu pandangan, segera ganti demi keselamatan.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Apakah pasta gigi bisa menghilangkan embun?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqMasker">
+                                        <div class="accordion-body">
+                                            Sangat tidak disarankan. Pasta gigi bersifat abrasif dan akan menggores lensa plastik masker paintball, membuatnya buram permanen.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="author-box">
+                                <img src="asset/img/gambar paintball/download2.webp" alt="Penulis" class="author-img">
+                                <div class="author-info">
+                                    <h5 class="author-name">RUDI SANTOSO</h5>
+                                    <p>Equipment Manager di Tacticore. Ahli dalam perawatan dan perbaikan perlengkapan paintball profesional.</p>
+                                </div>
+                            </div>
+
+                            <div class="social-share text-center">
+                                <p class="text-grey mb-3">Bagikan artikel ini:</p>
+                                <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+
                         </div>
 
-                        <div class="mt-5 text-center">
-                            <a href="blog.html" class="btn btn-outline-light px-5 py-2 fw-bold"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
+                        <div class="mt-5">
+                            <a href="blog.html" class="btn btn-outline-light px-4"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
                         </div>
+                    </div>
+
+                    <h3 class="mb-4">ARTIKEL TERKAIT</h3>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download2.webp" class="related-thumb" alt="Safety">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-2.html">Mengenal Gear Paintball Safety</a></h6>
+                                    <small class="text-grey">08 Feb 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download5.webp" class="related-thumb" alt="Marker">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-5.html">Memilih Marker: Elektronik vs Mekanik</a></h6>
+                                    <small class="text-grey">25 Mar 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download7.webp" class="related-thumb" alt="Istilah">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-7.html">Kamus Istilah Paintball Wajib</a></h6>
+                                    <small class="text-grey">22 Apr 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sticky-sidebar">
+                        
+                        <div class="promo-widget">
+                            <h4 class="mb-2">MASKER TERBAIK?</h4>
+                            <p class="small opacity-75 mb-3">Paket Full Combat sudah termasuk masker thermal anti-kabut!</p>
+                            <span class="promo-price">135K</span>
+                            <small class="d-block mb-4">/ Orang (Full Combat)</small>
+                            <a href="paket.html" class="btn btn-outline-light w-100 fw-bold">LIHAT PAKET</a>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">TERPOPULER</h4>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <span class="recent-date">12 Jan 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download3.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-3.html">Manfaat Team Building Kantor</a></h6>
+                                    <span class="recent-date">20 Feb 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download2.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-2.html">Review Gear Paintball Safety</a></h6>
+                                    <span class="recent-date">08 Feb 2024</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
