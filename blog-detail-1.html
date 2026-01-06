@@ -27,10 +27,10 @@
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px; /* Navbar pendek */
         }
 
-        h1, h2, h3, h4, h5, .nav-link, .btn {
+        h1, h2, h3, h4, h5, .nav-link, .btn, .toc-title, .author-name, .promo-title {
             font-family: 'Barlow Condensed', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -41,17 +41,17 @@
         .navbar {
             background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--border-line);
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
@@ -75,11 +75,19 @@
 
         .article-img {
             width: 100%;
-            height: 500px; /* Sedikit lebih tinggi untuk tampilan tanpa sidebar */
+            height: 500px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .content-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-line);
         }
 
         .article-meta {
@@ -110,6 +118,21 @@
 
         .article-content p { margin-bottom: 20px; }
 
+        /* TABLE OF CONTENTS */
+        .toc-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-line);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-gold); }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: var(--text-light); text-decoration: none; transition: 0.3s; }
+        .toc-list a:hover { color: var(--accent-blue); padding-left: 5px; }
+
+        /* QUOTE */
         .highlight-box {
             background: rgba(59, 130, 246, 0.1);
             border-left: 4px solid var(--accent-blue);
@@ -117,6 +140,105 @@
             margin: 30px 0;
             font-style: italic;
             color: var(--text-white);
+            font-size: 1.2rem;
+        }
+
+        /* FAQ ACCORDION */
+        .accordion-item { background: transparent; border: 1px solid var(--border-line); margin-bottom: 10px; }
+        .accordion-button { background: var(--bg-panel); color: var(--text-white); font-weight: bold; }
+        .accordion-button:not(.collapsed) { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); box-shadow: none; }
+        .accordion-body { color: var(--text-light); font-size: 0.95rem; }
+
+        /* AUTHOR BOX */
+        .author-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 1px solid var(--border-line);
+        }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 2px solid var(--accent-blue); }
+        .author-info h5 { margin: 0 0 5px; color: var(--accent-gold); }
+        .author-info p { margin: 0; font-size: 0.9rem; color: var(--text-grey); }
+
+        /* SOCIAL SHARE */
+        .social-share { margin-top: 30px; border-top: 1px solid var(--border-line); padding-top: 20px; }
+        .share-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); color: var(--text-white);
+            margin-right: 10px; text-decoration: none; transition: 0.3s;
+        }
+        .share-btn:hover { background: var(--accent-blue); color: white; transform: translateY(-3px); }
+
+        /* SIDEBAR PROMO */
+        .promo-widget {
+            background: linear-gradient(135deg, var(--accent-blue), #1e40af);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .promo-price { font-size: 2.5rem; font-weight: 800; display: block; margin: 10px 0; }
+
+        /* SIDEBAR WIDGET (GENERAL) */
+        .sidebar-widget {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .widget-title {
+            font-size: 1.4rem; border-bottom: 2px solid var(--border-line); padding-bottom: 15px; margin-bottom: 20px;
+            position: relative;
+        }
+        .widget-title::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--accent-blue);
+        }
+
+        /* RECENT POSTS (FIXED THUMBNAIL SIZE) */
+        .recent-post-item { 
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            text-decoration: none;
+        }
+        .recent-thumb { 
+            width: 80px; 
+            height: 80px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            margin-right: 15px; 
+            flex-shrink: 0; /* Mencegah gambar gepeng */
+            border: 1px solid var(--border-line);
+        }
+        .recent-info h6 { margin: 0 0 5px; line-height: 1.3; }
+        .recent-info h6 a { color: var(--text-white); text-decoration: none; font-family: 'Inter'; font-weight: 600; font-size: 0.95rem; }
+        .recent-info h6 a:hover { color: var(--accent-blue); }
+        .recent-date { font-size: 0.8rem; color: var(--text-grey); }
+
+        /* RELATED POSTS (BOTTOM) */
+        .related-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            height: 100%;
+        }
+        .related-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .related-thumb { height: 180px; width: 100%; object-fit: cover; }
+        .related-content { padding: 20px; }
+        .related-title a { color: white; text-decoration: none; font-weight: 700; font-family: 'Barlow Condensed'; font-size: 1.2rem; }
+
+        /* STICKY SIDEBAR */
+        @media (min-width: 992px) {
+            .sticky-sidebar { position: sticky; top: 100px; }
         }
 
         /* FOOTER */
@@ -166,51 +288,179 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="article-container">
-                        <img src="https://images.unsplash.com/photo-1558363313-8704e8740fb7?q=80&w=2070&auto=format&fit=crop" alt="Strategi Paintball" class="article-img">
+                        <img src="asset/img/gambar paintball/download.webp" alt="Strategi Paintball" class="article-img">
                         
                         <div class="article-meta">
                             <span class="me-3"><i class="fas fa-calendar"></i> 12 Jan 2024</span>
-                            <span class="me-3"><i class="fas fa-user"></i> Admin Tacticore</span>
-                            <span><i class="fas fa-folder"></i> Tips Pemula</span>
+                            <span class="me-3"><i class="fas fa-folder"></i> Tips Pemula</span>
+                            <span class="me-3"><i class="fas fa-comments"></i> 5 Komentar</span>
                         </div>
 
                         <h1 class="display-5 fw-bold text-white mb-4">5 STRATEGI JITU MENANG PAINTBALL UNTUK PEMULA</h1>
+
+                        <div class="toc-box">
+                            <h5 class="toc-title">DAFTAR ISI</h5>
+                            <ul class="toc-list">
+                                <li><a href="#komunikasi"><i class="fas fa-angle-right me-2"></i>1. Komunikasi Adalah Kunci</a></li>
+                                <li><a href="#pergerakan"><i class="fas fa-angle-right me-2"></i>2. Jangan Diam di Satu Tempat</a></li>
+                                <li><a href="#sudut"><i class="fas fa-angle-right me-2"></i>3. Gunakan Sudut (Angles)</a></li>
+                                <li><a href="#amunisi"><i class="fas fa-angle-right me-2"></i>4. Perhatikan Amunisi</a></li>
+                                <li><a href="#peta"><i class="fas fa-angle-right me-2"></i>5. Map Awareness (Kesadaran Peta)</a></li>
+                                <li><a href="#faq"><i class="fas fa-angle-right me-2"></i>FAQ Strategi</a></li>
+                            </ul>
+                        </div>
 
                         <div class="article-content">
                             <p>Bermain paintball bukan hanya soal siapa yang paling jago menembak, tetapi siapa yang memiliki strategi tim paling solid. Bagi pemula, seringkali adrenalin membuat kita lupa taktik dasar dan akhirnya tereliminasi di menit-menit awal. Berikut adalah 5 strategi dasar yang bisa langsung Anda terapkan bersama tim.</p>
 
                             <div class="highlight-box">
-                                "Kemenangan dalam paintball 70% ditentukan oleh komunikasi, 30% oleh akurasi tembakan."
+                                "Kemenangan dalam paintball 70% ditentukan oleh komunikasi yang efektif, dan hanya 30% oleh akurasi tembakan individu."
                             </div>
 
-                            <h3>1. KOMUNIKASI ADALAH KUNCI</h3>
+                            <h3 id="komunikasi">1. KOMUNIKASI ADALAH KUNCI</h3>
                             <p>Jangan menjadi pemain bisu. Selalu teriakkan posisi musuh kepada rekan setim Anda. Jika Anda melihat musuh bergerak ke sisi kiri (bunker ular), teriakkan "KIRI!" atau "SNAKE!". Informasi sekecil apapun sangat berharga bagi teman yang mungkin tidak melihat pergerakan tersebut.</p>
 
-                            <h3>2. JANGAN DIAM DI SATU TEMPAT</h3>
-                            <p>Bunker atau tempat berlindung memang aman, tapi jika Anda diam di sana terlalu lama, musuh akan dengan mudah mengepung (flanking) posisi Anda. Cobalah untuk bergerak maju secara bertahap (leapfrog) dari satu perlindungan ke perlindungan lain sambil memberikan tembakan perlindungan (suppressing fire) untuk teman Anda.</p>
+                            <h3 id="pergerakan">2. JANGAN DIAM DI SATU TEMPAT</h3>
+                            <p>Bunker atau tempat berlindung memang aman, tapi jika Anda diam di sana terlalu lama, musuh akan dengan mudah mengepung (flanking) posisi Anda. Cobalah untuk bergerak maju secara bertahap (leapfrog) dari satu perlindungan ke perlindungan lain.</p>
+                            
+                            <img src="asset/img/gambar paintball/download2.webp" alt="Taktik Flanking Paintball" class="content-img">
+                            <small class="d-block text-center text-grey mb-4">Ilustrasi pergerakan taktis antar bunker.</small>
 
-                            <h3>3. GUNAKAN SUDUT (ANGLES)</h3>
+                            <h3 id="sudut">3. GUNAKAN SUDUT (ANGLES)</h3>
                             <p>Kesalahan pemula yang paling umum adalah mengeluarkan seluruh badan saat menembak. Cukup keluarkan marker (senjata) dan sedikit bagian kepala Anda dari samping bunker. Jangan pernah menembak dari atas bunker karena itu membuat siluet Anda terlihat jelas oleh banyak musuh sekaligus.</p>
 
-                            <h3>4. PERHATIKAN AMUNISI</h3>
-                            <p>Dalam paket pemula, jumlah peluru biasanya terbatas (misalnya 30-50 butir). Jangan menembak membabi buta (spray and pray) jika tidak ada target yang jelas. Hemat peluru Anda untuk momen krusial saat musuh benar-benar terbuka atau saat teman Anda membutuhkan bantuan tembakan perlindungan.</p>
+                            <h3 id="amunisi">4. PERHATIKAN AMUNISI</h3>
+                            <p>Dalam paket pemula, jumlah peluru biasanya terbatas (misalnya 30-50 butir). Jangan menembak membabi buta (spray and pray) jika tidak ada target yang jelas. Hemat peluru Anda untuk momen krusial saat musuh benar-benar terbuka.</p>
 
-                            <h3>5. MAP AWARENESS (KESADARAN PETA)</h3>
+                            <h3 id="peta">5. MAP AWARENESS (KESADARAN PETA)</h3>
                             <p>Sebelum peluit berbunyi, perhatikan tata letak arena. Diskusikan dengan tim siapa yang akan menjaga sisi kiri, kanan, dan tengah. Jangan sampai semua pemain berkumpul di satu sisi sehingga sisi lain kosong melompong dan mudah diterobos musuh.</p>
 
                             <hr class="border-secondary my-5">
 
-                            <h4 class="mb-3">KESIMPULAN</h4>
-                            <p>Paintball adalah olahraga tim. Individu yang jago menembak bisa kalah dengan mudah oleh tim pemula yang kompak dan komunikatif. Jadi, turunkan ego, dengarkan instruksi kapten, dan nikmati permainannya!</p>
+                            <h3 id="faq" class="mb-4">PERTANYAAN UMUM (FAQ)</h3>
+                            <div class="accordion mb-5" id="faqStrategi">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            Apa formasi terbaik untuk pemula?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqStrategi">
+                                        <div class="accordion-body">
+                                            Formasi 2-1-2 (2 Kiri, 1 Tengah, 2 Kanan) adalah yang paling seimbang untuk menjaga semua jalur serangan musuh.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Bagaimana jika kehabisan peluru di tengah permainan?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqStrategi">
+                                        <div class="accordion-body">
+                                            Tetaplah di posisi dan berteriak "COVER ME!" agar teman tahu Anda tidak bisa menembak balik. Cobalah menarik perhatian musuh (distraction) tanpa mengekspos diri.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="author-box">
+                                <img src="asset/img/gambar paintball/download3.webp" alt="Penulis" class="author-img">
+                                <div class="author-info">
+                                    <h5 class="author-name">DANI "THE SNIPER"</h5>
+                                    <p>Instruktur Senior di Tacticore dengan pengalaman 5 tahun. Spesialis strategi Woodsball dan taktik gerilya.</p>
+                                </div>
+                            </div>
+
+                            <div class="social-share text-center">
+                                <p class="text-grey mb-3">Bagikan artikel ini:</p>
+                                <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+
                         </div>
 
-                        <div class="mt-5 text-center">
-                            <a href="blog.html" class="btn btn-outline-light px-5 py-2 fw-bold"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
+                        <div class="mt-5">
+                            <a href="blog.html" class="btn btn-outline-light px-4"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
                         </div>
+                    </div>
+
+                    <h3 class="mb-4">ARTIKEL TERKAIT</h3>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download4.webp" class="related-thumb" alt="Safety Gear">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-2.html">Mengenal Gear Paintball Safety</a></h6>
+                                    <small class="text-grey">08 Feb 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download5.webp" class="related-thumb" alt="Sejarah">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-4.html">Sejarah Unik Paintball Dunia</a></h6>
+                                    <small class="text-grey">05 Mar 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download6.webp" class="related-thumb" alt="Marker">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-5.html">Memilih Marker: Elektronik vs Mekanik</a></h6>
+                                    <small class="text-grey">25 Mar 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sticky-sidebar">
+                        
+                        <div class="promo-widget">
+                            <h4 class="mb-2">SIAP BERMAIN?</h4>
+                            <p class="small opacity-75 mb-3">Booking sekarang dan dapatkan diskon khusus untuk grup!</p>
+                            <span class="promo-price">85K</span>
+                            <small class="d-block mb-4">/ Orang (Basic War)</small>
+                            <a href="paket.html" class="btn btn-outline-light w-100 fw-bold">LIHAT PAKET</a>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">TERPOPULER</h4>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="#">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <span class="recent-date">12 Jan 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download3.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="#">Manfaat Team Building Kantor</a></h6>
+                                    <span class="recent-date">20 Feb 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download2.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="#">Review Gear Paintball Safety</a></h6>
+                                    <span class="recent-date">08 Feb 2024</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
