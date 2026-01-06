@@ -10,34 +10,195 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- DESIGN SYSTEM --- */
+        /* --- DESIGN SYSTEM KONSISTEN --- */
         :root {
-            --bg-deep: #0B0F19; --bg-panel: #161F32; --accent-blue: #3B82F6; --accent-gold: #F59E0B;
-            --text-white: #FFFFFF; --text-light: #E2E8F0; --text-grey: #94A3B8; --border-line: rgba(255, 255, 255, 0.15);
+            --bg-deep: #0B0F19;       
+            --bg-panel: #161F32;      
+            --accent-blue: #3B82F6;   
+            --accent-gold: #F59E0B;   
+            --text-white: #FFFFFF;    
+            --text-light: #E2E8F0;    
+            --text-grey: #94A3B8;     
+            --border-line: rgba(255, 255, 255, 0.15);
         }
-        body { background-color: var(--bg-deep); color: var(--text-light); font-family: 'Inter', sans-serif; overflow-x: hidden; padding-top: 80px; }
-        h1, h2, h3, h4, h5, .nav-link, .btn { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 1px; color: var(--text-white); }
-        .navbar { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid var(--border-line); padding: 1rem 0; backdrop-filter: blur(10px); }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 70px; /* Navbar pendek */
+        }
+
+        h1, h2, h3, h4, h5, .nav-link, .btn, .toc-title, .author-name, .promo-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-white);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid var(--border-line);
+            padding: 0.5rem 0;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
-        .btn-primary-custom { background-color: var(--accent-blue); color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; }
+
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
+        }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
-        .page-header { background: linear-gradient(to bottom, rgba(11, 15, 25, 0.9), var(--bg-deep)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border-line); }
+
+        /* HERO MINI */
+        .page-header {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.9), var(--bg-deep)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            padding: 60px 0 40px; border-bottom: 1px solid var(--border-line);
+        }
         .breadcrumb-item a { color: var(--text-grey); text-decoration: none; }
         .breadcrumb-item.active { color: var(--accent-blue); }
+
+        /* --- ARTICLE STYLES --- */
+        .article-container {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .article-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
         
-        .article-container { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 12px; padding: 40px; margin-bottom: 40px; }
-        .article-img { width: 100%; height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .article-meta { color: var(--text-grey); font-size: 0.9rem; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-line); }
+        .content-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-line);
+        }
+
+        .article-meta {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-line);
+        }
         .article-meta i { color: var(--accent-gold); margin-right: 8px; margin-left: 15px; }
         .article-meta i:first-child { margin-left: 0; }
-        .article-content { font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 1.8; color: var(--text-light); }
-        .article-content h3 { color: var(--text-white); margin-top: 30px; margin-bottom: 15px; font-size: 1.8rem; border-left: 4px solid var(--accent-blue); padding-left: 15px; }
-        .article-content p { margin-bottom: 20px; }
-        .highlight-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-blue); padding: 20px; margin: 30px 0; font-style: italic; color: var(--text-white); }
+
+        .article-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
         
+        .article-content h3 {
+            color: var(--text-white);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 15px;
+        }
+
+        .article-content p { margin-bottom: 20px; }
+
+        /* TOC */
+        .toc-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-line);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-gold); }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: var(--text-light); text-decoration: none; transition: 0.3s; }
+        .toc-list a:hover { color: var(--accent-blue); padding-left: 5px; }
+
+        /* QUOTE */
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-white);
+            font-size: 1.2rem;
+        }
+
+        /* FAQ */
+        .accordion-item { background: transparent; border: 1px solid var(--border-line); margin-bottom: 10px; }
+        .accordion-button { background: var(--bg-panel); color: var(--text-white); font-weight: bold; }
+        .accordion-button:not(.collapsed) { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); box-shadow: none; }
+        .accordion-body { color: var(--text-light); font-size: 0.95rem; }
+
+        /* AUTHOR */
+        .author-box {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 20px;
+            border-radius: 8px; margin-top: 40px; border: 1px solid var(--border-line);
+        }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 2px solid var(--accent-blue); }
+        .author-info h5 { margin: 0 0 5px; color: var(--accent-gold); }
+        .author-info p { margin: 0; font-size: 0.9rem; color: var(--text-grey); }
+
+        /* SHARE */
+        .social-share { margin-top: 30px; border-top: 1px solid var(--border-line); padding-top: 20px; }
+        .share-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--text-white);
+            margin-right: 10px; text-decoration: none; transition: 0.3s;
+        }
+        .share-btn:hover { background: var(--accent-blue); color: white; transform: translateY(-3px); }
+
+        /* SIDEBAR PROMO */
+        .promo-widget {
+            background: linear-gradient(135deg, var(--accent-blue), #1e40af);
+            border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 30px; color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .promo-price { font-size: 2.5rem; font-weight: 800; display: block; margin: 10px 0; }
+
+        /* SIDEBAR GENERAL */
+        .sidebar-widget { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .widget-title { font-size: 1.4rem; border-bottom: 2px solid var(--border-line); padding-bottom: 15px; margin-bottom: 20px; position: relative; }
+        .widget-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--accent-blue); }
+
+        /* RECENT POSTS */
+        .recent-post-item { display: flex; align-items: center; margin-bottom: 20px; text-decoration: none; }
+        .recent-thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px; flex-shrink: 0; border: 1px solid var(--border-line); }
+        .recent-info h6 { margin: 0 0 5px; line-height: 1.3; }
+        .recent-info h6 a { color: var(--text-white); text-decoration: none; font-family: 'Inter'; font-weight: 600; font-size: 0.95rem; }
+        .recent-info h6 a:hover { color: var(--accent-blue); }
+        .recent-date { font-size: 0.8rem; color: var(--text-grey); }
+
+        /* RELATED POSTS */
+        .related-card { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 8px; overflow: hidden; transition: 0.3s; height: 100%; }
+        .related-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .related-thumb { height: 180px; width: 100%; object-fit: cover; }
+        .related-content { padding: 20px; }
+        .related-title a { color: white; text-decoration: none; font-weight: 700; font-family: 'Barlow Condensed'; font-size: 1.2rem; }
+
+        /* STICKY SIDEBAR */
+        @media (min-width: 992px) { .sticky-sidebar { position: sticky; top: 100px; } }
+
+        /* FOOTER */
         footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
         .footer-icon { color: var(--accent-blue); margin-right: 10px; }
         footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
@@ -84,19 +245,31 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="article-container">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Team Building Corporate" class="article-img">
+                        <img src="asset/img/gambar paintball/download3.webp" alt="Team Building Corporate" class="article-img">
                         
                         <div class="article-meta">
                             <span class="me-3"><i class="fas fa-calendar"></i> 20 Feb 2024</span>
-                            <span class="me-3"><i class="fas fa-user"></i> Admin Tacticore</span>
-                            <span><i class="fas fa-folder"></i> Corporate</span>
+                            <span class="me-3"><i class="fas fa-folder"></i> Corporate</span>
+                            <span class="me-3"><i class="fas fa-comments"></i> 12 Komentar</span>
                         </div>
 
                         <h1 class="display-5 fw-bold text-white mb-4">PAINTBALL UNTUK TEAM BUILDING PERUSAHAAN? KENAPA TIDAK!</h1>
+
+                        <div class="toc-box">
+                            <h5 class="toc-title">DAFTAR ISI</h5>
+                            <ul class="toc-list">
+                                <li><a href="#komunikasi"><i class="fas fa-angle-right me-2"></i>1. Melatih Komunikasi Efektif</a></li>
+                                <li><a href="#leadership"><i class="fas fa-angle-right me-2"></i>2. Memunculkan Bibit Pemimpin</a></li>
+                                <li><a href="#trust"><i class="fas fa-angle-right me-2"></i>3. Membangun Kepercayaan</a></li>
+                                <li><a href="#problem"><i class="fas fa-angle-right me-2"></i>4. Problem Solving Cepat</a></li>
+                                <li><a href="#stress"><i class="fas fa-angle-right me-2"></i>5. Pelepas Stres yang Efektif</a></li>
+                                <li><a href="#faq"><i class="fas fa-angle-right me-2"></i>FAQ Team Building</a></li>
+                            </ul>
+                        </div>
 
                         <div class="article-content">
                             <p>Bosan dengan seminar motivasi di dalam ruangan yang membuat karyawan mengantuk? Saatnya membawa tim Anda keluar ruangan! Paintball kini menjadi salah satu metode <em>Experiential Learning</em> paling populer untuk pelatihan sumber daya manusia (SDM) perusahaan. Mengapa? Karena simulasi tempur ini memaksa setiap individu untuk mengeluarkan karakter aslinya.</p>
@@ -105,30 +278,146 @@
                                 "Karakter asli seseorang akan terlihat saat mereka berada di bawah tekanan. Paintball memberikan tekanan itu dalam format yang menyenangkan dan aman."
                             </div>
 
-                            <h3>1. MELATIH KOMUNIKASI DI BAWAH TEKANAN</h3>
+                            <h3 id="komunikasi">1. MELATIH KOMUNIKASI DI BAWAH TEKANAN</h3>
                             <p>Di kantor, komunikasi via email atau rapat mungkin berjalan lancar. Namun, bagaimana saat peluru cat beterbangan di atas kepala? Paintball memaksa tim untuk berkomunikasi secara singkat, padat, dan jelas. Kesalahpahaman instruksi di lapangan bisa berakibat fatal (kekalahan tim), yang menjadi analogi sempurna untuk miskomunikasi dalam proyek bisnis.</p>
 
-                            <h3>2. MEMUNCULKAN BIBIT PEMIMPIN (LEADERSHIP)</h3>
+                            <h3 id="leadership">2. MEMUNCULKAN BIBIT PEMIMPIN (LEADERSHIP)</h3>
                             <p>Seringkali, pemimpin di lapangan paintball bukanlah manajer di kantor. Karyawan yang biasanya pendiam bisa tiba-tiba mengambil inisiatif untuk mengatur strategi penyerangan. Aktivitas ini sangat baik bagi HRD untuk melihat potensi kepemimpinan alami (natural leader) dari karyawan yang mungkin selama ini tidak terlihat.</p>
 
-                            <h3>3. MEMBANGUN KEPERCAYAAN (TRUST)</h3>
+                            <img src="asset/img/gambar paintball/download.webp" alt="Kerjasama Tim Paintball" class="content-img">
+                            <small class="d-block text-center text-grey mb-4">Koordinasi tim adalah kunci kemenangan di lapangan.</small>
+
+                            <h3 id="trust">3. MEMBANGUN KEPERCAYAAN (TRUST)</h3>
                             <p>Dalam skenario permainan seperti "President Escort" (mengawal VIP), tim harus rela pasang badan untuk melindungi satu orang. Ini membangun rasa saling percaya yang mendalam. Anda harus percaya bahwa rekan di belakang Anda benar-benar menjaga punggung Anda (covering fire) agar Anda bisa maju.</p>
 
-                            <h3>4. PROBLEM SOLVING CEPAT</h3>
+                            <h3 id="problem">4. PROBLEM SOLVING CEPAT</h3>
                             <p>Rencana A gagal? Strategi awal berantakan karena sergapan musuh? Tim dipaksa untuk berpikir cepat dan beradaptasi dengan situasi yang berubah dinamis. Kemampuan mengambil keputusan cepat (quick decision making) ini sangat relevan dengan dunia bisnis yang fluktuatif.</p>
 
-                            <h3>5. PELEPAS STRES YANG EFEKTIF</h3>
+                            <h3 id="stress">5. PELEPAS STRES YANG EFEKTIF</h3>
                             <p>Selain manfaat edukasinya, paintball adalah sarana <em>stress release</em> yang luar biasa. Berteriak, berlari, dan tertawa bersama rekan kerja dapat mencairkan suasana kaku di kantor. Setelah permainan selesai, sekat hierarki antara bos dan staf seringkali mencair, menciptakan lingkungan kerja yang lebih harmonis.</p>
 
                             <hr class="border-secondary my-5">
 
-                            <h4 class="mb-3">KESIMPULAN</h4>
-                            <p>Paintball bukan sekadar main tembak-tembakan. Bagi perusahaan, ini adalah investasi untuk membangun tim yang solid, komunikatif, dan tangguh. Tacticore menyediakan paket khusus Corporate yang menggabungkan keseruan bermain dengan modul pelatihan soft skill yang terarah.</p>
+                            <h3 id="faq" class="mb-4">PERTANYAAN UMUM (FAQ)</h3>
+                            <div class="accordion mb-5" id="faqCorporate">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            Apakah permainan ini aman untuk wanita atau pemula?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqCorporate">
+                                        <div class="accordion-body">
+                                            Sangat aman. Kami menyediakan peralatan lengkap termasuk Body Vest (pelindung dada) yang diwajibkan, serta wasit profesional yang menjaga permainan tetap safety.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Berapa minimal peserta untuk paket Corporate?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqCorporate">
+                                        <div class="accordion-body">
+                                            Untuk paket Corporate dengan fasilitas makan dan aula, minimal pemesanan adalah 20 orang. Namun untuk bermain biasa (Basic/Full Combat) minimal 10 orang.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="author-box">
+                                <img src="asset/img/gambar paintball/download2.webp" alt="Penulis" class="author-img">
+                                <div class="author-info">
+                                    <h5 class="author-name">ARIF PRASETYO</h5>
+                                    <p>Senior Fasilitator & Team Building Specialist di Tacticore. Berpengalaman 8 tahun menangani program pengembangan SDM perusahaan.</p>
+                                </div>
+                            </div>
+
+                            <div class="social-share text-center">
+                                <p class="text-grey mb-3">Bagikan artikel ini:</p>
+                                <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+
                         </div>
 
-                        <div class="mt-5 text-center">
-                            <a href="blog.html" class="btn btn-outline-light px-5 py-2 fw-bold"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
+                        <div class="mt-5">
+                            <a href="blog.html" class="btn btn-outline-light px-4"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
                         </div>
+                    </div>
+
+                    <h3 class="mb-4">ARTIKEL TERKAIT</h3>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download4.webp" class="related-thumb" alt="Strategi">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <small class="text-grey">12 Jan 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download2.webp" class="related-thumb" alt="Safety">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-2.html">Mengenal Gear Paintball Safety</a></h6>
+                                    <small class="text-grey">08 Feb 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download6.webp" class="related-thumb" alt="Psikologi">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-6.html">Psikologi Adrenalin Paintball</a></h6>
+                                    <small class="text-grey">10 Apr 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sticky-sidebar">
+                        
+                        <div class="promo-widget">
+                            <h4 class="mb-2">GATHERING KANTOR?</h4>
+                            <p class="small opacity-75 mb-3">Paket lengkap bermain + makan siang + meeting room.</p>
+                            <span class="promo-price">250K</span>
+                            <small class="d-block mb-4">/ Orang (Full Day)</small>
+                            <a href="paket.html" class="btn btn-outline-light w-100 fw-bold">LIHAT PAKET</a>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">TERPOPULER</h4>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <span class="recent-date">12 Jan 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download3.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-3.html">Manfaat Team Building Kantor</a></h6>
+                                    <span class="recent-date">20 Feb 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download2.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-2.html">Review Gear Paintball Safety</a></h6>
+                                    <span class="recent-date">08 Feb 2024</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
