@@ -22,12 +22,13 @@
             --border-line: rgba(255, 255, 255, 0.15);
         }
 
+        /* BODY ADJUSTMENT */
         body {
             background-color: var(--bg-deep);
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px; 
         }
 
         h1, h2, h3, h4, h5, .nav-link, .btn, .stat-number, .timeline-year, .cta-title {
@@ -37,25 +38,25 @@
             color: var(--text-white);
         }
 
-        /* --- NAVBAR --- */
+        /* NAVBAR */
         .navbar {
             background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--border-line);
-            padding: 1rem 0;
+            padding: 0.5rem 0; 
             backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
-        /* --- BUTTONS --- */
+        /* BUTTONS */
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white !important; padding: 12px 30px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
+        .creative-hero .btn-primary-custom, .cta-section .btn-primary-custom { padding: 12px 30px; font-size: 1rem; }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59,130,246,0.3); }
-        
         .btn-outline-light { border-width: 2px; font-weight: 700; padding: 12px 30px; }
         .btn-outline-light:hover { background-color: white; color: black !important; }
 
@@ -69,6 +70,8 @@
             position: relative;
             z-index: 1;
             padding: 10px;
+            display: flex;
+            flex-direction: column; 
         }
         .hero-img-main {
             width: 100%; 
@@ -80,6 +83,7 @@
             min-height: 350px;
             background-color: var(--bg-panel);
             object-fit: cover;
+            order: 1; 
         }
         .hero-img-main:hover { filter: grayscale(0%); border-color: var(--accent-blue); }
         
@@ -95,34 +99,86 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
             z-index: 2;
             border: 1px solid var(--border-line);
+            order: 2; 
         }
 
-        /* --- STATS --- */
+        /* --- STATS SECTION --- */
         .stats-section {
-            background: var(--bg-panel); border-top: 1px solid var(--border-line);
-            border-bottom: 1px solid var(--border-line); padding: 60px 0;
+            background: var(--bg-panel);
+            border-top: 1px solid var(--border-line);
+            border-bottom: 1px solid var(--border-line);
+            padding: 60px 0;
         }
-        .stat-item { text-align: center; padding: 20px; border-right: 1px solid var(--border-line); }
-        .stat-item:last-child { border-right: none; }
-        .stat-number { font-size: 3.5rem; font-weight: 800; color: var(--accent-blue); line-height: 1; margin-bottom: 10px; }
-        .stat-label { font-size: 0.9rem; color: var(--text-grey); text-transform: uppercase; letter-spacing: 2px; }
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            height: 100%;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.05);
+        }
+        .stat-number { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            color: var(--accent-blue); 
+            line-height: 1; 
+            margin-bottom: 10px;
+            display: block; 
+        }
+        .stat-label { 
+            font-size: 0.85rem; 
+            color: var(--text-grey); 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-weight: 600; 
+        }
 
-        /* --- TIMELINE --- */
+        /* --- JOURNEY IMAGES --- */
+        .journey-img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-line);
+            transition: 0.3s;
+        }
+        .journey-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-blue);
+        }
+
+        /* --- TIMELINE (REVISI JARAK) --- */
         .timeline-wrapper { position: relative; padding: 50px 0; }
         .timeline-line {
             position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
             background: var(--border-line); transform: translateX(-50%);
         }
-        .timeline-item { margin-bottom: 60px; position: relative; width: 100%; clear: both; }
+        
+        /* REVISI: Margin bottom diperbesar agar tidak mepet */
+        .timeline-item { 
+            margin-bottom: 120px; /* Jarak antar item diperbesar */
+            position: relative; 
+            width: 100%; 
+            clear: both; 
+        }
+        
         .timeline-content {
             background: var(--bg-panel); padding: 30px; border-radius: 12px; border: 1px solid var(--border-line);
             width: 45%; position: relative; transition: 0.3s;
         }
         .timeline-content:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
-        
         .timeline-item:nth-child(odd) .timeline-content { float: left; text-align: right; }
         .timeline-item:nth-child(even) .timeline-content { float: right; text-align: left; }
-        
         .timeline-dot {
             position: absolute; left: 50%; top: 20px; width: 20px; height: 20px;
             background: var(--accent-blue); border: 4px solid var(--bg-deep);
@@ -130,18 +186,14 @@
             box-shadow: 0 0 10px rgba(59,130,246,0.5);
         }
         .timeline-year { color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 10px; display: block; font-weight: 700; }
-
         .timeline-wrapper::after { content: ""; display: table; clear: both; }
 
         /* --- CTA SECTION --- */
         .cta-section {
             padding: 100px 0;
             background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.95)), url('asset/img/gambar paintball/download1.webp');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            border-top: 1px solid var(--border-line);
-            text-align: center;
+            background-size: cover; background-attachment: fixed; background-position: center;
+            border-top: 1px solid var(--border-line); text-align: center;
         }
         .cta-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
 
@@ -151,17 +203,31 @@
         footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
         footer a:hover { color: var(--accent-blue); }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero-img-box { margin-top: 40px; }
-            .hero-decor-box { position: relative; bottom: auto; right: auto; width: 100%; margin-top: -20px; }
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 991px) {
+            .hero-img-box { margin-top: 30px; display: flex; flex-direction: column; }
+            .hero-decor-box { position: relative; bottom: auto; right: auto; width: 100%; margin-bottom: 20px; order: 1; padding: 20px; }
+            .hero-img-main { order: 2; min-height: 250px; }
+            
+            .journey-img { height: 140px !important; }
+
+            .creative-hero .d-flex, .cta-section .d-flex { flex-direction: column; width: 100%; }
+            .creative-hero .btn, .cta-section .btn { width: 100%; margin-bottom: 10px; font-size: 0.95rem; padding: 10px 0; }
+
+            .display-3 { font-size: 2.5rem; }
+            .cta-title { font-size: 2.2rem; }
             
             .timeline-line { left: 20px; transform: none; }
-            .timeline-item { margin-bottom: 40px; }
-            .timeline-content { width: calc(100% - 50px); float: right !important; text-align: left !important; margin-left: 50px; }
+            
+            /* REVISI MOBILE: Jarak antar item timeline di mobile juga disesuaikan */
+            .timeline-item { margin-bottom: 70px; }
+            
+            .timeline-content { width: calc(100% - 50px); float: right !important; text-align: left !important; margin-left: 50px; padding: 20px; }
             .timeline-dot { left: 20px; transform: translateX(-50%); }
             
-            .stat-item { border-right: none; border-bottom: 1px solid var(--border-line); }
+            .stats-section .row { --bs-gutter-x: 1rem; --bs-gutter-y: 1.5rem; } 
+            .stat-number { font-size: 2.5rem; margin-bottom: 5px; } 
+            .stat-card { padding: 25px 15px; border-radius: 12px; background: rgba(255, 255, 255, 0.03); }
         }
     </style>
 </head>
@@ -176,8 +242,8 @@
                 <span class="fas fa-bars text-white"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                <ul class="navbar-nav align-items-center"> 
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li> 
                     <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -206,11 +272,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="hero-img-box">
-                        <img src="asset/img/gambar paintball/download5.webp" class="hero-img-main" alt="Team Paintball">
                         <div class="hero-decor-box">
                             <h4 class="h5 mb-1"><i class="fas fa-crosshairs me-2 text-warning"></i>MISI KAMI</h4>
                             <p class="text-grey small mb-0">Menciptakan simulasi tempur paling realistis dan aman di Jawa Timur.</p>
                         </div>
+                        <img src="asset/img/gambar paintball/download5.webp" class="hero-img-main" alt="Team Paintball">
                     </div>
                 </div>
             </div>
@@ -219,29 +285,29 @@
 
     <section class="stats-section">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3 col-6">
-                    <div class="stat-item">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Tahun Pengalaman</div>
+            <div class="row g-3 g-md-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Tahun<br>Pengalaman</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="stat-item">
-                        <div class="stat-number">30K+</div>
-                        <div class="stat-label">Pemain Puas</div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <span class="stat-number">30K+</span>
+                        <span class="stat-label">Pemain<br>Puas</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="stat-item">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Corporate Events</div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Corporate<br>Events</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Safety Record</div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Safety<br>Record</span>
                     </div>
                 </div>
             </div>
@@ -250,6 +316,22 @@
 
     <section class="py-5">
         <div class="container py-5">
+            
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-lg-3">
+                    <img src="asset/img/gambar paintball/download.webp" class="journey-img" alt="Perjalanan 1">
+                </div>
+                <div class="col-6 col-lg-3">
+                    <img src="asset/img/gambar paintball/download2.webp" class="journey-img" alt="Perjalanan 2">
+                </div>
+                <div class="col-6 col-lg-3">
+                    <img src="asset/img/gambar paintball/download3.webp" class="journey-img" alt="Perjalanan 3">
+                </div>
+                <div class="col-6 col-lg-3">
+                    <img src="asset/img/gambar paintball/download4.webp" class="journey-img" alt="Perjalanan 4">
+                </div>
+            </div>
+
             <div class="text-center mb-5">
                 <h2 class="display-5">PERJALANAN KAMI</h2>
                 <p class="text-grey">Dari komunitas kecil menjadi provider terbesar.</p>
@@ -318,7 +400,7 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h5 class="text-white mb-3 text-uppercase">Navigasi</h5>
-                    <ul class="list-unstyled text-dim small">
+                    <ul class="list-unstyled text-grey small">
                         <li class="mb-2"><a href="index.html">Beranda</a></li>
                         <li class="mb-2"><a href="about.html">Tentang Kami</a></li>
                         <li class="mb-2"><a href="paket.html">Paket</a></li>
@@ -326,7 +408,7 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h5 class="text-white mb-3 text-uppercase">Kontak Admin</h5>
-                    <ul class="list-unstyled text-dim small">
+                    <ul class="list-unstyled text-grey small">
                         <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
                         <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
                         <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
