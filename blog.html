@@ -27,7 +27,7 @@
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px;
         }
 
         h1, h2, h3, h4, h5, .nav-link, .btn, .widget-title {
@@ -41,17 +41,17 @@
         .navbar {
             background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--border-line);
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
@@ -76,7 +76,7 @@
         
         .blog-thumb {
             width: 100%; 
-            height: 400px; /* Tinggi gambar diperbesar */
+            height: 400px;
             object-fit: cover;
             border-bottom: 1px solid var(--border-line);
         }
@@ -237,6 +237,14 @@
                 
                 <div class="col-lg-8">
                     
+                    <div class="sidebar-widget d-lg-none mb-4">
+                        <h4 class="widget-title">CARI ARTIKEL</h4>
+                        <div class="search-form">
+                            <input type="text" class="search-input search-input-field" placeholder="Ketik kata kunci...">
+                            <button type="button" class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
                     <div id="blogContainer">
                         
                         <div class="blog-card" data-title="Tips Strategi Menang Paintball Pemula">
@@ -345,10 +353,10 @@
                 <div class="col-lg-4">
                     <div class="sticky-sidebar">
                         
-                        <div class="sidebar-widget">
+                        <div class="sidebar-widget d-none d-lg-block">
                             <h4 class="widget-title">CARI ARTIKEL</h4>
                             <div class="search-form">
-                                <input type="text" id="searchInput" class="search-input" placeholder="Ketik kata kunci...">
+                                <input type="text" class="search-input search-input-field" placeholder="Ketik kata kunci...">
                                 <button type="button" class="search-btn"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
@@ -433,7 +441,9 @@
         const btnNext = document.getElementById('btnNext');
         const btnPage1 = document.getElementById('btnPage1');
         const btnPage2 = document.getElementById('btnPage2');
-        const searchInput = document.getElementById('searchInput');
+        
+        // REVISI: Mengambil semua input search (Mobile & Desktop)
+        const searchInputs = document.querySelectorAll('.search-input-field');
         const noResults = document.getElementById('noResults');
 
         // Initial Load
@@ -460,8 +470,11 @@
             const start = (page - 1) * itemsPerPage;
             const end = start + itemsPerPage;
 
+            // Cek apakah ada pencarian aktif (ambil value dari salah satu input)
+            const activeSearchTerm = searchInputs[0].value || searchInputs[1]?.value || '';
+
             // Reset Search jika ada (agar pagination normal kembali)
-            if(searchInput.value === '') {
+            if(activeSearchTerm === '') {
                 blogCards.forEach((card, index) => {
                     if (index >= start && index < end) {
                         card.style.display = 'block';
@@ -500,34 +513,42 @@
             }
         }
 
-        // SEARCH FUNCTION
-        searchInput.addEventListener('keyup', function(e) {
-            const term = e.target.value.toLowerCase();
-            let visibleCount = 0;
-
-            if (term.length > 0) {
-                blogCards.forEach(card => {
-                    const title = card.getAttribute('data-title').toLowerCase();
-                    const contentText = card.innerText.toLowerCase();
-
-                    if (title.includes(term) || contentText.includes(term)) {
-                        card.style.display = 'block';
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
+        // SEARCH FUNCTION (Updated for Multiple Inputs)
+        searchInputs.forEach(input => {
+            input.addEventListener('keyup', function(e) {
+                const term = e.target.value.toLowerCase();
+                
+                // Sync value ke input satunya agar konsisten
+                searchInputs.forEach(otherInput => {
+                    if(otherInput !== input) otherInput.value = term;
                 });
 
-                document.querySelector('.pagination-container').style.display = 'none';
+                let visibleCount = 0;
 
-                if (visibleCount === 0) noResults.style.display = 'block';
-                else noResults.style.display = 'none';
+                if (term.length > 0) {
+                    blogCards.forEach(card => {
+                        const title = card.getAttribute('data-title').toLowerCase();
+                        const contentText = card.innerText.toLowerCase();
 
-            } else {
-                noResults.style.display = 'none';
-                document.querySelector('.pagination-container').style.display = 'flex';
-                showPage(currentPage);
-            }
+                        if (title.includes(term) || contentText.includes(term)) {
+                            card.style.display = 'block';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    document.querySelector('.pagination-container').style.display = 'none';
+
+                    if (visibleCount === 0) noResults.style.display = 'block';
+                    else noResults.style.display = 'none';
+
+                } else {
+                    noResults.style.display = 'none';
+                    document.querySelector('.pagination-container').style.display = 'flex';
+                    showPage(currentPage);
+                }
+            });
         });
     </script>
 </body>
