@@ -22,12 +22,13 @@
             --border-line: rgba(255, 255, 255, 0.15);
         }
 
+        /* BODY ADJUSTMENT */
         body {
             background-color: var(--bg-deep);
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px; 
         }
 
         h1, h2, h3, h4, h5, .nav-link, .btn, .gallery-cat {
@@ -41,17 +42,18 @@
         .navbar {
             background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--border-line);
-            padding: 1rem 0;
+            padding: 0.5rem 0; 
             backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
+        /* BUTTONS */
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
@@ -59,123 +61,72 @@
         .page-header {
             background: linear-gradient(to bottom, rgba(11, 15, 25, 0.7), var(--bg-deep)), url('https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop');
             background-size: cover; background-position: center;
-            padding: 100px 0 60px; border-bottom: 1px solid var(--border-line);
+            padding: 80px 0 60px; 
+            border-bottom: 1px solid var(--border-line);
         }
 
-        /* --- VIDEO HIGHLIGHT SECTION --- */
+        /* VIDEO SECTION */
         .video-section {
             padding: 60px 0;
             background: var(--bg-panel);
             border-bottom: 1px solid var(--border-line);
         }
         .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid var(--border-line);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-line); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        .video-wrapper iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
-        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- CREATIVE MASONRY GALLERY --- */
-        .filter-nav {
-            display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;
-        }
+        /* FILTER NAV */
+        .filter-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border-line);
-            color: var(--text-grey);
-            padding: 8px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.3s;
-            cursor: pointer;
-            font-family: 'Barlow Condensed', sans-serif;
-            letter-spacing: 1px;
+            background: transparent; border: 1px solid var(--border-line); color: var(--text-grey); padding: 8px 25px; border-radius: 50px; font-weight: 600; transition: 0.3s; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px;
         }
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-        }
+        .filter-btn:hover, .filter-btn.active { background: var(--accent-blue); color: white; border-color: var(--accent-blue); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
 
-        /* Masonry Layout */
-        .gallery-masonry {
-            column-count: 3;
-            column-gap: 20px;
+        /* GRID LAYOUT (Bukan Masonry lagi agar sejajar) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Kolom Desktop */
+            gap: 20px;
         }
-        @media (max-width: 992px) { .gallery-masonry { column-count: 2; } }
-        @media (max-width: 576px) { .gallery-masonry { column-count: 1; } }
+        @media (max-width: 992px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 576px) { .gallery-grid { grid-template-columns: 1fr; } }
 
-        /* ITEM GALLERY - UPDATED FOR ANIMATION */
+        /* ITEM GALLERY - FORCED LANDSCAPE */
         .gallery-item {
             position: relative;
-            margin-bottom: 20px;
-            break-inside: avoid;
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             border: 1px solid var(--border-line);
-            
-            /* Properti Animasi */
-            transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s;
-            opacity: 1;
-            transform: scale(1);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            height: 250px; /* Tinggi Fix */
         }
         
-        /* State Hover */
-        .gallery-item:hover { transform: translateY(-5px) scale(1.02); border-color: var(--accent-gold); }
+        .gallery-item:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%; /* Memenuhi container */
+            object-fit: cover; /* Crop agar tidak gepeng */
             transition: 0.5s ease;
         }
         
-        /* Overlay Effect */
         .gallery-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0; top: 0;
+            position: absolute; bottom: 0; left: 0; right: 0; top: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2) 50%, transparent);
-            opacity: 0;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
+            opacity: 0; transition: 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
         }
-        .gallery-item:hover img { transform: scale(1.1); } /* Zoom gambar dalam frame */
+        .gallery-item:hover img { transform: scale(1.1); } 
         .gallery-item:hover .gallery-overlay { opacity: 1; }
 
         .gallery-cat { font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 5px; display: block; }
         .gallery-title { font-size: 1.2rem; font-weight: 700; color: white; margin: 0; }
 
-        /* --- LIGHTBOX (POPUP) --- */
-        .lightbox {
-            display: none;
-            position: fixed; z-index: 9999; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            justify-content: center; align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-        .lightbox-content {
-            max-width: 90%; max-height: 90%;
-            border: 2px solid var(--accent-blue);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-            border-radius: 4px;
-        }
-        .close-btn {
-            position: absolute; top: 20px; right: 40px;
-            color: #fff; font-size: 50px; font-weight: bold;
-            cursor: pointer; transition: 0.3s; z-index: 10000; line-height: 1;
-        }
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); justify-content: center; align-items: center; animation: fadeIn 0.3s ease; }
+        .lightbox-content { max-width: 90%; max-height: 90%; border: 2px solid var(--accent-blue); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); border-radius: 4px; }
+        .close-btn { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 10000; line-height: 1; }
         .close-btn:hover { color: var(--accent-gold); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -205,7 +156,7 @@
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li> 
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
                         <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
@@ -232,7 +183,7 @@
                         <h3 class="text-white"><i class="fas fa-play-circle text-gold me-2"></i>HIGHLIGHT VIDEO</h3>
                     </div>
                     <div class="video-wrapper">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kWRyeIaqvZo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -249,10 +200,10 @@
                 <button class="filter-btn" onclick="filterGallery('venue', event)">VENUE</button>
             </div>
 
-            <div class="gallery-masonry">
+            <div class="gallery-grid">
                 
                 <div class="gallery-item action">
-                    <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop" alt="Gameplay">
+                    <img src="asset/img/gambar paintball/download.webp" alt="Gameplay">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">GAMEPLAY</span>
                         <h4 class="gallery-title">Close Combat</h4>
@@ -260,7 +211,7 @@
                 </div>
 
                 <div class="gallery-item squad">
-                    <img src="https://images.unsplash.com/photo-1533560906234-54e645738520?q=80&w=2070&auto=format&fit=crop" alt="Squad">
+                    <img src="asset/img/gambar paintball/download2.webp" alt="Squad">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">SQUAD</span>
                         <h4 class="gallery-title">Tim Alpha</h4>
@@ -268,7 +219,7 @@
                 </div>
 
                 <div class="gallery-item venue">
-                    <img src="https://images.unsplash.com/photo-1558363313-8704e8740fb7?q=80&w=2070&auto=format&fit=crop" alt="Venue">
+                    <img src="asset/img/gambar paintball/download3.webp" alt="Venue">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">VENUE</span>
                         <h4 class="gallery-title">Jungle Arena</h4>
@@ -276,7 +227,7 @@
                 </div>
 
                 <div class="gallery-item action">
-                    <img src="https://images.unsplash.com/photo-1605152902546-5351d2310021?q=80&w=1974&auto=format&fit=crop" alt="Gear">
+                    <img src="asset/img/gambar paintball/download4.webp" alt="Gear">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">GAMEPLAY</span>
                         <h4 class="gallery-title">Tactical Reload</h4>
@@ -284,7 +235,7 @@
                 </div>
 
                 <div class="gallery-item squad">
-                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop" alt="Briefing">
+                    <img src="asset/img/gambar paintball/download5.webp" alt="Briefing">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">SQUAD</span>
                         <h4 class="gallery-title">Briefing Strategi</h4>
@@ -292,7 +243,7 @@
                 </div>
 
                 <div class="gallery-item venue">
-                    <img src="https://images.unsplash.com/photo-1563299796-b729d0af54a5?q=80&w=1925&auto=format&fit=crop" alt="Hideout">
+                    <img src="asset/img/gambar paintball/download6.webp" alt="Hideout">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">VENUE</span>
                         <h4 class="gallery-title">Urban Warzone</h4>
@@ -300,7 +251,7 @@
                 </div>
 
                 <div class="gallery-item action">
-                    <img src="https://images.unsplash.com/photo-1558525043-f1665a57022d?q=80&w=2070&auto=format&fit=crop" alt="Sniper">
+                    <img src="asset/img/gambar paintball/download7.webp" alt="Sniper">
                     <div class="gallery-overlay" onclick="openLightbox(this.previousElementSibling)">
                         <span class="gallery-cat">GAMEPLAY</span>
                         <h4 class="gallery-title">Sniper Position</h4>
@@ -373,28 +324,21 @@
 
             const items = document.querySelectorAll('.gallery-item');
 
-            // 2. Tahap 1: Fade Out Semua
             items.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block'; // Tampilkan
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none'; // Sembunyikan
+                    }, 300);
+                }
             });
-
-            // 3. Tahap 2: Tunggu transisi selesai (300ms), lalu atur display & Fade In
-            setTimeout(() => {
-                items.forEach(item => {
-                    if (category === 'all' || item.classList.contains(category)) {
-                        item.style.display = 'block'; // Tampilkan dalam layout
-                        
-                        // Sedikit delay agar browser merender 'display:block' dulu sebelum animasi opacity
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        item.style.display = 'none'; // Hilangkan dari layout
-                    }
-                });
-            }, 300); // Waktu ini harus sama dengan CSS transition (0.3s/0.4s)
         }
     </script>
 </body>
