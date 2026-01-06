@@ -27,10 +27,10 @@
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px; /* Navbar pendek */
         }
 
-        h1, h2, h3, h4, h5, .nav-link, .btn {
+        h1, h2, h3, h4, h5, .nav-link, .btn, .toc-title, .author-name, .promo-title {
             font-family: 'Barlow Condensed', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -41,17 +41,17 @@
         .navbar {
             background-color: rgba(11, 15, 25, 0.95);
             border-bottom: 1px solid var(--border-line);
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white !important; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
@@ -80,6 +80,14 @@
             border-radius: 8px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .content-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-line);
         }
 
         .article-meta {
@@ -110,6 +118,21 @@
 
         .article-content p { margin-bottom: 20px; }
 
+        /* TOC */
+        .toc-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-line);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-gold); }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: var(--text-light); text-decoration: none; transition: 0.3s; }
+        .toc-list a:hover { color: var(--accent-blue); padding-left: 5px; }
+
+        /* QUOTE */
         .highlight-box {
             background: rgba(59, 130, 246, 0.1);
             border-left: 4px solid var(--accent-blue);
@@ -117,7 +140,63 @@
             margin: 30px 0;
             font-style: italic;
             color: var(--text-white);
+            font-size: 1.2rem;
         }
+
+        /* FAQ */
+        .accordion-item { background: transparent; border: 1px solid var(--border-line); margin-bottom: 10px; }
+        .accordion-button { background: var(--bg-panel); color: var(--text-white); font-weight: bold; }
+        .accordion-button:not(.collapsed) { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); box-shadow: none; }
+        .accordion-body { color: var(--text-light); font-size: 0.95rem; }
+
+        /* AUTHOR */
+        .author-box {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 20px;
+            border-radius: 8px; margin-top: 40px; border: 1px solid var(--border-line);
+        }
+        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 2px solid var(--accent-blue); }
+        .author-info h5 { margin: 0 0 5px; color: var(--accent-gold); }
+        .author-info p { margin: 0; font-size: 0.9rem; color: var(--text-grey); }
+
+        /* SHARE */
+        .social-share { margin-top: 30px; border-top: 1px solid var(--border-line); padding-top: 20px; }
+        .share-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--text-white);
+            margin-right: 10px; text-decoration: none; transition: 0.3s;
+        }
+        .share-btn:hover { background: var(--accent-blue); color: white; transform: translateY(-3px); }
+
+        /* SIDEBAR PROMO */
+        .promo-widget {
+            background: linear-gradient(135deg, var(--accent-blue), #1e40af);
+            border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 30px; color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .promo-price { font-size: 2.5rem; font-weight: 800; display: block; margin: 10px 0; }
+
+        /* SIDEBAR GENERAL */
+        .sidebar-widget { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .widget-title { font-size: 1.4rem; border-bottom: 2px solid var(--border-line); padding-bottom: 15px; margin-bottom: 20px; position: relative; }
+        .widget-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--accent-blue); }
+
+        /* RECENT POSTS */
+        .recent-post-item { display: flex; align-items: center; margin-bottom: 20px; text-decoration: none; }
+        .recent-thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px; flex-shrink: 0; border: 1px solid var(--border-line); }
+        .recent-info h6 { margin: 0 0 5px; line-height: 1.3; }
+        .recent-info h6 a { color: var(--text-white); text-decoration: none; font-family: 'Inter'; font-weight: 600; font-size: 0.95rem; }
+        .recent-info h6 a:hover { color: var(--accent-blue); }
+        .recent-date { font-size: 0.8rem; color: var(--text-grey); }
+
+        /* RELATED POSTS */
+        .related-card { background: var(--bg-panel); border: 1px solid var(--border-line); border-radius: 8px; overflow: hidden; transition: 0.3s; height: 100%; }
+        .related-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .related-thumb { height: 180px; width: 100%; object-fit: cover; }
+        .related-content { padding: 20px; }
+        .related-title a { color: white; text-decoration: none; font-weight: 700; font-family: 'Barlow Condensed'; font-size: 1.2rem; }
+
+        /* STICKY SIDEBAR */
+        @media (min-width: 992px) { .sticky-sidebar { position: sticky; top: 100px; } }
 
         /* FOOTER */
         footer { background: #0b1120; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
@@ -166,19 +245,30 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="article-container">
-                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=2070&auto=format&fit=crop" alt="Sejarah Paintball" class="article-img">
+                        <img src="asset/img/gambar paintball/download4.webp" alt="Sejarah Paintball" class="article-img">
                         
                         <div class="article-meta">
                             <span class="me-3"><i class="fas fa-calendar"></i> 05 Mar 2024</span>
-                            <span class="me-3"><i class="fas fa-user"></i> Admin Tacticore</span>
-                            <span><i class="fas fa-folder"></i> Trivia</span>
+                            <span class="me-3"><i class="fas fa-folder"></i> Trivia</span>
+                            <span class="me-3"><i class="fas fa-comments"></i> 3 Komentar</span>
                         </div>
 
                         <h1 class="display-5 fw-bold text-white mb-4">ASAL USUL PAINTBALL: DARI PETERNAKAN KE MEDAN TEMPUR</h1>
+
+                        <div class="toc-box">
+                            <h5 class="toc-title">DAFTAR ISI</h5>
+                            <ul class="toc-list">
+                                <li><a href="#era60"><i class="fas fa-angle-right me-2"></i>1. Era 1960-an: Alat Kerja Kehutanan</a></li>
+                                <li><a href="#firstgame"><i class="fas fa-angle-right me-2"></i>2. Juni 1981: Permainan Pertama</a></li>
+                                <li><a href="#survival"><i class="fas fa-angle-right me-2"></i>3. The Survival Game</a></li>
+                                <li><a href="#modern"><i class="fas fa-angle-right me-2"></i>4. Era Modern: Speedball & Woodsball</a></li>
+                                <li><a href="#faq"><i class="fas fa-angle-right me-2"></i>FAQ Sejarah</a></li>
+                            </ul>
+                        </div>
 
                         <div class="article-content">
                             <p>Saat ini, paintball dikenal sebagai salah satu olahraga ekstrem paling populer di dunia dengan jutaan pemain aktif. Namun, tahukah Anda bahwa asal-usul permainan ini sangat jauh dari dunia militer atau olahraga? Sejarah paintball dimulai dari hutan dan peternakan di Amerika Serikat pada tahun 1960-an.</p>
@@ -187,29 +277,146 @@
                                 "Tahukah Anda? Marker paintball pertama, Nel-Spot 007, diciptakan bukan untuk menembak lawan bermain, melainkan untuk menandai pohon dan sapi dari jarak jauh."
                             </div>
 
-                            <h3>1. ERA 1960-an: ALAT KERJA KEHUTANAN</h3>
+                            <h3 id="era60">1. ERA 1960-an: ALAT KERJA KEHUTANAN</h3>
                             <p>Pada pertengahan tahun 1960-an, Charles Nelson dari Nelson Paint Company bekerja sama dengan Crosman (produsen senapan angin) untuk menciptakan alat yang efisien bagi pekerja kehutanan dan peternak. Mereka membutuhkan cara untuk menandai pohon yang akan ditebang atau sapi di kawanan besar tanpa harus mendekatinya satu per satu.</p>
                             <p>Lahirlah <strong>Nel-Spot 007</strong>, sebuah pistol bertenaga CO2 yang menembakkan bola cat berisi minyak. Saat itu, terkena tembakannya sangat sakit karena cangkang pelurunya belum serapuh sekarang!</p>
 
-                            <h3>2. JUNI 1981: PERMAINAN PERTAMA DI DUNIA</h3>
+                            <h3 id="firstgame">2. JUNI 1981: PERMAINAN PERTAMA DI DUNIA</h3>
                             <p>Gagasan menjadikan alat ini sebagai permainan muncul dari perdebatan antara dua teman: Hayes Noel (pialang saham) dan Charles Gaines (penulis). Mereka berdebat tentang apakah insting bertahan hidup (survival) adalah bakat alami atau sesuatu yang dipelajari.</p>
+                            
+                            <img src="asset/img/gambar paintball/download.webp" alt="Permainan Paintball Klasik" class="content-img">
+                            <small class="d-block text-center text-grey mb-4">Ilustrasi permainan paintball di era awal.</small>
+
                             <p>Pada 27 Juni 1981, di hutan New Hampshire, permainan paintball pertama digelar. Melibatkan 12 pemain dengan aturan "Capture the Flag". Uniknya, pemenang game pertama ini, Ritchie White, menang tanpa menembakkan satu butir peluru pun. Dia memenangkan permainan dengan cara mengendap-endap dan strategi sembunyi yang sempurna.</p>
 
-                            <h3>3. EVOLUSI MENJADI "THE SURVIVAL GAME"</h3>
+                            <h3 id="survival">3. EVOLUSI MENJADI "THE SURVIVAL GAME"</h3>
                             <p>Setelah kesuksesan game pertama, Noel dan Gaines melihat potensi bisnis. Mereka menciptakan paket permainan bernama "National Survival Game" (NSG). Pada tahun 1982, lapangan komersial pertama dibuka. Perlengkapan mulai berevolusi; dari kacamata toko bangunan menjadi masker khusus, dan peluru cat berbasis minyak diganti menjadi berbasis air agar mudah dicuci.</p>
 
-                            <h3>4. ERA MODERN: SPEEDBALL & WOODSBALL</h3>
+                            <h3 id="modern">4. ERA MODERN: SPEEDBALL & WOODSBALL</h3>
                             <p>Di tahun 1990-an hingga 2000-an, paintball meledak menjadi olahraga global. Muncul format <strong>Speedball</strong> yang dimainkan di lapangan datar dengan bunker balon udara (inflatables), yang lebih cepat dan kompetitif. Sementara format <strong>Woodsball</strong> (seperti di Tacticore Malang) tetap mempertahankan nuansa simulasi militer di hutan alami.</p>
 
                             <hr class="border-secondary my-5">
 
-                            <h4 class="mb-3">KESIMPULAN</h4>
-                            <p>Dari alat penanda sapi menjadi olahraga yang memacu adrenalin, paintball telah menempuh perjalanan panjang. Saat Anda memegang marker di arena Tacticore nanti, ingatlah bahwa Anda sedang memegang sepotong sejarah unik yang lahir dari kreativitas dan semangat petualangan.</p>
+                            <h3 id="faq" class="mb-4">PERTANYAAN UMUM (FAQ)</h3>
+                            <div class="accordion mb-5" id="faqSejarah">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            Kapan paintball masuk ke Indonesia?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqSejarah">
+                                        <div class="accordion-body">
+                                            Paintball mulai populer di Indonesia pada pertengahan tahun 1990-an, awalnya sebagai sarana pelatihan militer dan kemudian berkembang menjadi wahana rekreasi di Bali dan Jakarta.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Apakah peluru paintball berbahaya bagi lingkungan?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqSejarah">
+                                        <div class="accordion-body">
+                                            Tidak. Peluru paintball modern terbuat dari gelatin (seperti kapsul obat) dan pewarna makanan yang biodegradable (dapat terurai alami) dan tidak beracun.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="author-box">
+                                <img src="asset/img/gambar paintball/download2.webp" alt="Penulis" class="author-img">
+                                <div class="author-info">
+                                    <h5 class="author-name">DANI PRAKOSO</h5>
+                                    <p>Sejarawan Militer & Penggemar Olahraga Ekstrem. Menulis artikel untuk mengedukasi tentang asal-usul taktik modern.</p>
+                                </div>
+                            </div>
+
+                            <div class="social-share text-center">
+                                <p class="text-grey mb-3">Bagikan artikel ini:</p>
+                                <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+
                         </div>
 
-                        <div class="mt-5 text-center">
-                            <a href="blog.html" class="btn btn-outline-light px-5 py-2 fw-bold"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
+                        <div class="mt-5">
+                            <a href="blog.html" class="btn btn-outline-light px-4"><i class="fas fa-arrow-left me-2"></i> KEMBALI KE BLOG</a>
                         </div>
+                    </div>
+
+                    <h3 class="mb-4">ARTIKEL TERKAIT</h3>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download.webp" class="related-thumb" alt="Strategi">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <small class="text-grey">12 Jan 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download3.webp" class="related-thumb" alt="Corporate">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-3.html">Manfaat Paintball Corporate</a></h6>
+                                    <small class="text-grey">20 Feb 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="related-card">
+                                <img src="asset/img/gambar paintball/download6.webp" class="related-thumb" alt="Marker">
+                                <div class="related-content">
+                                    <h6 class="related-title mb-2"><a href="blog-detail-5.html">Memilih Marker: Elektronik vs Mekanik</a></h6>
+                                    <small class="text-grey">25 Mar 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sticky-sidebar">
+                        
+                        <div class="promo-widget">
+                            <h4 class="mb-2">RASAKAN SEJARAHNYA!</h4>
+                            <p class="small opacity-75 mb-3">Mainkan skenario klasik di arena hutan pinus kami.</p>
+                            <span class="promo-price">85K</span>
+                            <small class="d-block mb-4">/ Orang (Basic War)</small>
+                            <a href="paket.html" class="btn btn-outline-light w-100 fw-bold">LIHAT PAKET</a>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">TERPOPULER</h4>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <span class="recent-date">12 Jan 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download3.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-3.html">Manfaat Team Building Kantor</a></h6>
+                                    <span class="recent-date">20 Feb 2024</span>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download2.webp" class="recent-thumb">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-2.html">Review Gear Paintball Safety</a></h6>
+                                    <span class="recent-date">08 Feb 2024</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
