@@ -23,12 +23,14 @@
             --text-white: #FFFFFF;
         }
 
+        /* BODY ADJUSTMENT */
         body {
             background-color: var(--bg-darkest);
             color: var(--text-light);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            /* REVISI: Padding top dikurangi agar pas dengan navbar pendek (sebelumnya 80px) */
+            padding-top: 70px;
         }
 
         /* TYPOGRAPHY */
@@ -40,22 +42,53 @@
         
         h1 { font-weight: 800; }
         
-        /* NAVBAR */
+        /* --- REVISI NAVBAR: LEBIH PENDEK & RAMPING --- */
         .navbar {
             background-color: rgba(15, 23, 42, 0.95);
             border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
+            /* REVISI: Padding dikurangi drastis (0.5rem) */
+            padding: 0.5rem 0;
+            backdrop-filter: blur(10px);
         }
-        .navbar-brand { font-size: 1.8rem; font-weight: 800; font-style: italic; color: white !important; }
+        
+        .navbar-brand { 
+            /* REVISI: Font size diperkecil */
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            font-style: italic; 
+            color: white !important; 
+        }
+        
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-dim) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        
+        .nav-link { 
+            color: var(--text-dim) !important; 
+            font-weight: 600; 
+            margin: 0 10px; 
+            transition: 0.3s; 
+            font-size: 0.95rem; /* Font link diperkecil */
+        }
+        
         .nav-link:hover, .nav-link.active { color: var(--accent-yellow) !important; }
 
         /* BUTTONS */
         .btn-primary-custom {
             background-color: var(--accent-blue);
-            color: white; padding: 10px 25px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s;
+            color: white; 
+            /* REVISI: Padding tombol navbar diperkecil */
+            padding: 8px 20px; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            border: none; 
+            transition: 0.3s;
+            font-size: 0.9rem;
         }
+        
+        /* Tombol di body tetap besar */
+        .cta-section .btn-primary-custom, .pricing-card .btn-primary-custom {
+             padding: 10px 25px; font-size: 1rem;
+        }
+
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-3px); color: white; }
         
         .btn-outline-custom {
@@ -70,7 +103,9 @@
         .page-header {
             background: linear-gradient(rgba(15, 23, 42, 0.9), var(--bg-darkest)), url('asset/img/gambar paintball/download10.webp');
             background-size: cover; background-position: center;
-            padding: 80px 0 50px; border-bottom: 1px solid var(--border-color);
+            /* REVISI: Padding header dikurangi sedikit */
+            padding: 80px 0 50px; 
+            border-bottom: 1px solid var(--border-color);
         }
 
         /* PRICING CARDS */
@@ -129,12 +164,12 @@
             background: rgba(255,255,255,0.02);
         }
 
-        /* --- CTA SECTION (BARU) --- */
+        /* --- CTA SECTION --- */
         .cta-section {
             padding: 100px 0;
             background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.95)), url('https://images.unsplash.com/photo-1625055008381-6cb9b3fb08d9?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
-            background-attachment: fixed; /* Efek Parallax */
+            background-attachment: fixed;
             background-position: center;
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -161,12 +196,11 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="paket.html">Paket</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="paket.html">Paket</a></li> <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
                         <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
-                            <i class="fab fa-whatsapp me-2"></i>KONTAK
+                            <i class="fab fa-whatsapp me-2"></i> KONTAK
                         </a>
                     </li>
                 </ul>
@@ -369,7 +403,7 @@
                 <div class="col-lg-4 mb-4">
                     <h5 class="text-white mb-3 text-uppercase">Navigasi</h5>
                     <ul class="list-unstyled text-dim small">
-                        <li class="mb-2"><a href="about.html">Beranda</a></li>
+                        <li class="mb-2"><a href="index.html">Beranda</a></li>
                         <li class="mb-2"><a href="about.html">Tentang Kami</a></li>
                         <li class="mb-2"><a href="paket.html">Paket</a></li>
                     </ul>
