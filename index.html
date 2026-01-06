@@ -6,12 +6,11 @@
     <title>TACTICORE - Jasa Provider Paintball & Outbound Malang</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* KUSTOMISASI WARNA DI ATAS BOOTSTRAP */
+        /* --- DESIGN SYSTEM --- */
         :root {
             --bg-darkest: #0f172a;
             --bg-main: #1e293b;
@@ -23,15 +22,16 @@
             --border-color: #334155;
         }
 
+        /* BODY */
         body {
             background-color: var(--bg-darkest);
             color: var(--text-light);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 70px; 
         }
 
-        /* TYPOGRAPHY KHUSUS */
+        /* TYPOGRAPHY */
         h1, h2, h3, h4, .btn, .nav-link, .price-text, .gallery-title {
             font-family: 'Barlow Condensed', sans-serif;
             text-transform: uppercase;
@@ -40,53 +40,54 @@
         
         h1 { font-weight: 800; }
         
-        /* OVERRIDE BOOTSTRAP NAVBAR */
+        /* NAVBAR */
         .navbar {
             background-color: rgba(15, 23, 42, 0.95);
             border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
+            padding: 0.5rem 0; 
+            backdrop-filter: blur(10px);
         }
-        .navbar-brand { 
-            font-size: 1.8rem; font-weight: 800; font-style: italic; 
-            color: white !important; 
-        }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
         .navbar-brand span { color: var(--accent-blue); }
-        .nav-link { color: var(--text-dim) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
-        .nav-link:hover { color: var(--accent-yellow) !important; }
+        .nav-link { color: var(--text-dim) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-yellow) !important; }
 
-        /* BOOTSTRAP BUTTONS CUSTOM */
+        /* BUTTONS */
+        .btn {
+            border-width: 2px;
+            font-size: 0.9rem;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
         .btn-primary-custom {
             background-color: var(--accent-blue);
             color: white;
-            padding: 10px 25px;
-            border-radius: 6px;
-            font-weight: 700;
-            border: none;
-            transition: 0.3s;
+            border: 2px solid var(--accent-blue);
         }
         .btn-primary-custom:hover {
             background-color: #2563eb;
+            border-color: #2563eb;
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
         }
         .btn-outline-custom {
+            background-color: transparent;
             border: 2px solid var(--text-dim);
             color: var(--text-light);
-            padding: 10px 25px;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
         }
         .btn-outline-custom:hover {
             border-color: var(--accent-yellow);
             color: var(--accent-yellow);
+            background-color: transparent;
         }
+        .navbar .btn-primary-custom { padding: 8px 20px; }
 
         /* HERO SECTION */
         .hero-section {
-            padding: 100px 0 120px;
+            padding: 100px 0 120px; 
             background: linear-gradient(rgba(15, 23, 42, 0.85), var(--bg-darkest)), url('asset/img/gambar paintball/senjatapaintball.webp');
             background-size: cover;
             background-position: center;
@@ -97,123 +98,107 @@
             color: var(--accent-green);
         }
 
-        /* CARDS CUSTOMIZATION */
-        .step-card, .pricing-card {
-            background: var(--bg-main);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: 0.3s;
-        }
-        .step-card { padding: 30px; position: relative; height: 100%; }
-        .step-card:hover { transform: translateY(-5px); border-color: var(--accent-yellow); }
-        .step-number {
-            font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.05);
-            position: absolute; top: 10px; right: 20px;
-        }
-        .step-icon { color: var(--accent-yellow); font-size: 1.5rem; margin-right: 10px; }
-
-        /* GALLERY STYLES */
-        .gallery-card {
+        /* --- COOL TACTICAL ABOUT SECTION --- */
+        .tactical-about {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            cursor: pointer;
-            height: 250px;
+            background-color: var(--bg-darkest);
         }
-        .gallery-card img {
+        
+        /* Efek Pola Grid Background */
+        .bg-grid {
+            position: absolute; width: 100%; height: 100%; top:0; left:0;
+            background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        /* Tampilan Gambar Polygon */
+        .tactical-img-box {
+            position: relative;
+            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); /* Potong sudut */
+            transition: 0.5s;
+            background: #000;
+        }
+        .tactical-img-box img {
             width: 100%;
-            height: 100%;
+            height: 450px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            opacity: 0.8;
+            transition: 0.5s;
+            filter: contrast(1.1) saturate(0.8); /* Efek dramatis */
         }
-        .gallery-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.3s;
+        .tactical-img-box:hover img {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: contrast(1) saturate(1);
+        }
+        
+        /* Efek Scanline pada gambar */
+        .scanline-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.5) 4px);
             pointer-events: none;
+            z-index: 2;
         }
+
+        /* Dekorasi Sudut */
+        .corner-deco-top {
+            position: absolute; top: -15px; right: -15px; width: 80px; height: 80px;
+            border-top: 4px solid var(--accent-blue); border-right: 4px solid var(--accent-blue);
+            z-index: 3;
+        }
+        .corner-deco-bottom {
+            position: absolute; bottom: -15px; left: -15px; width: 80px; height: 80px;
+            border-bottom: 4px solid var(--accent-blue); border-left: 4px solid var(--accent-blue);
+            z-index: 3;
+        }
+
+        /* Text Styling */
+        .data-label { color: var(--accent-blue); letter-spacing: 3px; font-weight: 700; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        .mission-number { font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); line-height: 1; margin-right: 15px; }
+        .mission-title { font-size: 1.2rem; color: var(--accent-yellow); margin-bottom: 5px; font-weight: 700; text-transform: uppercase; }
+
+        /* CARDS */
+        .step-card, .pricing-card {
+            background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; transition: 0.3s;
+        }
+        .step-card { padding: 30px; height: 100%; position: relative; }
+        .step-card:hover { transform: translateY(-5px); border-color: var(--accent-yellow); }
+        .step-number { font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.05); position: absolute; top: 10px; right: 20px; }
+        .step-icon { color: var(--accent-yellow); font-size: 1.5rem; margin-right: 10px; }
+
+        /* GALLERY */
+        .gallery-card { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; height: 250px; }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; pointer-events: none; }
         .gallery-card:hover img { transform: scale(1.1); }
         .gallery-card:hover .gallery-overlay { opacity: 1; }
         .gallery-title { color: var(--accent-yellow); font-size: 1.2rem; font-weight: bold; }
 
-        /* LIGHTBOX STYLES */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            border: 2px solid var(--accent-blue);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-            border-radius: 4px;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px; right: 40px;
-            color: #fff; font-size: 50px; font-weight: bold;
-            cursor: pointer; transition: 0.3s; z-index: 10000; line-height: 1;
-        }
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); justify-content: center; align-items: center; animation: fadeIn 0.3s ease; }
+        .lightbox-content { max-width: 90%; max-height: 90%; border: 2px solid var(--accent-blue); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); border-radius: 4px; }
+        .close-btn { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 10000; line-height: 1; }
         .close-btn:hover { color: var(--accent-yellow); transform: scale(1.1); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* PRICING CARD FLEXBOX */
+        /* PRICING */
         .pricing-card { display: flex; flex-direction: column; overflow: hidden; }
-        .pricing-card.popular {
-            border: 2px solid var(--accent-blue);
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-            z-index: 2;
-        }
-        .pricing-header {
-            padding: 30px;
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(0,0,0,0.2);
-        }
+        .pricing-card.popular { border: 2px solid var(--accent-blue); transform: scale(1.03); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); z-index: 2; }
+        .pricing-header { padding: 30px; border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.2); }
         .price-text { font-size: 3.5rem; font-weight: 800; color: white; line-height: 1; }
-        
         .text-blue { color: var(--accent-blue) !important; }
         .text-yellow { color: var(--accent-yellow) !important; }
         .text-green { color: var(--accent-green) !important; }
-        .sub-heading {
-            color: var(--accent-blue);
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        .list-unstyled i { color: var(--accent-green); }
-        .badge-popular {
-            background-color: var(--accent-yellow); color: #000; font-weight: 800;
-            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px;
-        }
+        .sub-heading { color: var(--accent-blue); font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 10px; letter-spacing: 2px; }
+        .badge-popular { background-color: var(--accent-yellow); color: #000; font-weight: 800; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; }
 
         /* FACILITIES */
-        .facility-item {
-            display: flex; align-items: center;
-            background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-bottom: 15px;
-            border-left: 3px solid transparent; transition: 0.3s;
-        }
-        .facility-item:hover {
-            border-left: 3px solid var(--accent-green); background: rgba(255,255,255,0.05);
-        }
-        .facility-icon {
-            width: 40px; height: 40px; background: rgba(59, 130, 246, 0.1); color: var(--accent-blue);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;
-        }
+        .facility-item { display: flex; align-items: center; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 3px solid transparent; transition: 0.3s; }
+        .facility-item:hover { border-left: 3px solid var(--accent-green); background: rgba(255,255,255,0.05); }
+        .facility-icon { width: 40px; height: 40px; background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
 
         /* ACCORDION */
         .accordion-item { background: transparent; border: 1px solid var(--border-color); margin-bottom: 10px; }
@@ -228,7 +213,7 @@
         footer a:hover { color: var(--accent-blue); }
     </style>
 </head>
-<body id="about">
+<body id="home">
 
     <div id="galleryLightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn" onclick="closeLightbox()">×</span>
@@ -237,7 +222,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
             </a>
             <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -272,11 +257,71 @@
                     <p class="lead text-dim mb-5 mx-auto" style="max-width: 700px;">
                         Kami menyediakan jasa penyewaan lapangan paintball lengkap dengan instruktur, peralatan keamanan, dan skenario permainan seru.
                     </p>
+                    
                     <div class="d-flex justify-content-center gap-3">
                         <a href="paket.html" class="btn btn-primary-custom btn-lg">CEK HARGA PAKET</a>
                         <a href="gallery.html" class="btn btn-outline-custom btn-lg">LIHAT GALERI</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="tactical-about py-5">
+        <div class="bg-grid"></div> <div class="container py-5 position-relative" style="z-index: 2;">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="pe-lg-5">
+                        <span class="data-label">// CLASSIFIED DATA //</span>
+                        <h2 class="display-4 fw-bold text-white mb-4">ABOUT US</h2>
+                        <p class="text-dim lead mb-5 border-start border-3 border-primary ps-3" style="border-color: var(--accent-blue) !important;">
+                            Tacticore hadir sebagai solusi kegiatan luar ruang yang menggabungkan olahraga, strategi, dan rekreasi. Kami berdedikasi untuk memberikan pengalaman simulasi tempur yang aman namun tetap memacu adrenalin.
+                        </p>
+
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="d-flex align-items-center bg-dark bg-opacity-50 p-3 rounded border border-secondary">
+                                    <div class="mission-number">01</div>
+                                    <div>
+                                        <div class="mission-title">STANDAR INTERNASIONAL</div>
+                                        <p class="text-dim small mb-0">Unit Tippmann 98 Custom USA & Masker Thermal Anti-Kabut.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-center bg-dark bg-opacity-50 p-3 rounded border border-secondary">
+                                    <div class="mission-number">02</div>
+                                    <div>
+                                        <div class="mission-title">SAFETY PROTOCOL</div>
+                                        <p class="text-dim small mb-0">Instruktur & Marshal berpengalaman dengan sertifikasi keamanan.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="about.html" class="btn btn-outline-custom mt-4 rounded-0 position-relative ps-4 pe-4">
+                            <i class="fas fa-crosshairs me-2"></i> BACA SELENGKAPNYA
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="position-relative p-3">
+                        <div class="corner-deco-top"></div>
+                        <div class="corner-deco-bottom"></div>
+
+                        <div class="tactical-img-box">
+                            <img src="asset/img/gambar paintball/download2.webp" alt="Tacticore Action">
+                            <div class="scanline-overlay"></div> </div>
+
+                        <div class="position-absolute bottom-0 end-0 bg-primary text-white p-3 fw-bold shadow-lg" style="background: var(--accent-blue); bottom: 20px; right: 20px;">
+                            <small class="d-block text-white-50" style="font-size: 0.7rem;">ESTABLISHED</small>
+                            2018
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -304,7 +349,7 @@
         </div>
     </div>
 
-    <section class="py-5">
+    <section class="py-5" style="background: var(--bg-main);">
         <div class="container py-5">
             <div class="text-center mb-5">
                 <span class="sub-heading">PROSES MUDAH</span>
@@ -336,7 +381,7 @@
         </div>
     </section>
 
-    <section id="gallery" class="py-5" style="background: var(--bg-main);">
+    <section id="gallery" class="py-5">
         <div class="container py-5">
             <div class="text-center mb-5">
                 <span class="sub-heading">DOKUMENTASI AKSI</span>
@@ -384,7 +429,7 @@
         </div>
     </section>
 
-    <section id="paket" class="py-5">
+    <section id="paket" class="py-5" style="background: var(--bg-main);">
         <div class="container py-5">
             <div class="text-center mb-5">
                 <span class="sub-heading">DAFTAR HARGA SEWA</span>
@@ -458,7 +503,7 @@
         </div>
     </section>
 
-    <section id="fasilitas" class="py-5" style="background: var(--bg-main);">
+    <section id="fasilitas" class="py-5">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4">
@@ -496,7 +541,7 @@
                 <div class="col-lg-6">
                     <div class="card bg-dark border-0 overflow-hidden rounded-3 shadow">
                         <div style="width: 100%; height: 400px; background-color: #2a2a2a; display: flex; align-items: center; justify-content: center; color: #555;">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.437194682023!2d112.61248431450983!3d-7.953686694271383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827924d28ceb%3A0xaa542ad1d9a26315!2sLowokwaru%2C%20Malang%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1625550000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.210469275997!2d112.60742131477652!3d-7.977209994254823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788281bdd08839%3A0xc915f268bffa831f!2sUniversitas%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1679901234567!5m2!1sid!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <div class="card-body bg-dark border-top border-secondary">
                             <h5 class="text-white"><i class="fas fa-map-marker-alt text-blue me-2"></i>LOKASI BASECAMP</h5>
@@ -508,7 +553,7 @@
         </div>
     </section>
 
-    <section id="blog" class="py-5 bg-black">
+    <section id="faq" class="py-5 bg-black">
         <div class="container py-5">
             <h2 class="text-center mb-5 text-white">INFO & TIPS TERBARU</h2>
             <div class="row justify-content-center">
@@ -601,6 +646,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Lightbox Gallery
         function openLightbox(imgElement) {
             const lightbox = document.getElementById('galleryLightbox');
             const lightboxImg = document.getElementById('lightboxImg');
