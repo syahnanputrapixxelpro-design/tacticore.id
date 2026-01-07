@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamus Istilah Paintball - TACTICORE</title>
+    <title>Psikologi Adrenalin Paintball - TACTICORE</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,12 +54,17 @@
             color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
         .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
+        
+        .btn-outline-light { border: 2px solid var(--text-light); color: var(--text-light); font-weight: 700; padding: 10px 25px; }
+        .btn-outline-light:hover { background: white; color: black; border-color: white; }
 
-        /* HERO MINI */
+        /* HERO MINI (REVISED PADDING) */
         .page-header {
-            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.9), var(--bg-deep)), url('https://images.unsplash.com/photo-1563299796-b729d0af54a5?q=80&w=1925&auto=format&fit=crop');
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.9), var(--bg-deep)), url('https://images.unsplash.com/photo-1516972238977-89271fb2bab8?q=80&w=2070&auto=format&fit=crop');
             background-size: cover; background-position: center;
-            padding: 60px 0 40px; border-bottom: 1px solid var(--border-line);
+            /* REVISI: Padding atas 40px */
+            padding: 40px 0 40px; 
+            border-bottom: 1px solid var(--border-line);
         }
         .breadcrumb-item a { color: var(--text-grey); text-decoration: none; }
         .breadcrumb-item.active { color: var(--accent-blue); }
@@ -143,12 +148,6 @@
             font-size: 1.2rem;
         }
 
-        /* DEFINITION LIST STYLE */
-        .term-item { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); }
-        .term-item:last-child { border-bottom: none; }
-        .term-title { color: var(--accent-gold); font-weight: 800; font-family: 'Barlow Condensed'; font-size: 1.4rem; text-transform: uppercase; display: block; margin-bottom: 5px; }
-        .term-desc { color: var(--text-light); }
-
         /* FAQ */
         .accordion-item { background: transparent; border: 1px solid var(--border-line); margin-bottom: 10px; }
         .accordion-button { background: var(--bg-panel); color: var(--text-white); font-weight: bold; }
@@ -209,9 +208,110 @@
         .footer-icon { color: var(--accent-blue); margin-right: 10px; }
         footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
         footer a:hover { color: var(--accent-blue); }
+
+        /* --- FLOATING BUTTONS STYLE --- */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9990;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Tombol WA */
+        .btn-float-wa {
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .btn-float-wa:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Pulse Animation WA */
+        .btn-float-wa::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #25d366;
+            opacity: 0.7;
+            z-index: -1;
+            animation: pulse-wa 2s infinite;
+        }
+
+        @keyframes pulse-wa {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* Tombol Back Top */
+        .btn-back-top {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .btn-back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-back-top:hover {
+            background-color: #2563eb;
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 991px) {
+            /* Mobile Float */
+            .floating-container { bottom: 20px; right: 20px; }
+            .btn-float-wa { width: 50px; height: 50px; font-size: 26px; }
+            .btn-back-top { width: 40px; height: 40px; font-size: 18px; }
+        }
     </style>
 </head>
 <body>
+
+    <div class="floating-container">
+        <a href="#" class="btn-back-top" id="backToTop" title="Kembali ke Atas">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" class="btn-float-wa" target="_blank" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -239,7 +339,7 @@
 
     <section class="page-header text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold">TIPS PEMULA</h1>
+            <h1 class="display-4 fw-bold">EDUKASI SAINS</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
@@ -255,112 +355,74 @@
                 
                 <div class="col-lg-8">
                     <div class="article-container">
-                        <img src="asset/img/gambar paintball/download7.webp" alt="Istilah Paintball" class="article-img">
+                        <img src="asset/img/gambar paintball/download6.webp"  alt="Psikologi Adrenalin" class="article-img">
                         
                         <div class="article-meta">
-                            <span class="me-3"><i class="fas fa-calendar"></i> 22 Apr 2024</span>
-                            <span class="me-3"><i class="fas fa-folder"></i> Tips Pemula</span>
-                            <span class="me-3"><i class="fas fa-comments"></i> 4 Komentar</span>
+                            <span class="me-3"><i class="fas fa-calendar"></i> 10 Apr 2024</span>
+                            <span class="me-3"><i class="fas fa-folder"></i> Edukasi</span>
+                            <span class="me-3"><i class="fas fa-comments"></i> 9 Komentar</span>
                         </div>
 
-                        <h1 class="display-5 fw-bold text-white mb-4">KAMUS PAINTBALL: ISTILAH YANG WAJIB DIKETAHUI</h1>
+                        <h1 class="display-5 fw-bold text-white mb-4">PSIKOLOGI DI BALIK ADRENALIN PAINTBALL</h1>
 
                         <div class="toc-box">
                             <h5 class="toc-title">DAFTAR ISI</h5>
                             <ul class="toc-list">
-                                <li><a href="#safety"><i class="fas fa-angle-right me-2"></i>1. Istilah Keselamatan & Aturan</a></li>
-                                <li><a href="#tactic"><i class="fas fa-angle-right me-2"></i>2. Istilah Taktik Permainan</a></li>
-                                <li><a href="#equipment"><i class="fas fa-angle-right me-2"></i>3. Istilah Peralatan</a></li>
-                                <li><a href="#faq"><i class="fas fa-angle-right me-2"></i>FAQ Istilah</a></li>
+                                <li><a href="#fightflight"><i class="fas fa-angle-right me-2"></i>1. Respon "Fight or Flight"</a></li>
+                                <li><a href="#dopamine"><i class="fas fa-angle-right me-2"></i>2. Dopamine Rush</a></li>
+                                <li><a href="#focus"><i class="fas fa-angle-right me-2"></i>3. Hyper-Focus (Flow State)</a></li>
+                                <li><a href="#bonding"><i class="fas fa-angle-right me-2"></i>4. Bonding Through Stress</a></li>
+                                <li><a href="#faq"><i class="fas fa-angle-right me-2"></i>FAQ Psikologi</a></li>
                             </ul>
                         </div>
 
                         <div class="article-content">
-                            <p>Saat pertama kali masuk ke arena paintball, Anda mungkin akan mendengar instruktur atau pemain senior meneriakkan kata-kata asing seperti "Blind Fire!" atau "Deadbox!". Agar tidak bingung dan bisa bermain dengan aman serta sportif, berikut adalah kamus singkat istilah paintball yang wajib Anda pahami.</p>
+                            <p>Mengapa jantung kita berdegup sangat kencang saat bersembunyi di balik bunker? Mengapa ada perasaan sangat puas ketika berhasil membidik lawan? Paintball bukan sekadar aktivitas fisik; ini adalah permainan psikologis yang memicu berbagai reaksi kimia di otak kita. Mari kita bedah sains di balik sensasi tersebut.</p>
 
                             <div class="highlight-box">
-                                "Memahami istilah bukan hanya soal strategi, tapi juga soal keselamatan. Salah mengerti instruksi Marshal bisa berakibat fatal atau diskualifikasi."
+                                "Rasa takut terkena tembakan dalam paintball memicu respon purba manusia yang disebut 'Fight or Flight'. Ini adalah simulasi bahaya yang aman namun sangat nyata bagi otak."
                             </div>
 
-                            <h3 id="safety">1. ISTILAH KESELAMATAN & ATURAN</h3>
-                            
-                            <div class="term-item">
-                                <span class="term-title">BLIND FIRE (TEMBAKAN BUTA)</span>
-                                <span class="term-desc">Menembakkan senjata tanpa melihat ke arah target (misalnya hanya menjulurkan tangan keluar dari bunker). <strong>Ini sangat dilarang</strong> karena bisa mengenai wasit, penonton, atau pemain lain dalam jarak terlalu dekat.</span>
-                            </div>
+                            <h3 id="fightflight">1. RESPON "FIGHT OR FLIGHT"</h3>
+                            <p>Saat peluru mulai berdesing di dekat telinga Anda, otak reptil (amygdala) Anda mengirim sinyal bahaya. Tubuh seketika membanjiri sistem Anda dengan adrenalin dan kortisol. Pupil mata membesar untuk penglihatan lebih tajam, detak jantung meningkat untuk memompa darah ke otot, dan ambang rasa sakit meningkat. Dalam paintball, Anda secara sadar memilih "Fight" (Lawan) alih-alih "Flight" (Lari), yang melatih keberanian mental.</p>
 
-                            <div class="term-item">
-                                <span class="term-title">OVERSHOOTING</span>
-                                <span class="term-desc">Terus menembaki pemain lawan yang sudah mengangkat tangan atau berteriak "HIT". Ini dianggap tindakan tidak sportif dan agresif. Cukup 1-2 tembakan yang pecah untuk mengeliminasi lawan.</span>
-                            </div>
+                            <h3 id="dopamine">2. DOPAMINE RUSH (HORMON KEPUASAN)</h3>
+                            <p>Ketika Anda berhasil menyusun strategi, mengecoh lawan, dan akhirnya menembak sasaran ("Marked!"), otak melepaskan Dopamin. Ini adalah neurotransmitter yang memberikan rasa puas, senang, dan pencapaian (reward). Efek ini membuat paintball menjadi aktivitas yang adiktif dalam arti positif—Anda ingin mengulang perasaan sukses tersebut.</p>
 
-                            <div class="term-item">
-                                <span class="term-title">WIPING (MENGHAPUS)</span>
-                                <span class="term-desc">Tindakan curang di mana pemain menghapus cipratan cat di baju mereka agar terlihat belum tertembak. Jika ketahuan Marshal, sanksinya adalah diskualifikasi instan.</span>
-                            </div>
+                            <h3 id="focus">3. HYPER-FOCUS (STATE OF FLOW)</h3>
+                            <p>Pernahkah Anda merasa waktu seolah melambat saat bermain? Anda tidak memikirkan utang, pekerjaan, atau masalah rumah tangga. Fokus Anda hanya satu: bertahan hidup dan menang. Kondisi psikologis ini disebut <em>"Flow State"</em> atau <em>Hyper-focus</em>. Ini adalah bentuk meditasi aktif yang sangat efektif untuk mengistirahatkan otak dari stres kronis sehari-hari.</p>
 
-                            <h3 id="tactic">2. ISTILAH TAKTIK PERMAINAN</h3>
+                            <img src="asset/img/gambar paintball/download6.webp" alt="Fokus Tinggi Paintball" class="content-img">
+                            <small class="d-block text-center text-grey mb-4">Konsentrasi penuh saat membidik lawan.</small>
 
-                            <div class="term-item">
-                                <span class="term-title">BUNKER</span>
-                                <span class="term-desc">Objek apa pun di lapangan yang digunakan untuk berlindung (pohon, drum, ban bekas, atau balon udara).</span>
-                            </div>
-
-                            <div class="term-item">
-                                <span class="term-title">FRIENDLY FIRE</span>
-                                <span class="term-desc">Tidak sengaja menembak rekan satu tim sendiri. Hati-hati, tembakan dari teman tetap dihitung sebagai eliminasi (mati)!</span>
-                            </div>
-
-                            <img src="asset/img/gambar paintball/download.webp" alt="Taktik Flanking" class="content-img">
-                            <small class="d-block text-center text-grey mb-4">Ilustrasi taktik flanking (menyergap dari samping).</small>
-
-                            <div class="term-item">
-                                <span class="term-title">DEAD MAN WALKING</span>
-                                <span class="term-desc">Trik di mana pemain berjalan santai seolah-olah sudah tertembak (eliminasi) untuk mengecoh lawan, lalu tiba-tiba menembak. Trik ini legal di beberapa aturan tapi berisiko ditembak banyak orang.</span>
-                            </div>
-
-                            <div class="term-item">
-                                <span class="term-title">FLANKING</span>
-                                <span class="term-desc">Strategi menyerang musuh dari sisi samping atau belakang, bukan dari depan (frontal).</span>
-                            </div>
-
-                            <h3 id="equipment">3. ISTILAH PERALATAN</h3>
-                            
-                            <div class="term-item">
-                                <span class="term-title">BARREL SOCK / CONDOM</span>
-                                <span class="term-desc">Sarung pengaman yang wajib dipasang di ujung laras senjata saat berada di luar arena (Safe Zone) untuk mencegah peluru keluar jika pelatuk tidak sengaja tertekan.</span>
-                            </div>
-
-                            <div class="term-item">
-                                <span class="term-title">HOPPER / LOADER</span>
-                                <span class="term-desc">Wadah tempat menampung peluru yang berada di atas marker.</span>
-                            </div>
+                            <h3 id="bonding">4. BONDING THROUGH SHARED STRESS</h3>
+                            <p>Secara psikologis, manusia lebih cepat akrab ketika menghadapi "bahaya" bersama. Mengalami tekanan serangan musuh bersama rekan setim menciptakan ikatan emosional (bonding) yang jauh lebih kuat daripada sekadar makan siang bersama. Inilah alasan ilmiah mengapa paintball sangat efektif untuk Team Building perusahaan.</p>
 
                             <hr class="border-secondary my-5">
 
                             <h3 id="faq" class="mb-4">PERTANYAAN UMUM (FAQ)</h3>
-                            <div class="accordion mb-5" id="faqIstilah">
+                            <div class="accordion mb-5" id="faqPsikologi">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                            Apa arti teriakan "HIT"?
+                                            Apakah paintball bisa mengurangi stres kerja?
                                         </button>
                                     </h2>
-                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqIstilah">
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqPsikologi">
                                         <div class="accordion-body">
-                                            "HIT" adalah teriakan wajib saat Anda terkena tembakan dan pelurunya pecah. Ini menandakan Anda mengakui kekalahan dan keluar dari permainan.
+                                            Sangat bisa. Aktivitas fisik yang intens melepaskan endorfin (pereda nyeri alami) dan memaksa otak untuk "lupa" sejenak pada beban pekerjaan, memberikan efek refresh mental.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                            Apa itu "Marshal"?
+                                            Apakah anak-anak juga merasakan efek adrenalin ini?
                                         </button>
                                     </h2>
-                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqIstilah">
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqPsikologi">
                                         <div class="accordion-body">
-                                            Marshal adalah wasit di lapangan paintball. Mereka bertanggung jawab atas keamanan, memulai/menghentikan game, dan memutuskan apakah pemain terkena hit atau tidak.
+                                            Ya, namun dosisnya berbeda. Bagi anak-anak, ini melatih keberanian dan rasa percaya diri. Kami memastikan permainan anak-anak diawasi ketat agar tetap menyenangkan dan tidak traumatis.
                                         </div>
                                     </div>
                                 </div>
@@ -369,8 +431,8 @@
                             <div class="author-box">
                                 <img src="asset/img/gambar paintball/download2.webp" alt="Penulis" class="author-img">
                                 <div class="author-info">
-                                    <h5 class="author-name">RUDI SANTOSO</h5>
-                                    <p>Senior Marshal di Tacticore Malang. Telah memimpin lebih dari 500 pertandingan dan turnamen lokal.</p>
+                                    <h5 class="author-name">AHMAD BASWEDAN</h5>
+                                    <p>Praktisi Pengembangan SDM & Psikologi Olahraga. Fokus pada integrasi aktivitas luar ruang untuk kesehatan mental.</p>
                                 </div>
                             </div>
 
@@ -402,19 +464,19 @@
                         </div>
                         <div class="col-md-4">
                             <div class="related-card">
-                                <img src="asset/img/gambar paintball/download2.webp" class="related-thumb" alt="Safety">
+                                <img src="asset/img/gambar paintball/download3.webp" class="related-thumb" alt="Corporate">
                                 <div class="related-content">
-                                    <h6 class="related-title mb-2"><a href="blog-detail-2.html">Mengenal Gear Paintball Safety</a></h6>
-                                    <small class="text-grey">08 Feb 2024</small>
+                                    <h6 class="related-title mb-2"><a href="blog-detail-3.html">Manfaat Paintball Corporate</a></h6>
+                                    <small class="text-grey">20 Feb 2024</small>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="related-card">
-                                <img src="asset/img/gambar paintball/download6.webp" class="related-thumb" alt="Psikologi">
+                                <img src="asset/img/gambar paintball/download2.webp" class="related-thumb" alt="Safety">
                                 <div class="related-content">
-                                    <h6 class="related-title mb-2"><a href="blog-detail-6.html">Psikologi Adrenalin Paintball</a></h6>
-                                    <small class="text-grey">10 Apr 2024</small>
+                                    <h6 class="related-title mb-2"><a href="blog-detail-2.html">Mengenal Gear Paintball Safety</a></h6>
+                                    <small class="text-grey">08 Feb 2024</small>
                                 </div>
                             </div>
                         </div>
@@ -426,10 +488,10 @@
                     <div class="sticky-sidebar">
                         
                         <div class="promo-widget">
-                            <h4 class="mb-2">BINGUNG ISTILAH?</h4>
-                            <p class="small opacity-75 mb-3">Langsung praktek di lapangan! Instruktur kami siap membimbing.</p>
-                            <span class="promo-price">85K</span>
-                            <small class="d-block mb-4">/ Orang (Basic War)</small>
+                            <h4 class="mb-2">LEPAS STRESS?</h4>
+                            <p class="small opacity-75 mb-3">Teriak sepuasnya dan rasakan sensasi perang sesungguhnya!</p>
+                            <span class="promo-price">135K</span>
+                            <small class="d-block mb-4">/ Orang (Full Combat)</small>
                             <a href="paket.html" class="btn btn-outline-light w-100 fw-bold">LIHAT PAKET</a>
                         </div>
 
@@ -496,5 +558,23 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // --- Back to Top Logic ---
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
