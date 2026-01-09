@@ -5,26 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>TACTICORE - Jasa Provider Paintball & Outbound Malang Terpercaya</title>
-    <meta name="description" content="Jasa Provider Paintball & Outbound terbaik di Malang. Paket lengkap, peralatan safety standar internasional, dan instruktur profesional. Reservasi sekarang untuk gathering perusahaan atau komunitas.">
-    <meta name="keywords" content="paintball malang, outbound malang, jasa paintball, tacticore, gathering kantor malang, wisata batu malang, paket paintball murah">
+    <meta name="description" content="Jasa Provider Paintball & Outbound terbaik di Malang. Paket lengkap, peralatan safety standar internasional. Reservasi sekarang untuk gathering perusahaan.">
+    <meta name="keywords" content="paintball malang, outbound malang, jasa paintball, tacticore, gathering kantor malang, wisata batu malang">
     <meta name="author" content="TACTICORE Indonesia">
     <meta name="robots" content="index, follow">
-    
-    <link rel="canonical" href="https://tacticore.id/"> 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tacticore.id/">
-    <meta property="og:title" content="TACTICORE - Adrenalin Paintball & Outbound Malang">
-    <meta property="og:description" content="Rasakan sensasi pertempuran nyata dengan standar keamanan internasional. Booking jadwal main paintball Anda sekarang!">
-    <meta property="og:image" content="asset/img/gambar paintball/senjatapaintball.webp">
+    <meta name="theme-color" content="#0f172a"> 
 
-    <link rel="preload" as="image" href="asset/img/gambar paintball/senjatapaintball.webp">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" as="image" href="asset/img/gambar paintball/senjatapaintball.webp" fetchpriority="high">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SportsActivityLocation",
       "name": "TACTICORE Paintball & Outbound Malang",
-      "image": "asset/img/gambar paintball/senjatapaintball.webp",
+      "image": "https://tacticore.id/asset/img/gambar paintball/senjatapaintball.webp",
       "@id": "https://tacticore.id",
       "url": "https://tacticore.id",
       "telephone": "+62895639068080",
@@ -36,43 +42,9 @@
         "addressRegion": "Kota Malang",
         "postalCode": "65144",
         "addressCountry": "ID"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -7.9772099,
-        "longitude": 112.6074213
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "08:00",
-        "closes": "17:00"
       }
     }
     </script>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <meta name="theme-color" content="#0f172a"> 
-
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         /* --- DESIGN SYSTEM --- */
@@ -102,7 +74,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
         h1 { font-weight: 800; }
         
         /* NAVBAR */
@@ -117,7 +88,7 @@
         .nav-link { color: var(--text-dim) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-yellow) !important; }
 
-        /* BUTTONS */
+        /* BUTTONS - Kontras diperbaiki untuk Accessibility */
         .btn {
             border-width: 2px;
             font-size: 0.9rem;
@@ -150,12 +121,28 @@
         }
         .navbar .btn-primary-custom { padding: 8px 20px; }
 
-        /* HERO SECTION */
+        /* HERO SECTION - OPTIMIZED STRUCTURE */
         .hero-section {
+            position: relative;
             padding: 40px 0 120px; 
-            background: linear-gradient(rgba(15, 23, 42, 0.85), var(--bg-darkest)), url('asset/img/gambar paintball/senjatapaintball.webp');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
+            /* Fallback color while image loads */
+            background-color: var(--bg-darkest);
+        }
+        /* Trik Optimasi: Image Tag alih-alih background-image CSS */
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.4); /* Menggelapkan gambar agar teks terbaca */
+        }
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2; /* Di atas gambar */
         }
         .hero-badge {
             background-color: rgba(255, 255, 255, 0.1);
@@ -169,7 +156,6 @@
             overflow: hidden;
             background-color: var(--bg-darkest);
         }
-        
         .bg-grid {
             position: absolute; width: 100%; height: 100%; top:0; left:0;
             background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
@@ -177,7 +163,6 @@
             background-size: 40px 40px;
             z-index: 0;
         }
-
         .tactical-img-box {
             position: relative;
             clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
@@ -197,14 +182,12 @@
             transform: scale(1.05);
             filter: contrast(1) saturate(1);
         }
-        
         .scanline-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.5) 4px);
             pointer-events: none;
             z-index: 2;
         }
-
         .corner-deco-top {
             position: absolute; top: -15px; right: -15px; width: 80px; height: 80px;
             border-top: 4px solid var(--accent-blue); border-right: 4px solid var(--accent-blue);
@@ -301,13 +284,11 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
         .btn-float-wa:hover {
             background-color: #128c7e;
             transform: scale(1.1);
             color: white;
         }
-
         /* Pulse Animation WA */
         .btn-float-wa::before {
             content: '';
@@ -320,7 +301,6 @@
             z-index: -1;
             animation: pulse-wa 2s infinite;
         }
-
         @keyframes pulse-wa {
             0% { transform: scale(1); opacity: 0.7; }
             100% { transform: scale(1.6); opacity: 0; }
@@ -344,53 +324,39 @@
             visibility: hidden;
             transform: translateY(20px);
         }
-
-        .btn-back-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .btn-back-top:hover {
-            background-color: #2563eb;
-            transform: translateY(-5px);
-            color: white;
-        }
+        .btn-back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .btn-back-top:hover { background-color: #2563eb; transform: translateY(-5px); color: white; }
 
         /* Mobile Responsive Float */
         @media (max-width: 576px) {
-            .floating-container {
-                bottom: 20px;
-                right: 20px;
-            }
+            .floating-container { bottom: 20px; right: 20px; }
             .btn-float-wa { width: 50px; height: 50px; font-size: 26px; }
             .btn-back-top { width: 40px; height: 40px; font-size: 18px; }
         }
-
     </style>
 </head>
 <body id="home">
 
-    <div id="galleryLightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-btn" aria-label="Close Lightbox" onclick="closeLightbox()">×</span>
-        <img class="lightbox-content" id="lightboxImg" alt="Detail Gallery">
+    <div id="galleryLightbox" class="lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true" aria-label="Gambar Diperbesar">
+        <span class="close-btn" onclick="closeLightbox()" role="button" aria-label="Tutup" tabindex="0">×</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Detail Gambar Gallery">
     </div>
 
     <div class="floating-container">
-        <a href="#" class="btn-back-top" id="backToTop" title="Kembali ke Atas" aria-label="Kembali ke atas">
-            <i class="fas fa-arrow-up"></i>
+        <a href="#" class="btn-back-top" id="backToTop" title="Kembali ke Atas" aria-label="Kembali ke atas halaman">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
         </a>
-        <a href="https://wa.me/62895639068080" class="btn-float-wa" target="_blank" title="Chat WhatsApp" aria-label="Hubungi kami via WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/62895639068080" class="btn-float-wa" target="_blank" title="Chat WhatsApp" aria-label="Hubungi kami di WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
     </div>
 
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            <a class="navbar-brand" href="index.html" aria-label="Tacticore Home">
+                <i class="fas fa-shield-alt me-2" aria-hidden="true"></i>TACTICORE<span>.ID</span>
             </a>
-            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fas fa-bars text-white"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -400,8 +366,8 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
-                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
-                            <i class="fab fa-whatsapp me-2"></i>KONTAK
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank" aria-label="Kontak WhatsApp">
+                            <i class="fab fa-whatsapp me-2" aria-hidden="true"></i>KONTAK
                         </a>
                     </li>
                 </ul>
@@ -410,11 +376,17 @@
     </nav>
 
     <section class="hero-section text-center">
-        <div class="container">
+        <img src="asset/img/gambar paintball/senjatapaintball.webp" 
+             alt="Pertempuran Paintball Malang" 
+             class="hero-bg-img" 
+             width="1920" height="1080" 
+             fetchpriority="high">
+             
+        <div class="container hero-content-wrapper">
             <div class="row justify-content-center">
                 <div class="col-lg-9">
                     <div class="d-inline-block px-3 py-1 rounded-pill mb-3 hero-badge">
-                        <small class="fw-bold tracking-wide"><i class="fas fa-check-circle me-1"></i> PROVIDER OUTBOUND TERPERCAYA</small>
+                        <small class="fw-bold tracking-wide"><i class="fas fa-check-circle me-1" aria-hidden="true"></i> PROVIDER OUTBOUND TERPERCAYA</small>
                     </div>
                     <h1 class="display-3 mb-4 text-white">JADIKAN MOMEN GATHERING<br>
                         <span class="text-yellow">LEBIH MEMACU ADRENALIN</span>
@@ -433,7 +405,8 @@
     </section>
 
     <section id="about" class="tactical-about py-5">
-        <div class="bg-grid"></div> <div class="container py-5 position-relative" style="z-index: 2;">
+        <div class="bg-grid"></div> 
+        <div class="container py-5 position-relative" style="z-index: 2;">
             <div class="row align-items-center">
                 
                 <div class="col-lg-6 mb-5 mb-lg-0">
@@ -465,8 +438,8 @@
                             </div>
                         </div>
 
-                        <a href="about.html" class="btn btn-outline-custom mt-4 rounded-0 position-relative ps-4 pe-4">
-                            <i class="fas fa-crosshairs me-2"></i> BACA SELENGKAPNYA
+                        <a href="about.html" class="btn btn-outline-custom mt-4 rounded-0 position-relative ps-4 pe-4" aria-label="Baca selengkapnya tentang kami">
+                            <i class="fas fa-crosshairs me-2" aria-hidden="true"></i> BACA SELENGKAPNYA
                         </a>
                     </div>
                 </div>
@@ -477,8 +450,9 @@
                         <div class="corner-deco-bottom"></div>
 
                         <div class="tactical-img-box">
-                            <img src="asset/img/gambar paintball/download2.webp" alt="Aksi Paintball Tacticore Malang" width="600" height="450" loading="lazy">
-                            <div class="scanline-overlay"></div> </div>
+                            <img src="asset/img/gambar paintball/download2.webp" alt="Tacticore Action Paintball" width="600" height="450" loading="lazy">
+                            <div class="scanline-overlay"></div> 
+                        </div>
 
                         <div class="position-absolute bottom-0 end-0 bg-primary text-white p-3 fw-bold shadow-lg" style="background: var(--accent-blue); bottom: 20px; right: 20px;">
                             <small class="d-block text-white-50" style="font-size: 0.7rem;">ESTABLISHED</small>
@@ -524,21 +498,21 @@
                 <div class="col-md-4">
                     <div class="step-card">
                         <span class="step-number">01</span>
-                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-list-alt step-icon"></i>PILIH PAKET</h4>
+                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-list-alt step-icon" aria-hidden="true"></i>PILIH PAKET</h4>
                         <p class="text-dim">Tentukan paket yang sesuai dengan budget dan jumlah peserta tim Anda (Min. 10 Orang).</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="step-card">
                         <span class="step-number">02</span>
-                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-calendar-check step-icon"></i>BOOKING TANGGAL</h4>
+                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-calendar-check step-icon" aria-hidden="true"></i>BOOKING TANGGAL</h4>
                         <p class="text-dim">Hubungi admin kami via WhatsApp untuk cek ketersediaan slot lapangan di tanggal yang diinginkan.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="step-card">
                         <span class="step-number">03</span>
-                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-gamepad step-icon"></i>DATANG & MAIN</h4>
+                        <h4 class="text-white mb-3 mt-2"><i class="fas fa-gamepad step-icon" aria-hidden="true"></i>DATANG & MAIN</h4>
                         <p class="text-dim">Datang ke lokasi sesuai jadwal. Briefing, pemakaian alat, dan permainan akan dipandu instruktur.</p>
                     </div>
                 </div>
@@ -555,39 +529,39 @@
             </div>
             <div class="row g-3">
                 <div class="col-md-4 col-sm-6">
-                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="asset/img/gambar paintball/download.webp" alt="Arena Urban Paintball Malang" width="400" height="250" loading="lazy">
-                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))" role="button" aria-label="Lihat gambar Arena Urban" tabindex="0">
+                        <img src="asset/img/gambar paintball/download.webp" alt="Arena Urban Paintball" width="400" height="250" loading="lazy">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2" aria-hidden="true"></i>ZOOM</span></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="asset/img/gambar paintball/download1.webp" alt="Team Building Paintball Action" width="400" height="250" loading="lazy">
-                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))" role="button" aria-label="Lihat gambar Team Action" tabindex="0">
+                        <img src="asset/img/gambar paintball/download1.webp" alt="Team Action Paintball" width="400" height="250" loading="lazy">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2" aria-hidden="true"></i>ZOOM</span></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="asset/img/gambar paintball/download2.webp" alt="Peralatan Safety Paintball Lengkap" width="400" height="250" loading="lazy">
-                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))" role="button" aria-label="Lihat gambar Equipment" tabindex="0">
+                        <img src="asset/img/gambar paintball/download2.webp" alt="Equipment Paintball" width="400" height="250" loading="lazy">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2" aria-hidden="true"></i>ZOOM</span></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="asset/img/gambar paintball/download3.webp" alt="Briefing Keamanan Paintball" width="400" height="250" loading="lazy">
-                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))" role="button" aria-label="Lihat gambar Briefing" tabindex="0">
+                        <img src="asset/img/gambar paintball/download3.webp" alt="Briefing Paintball" width="400" height="250" loading="lazy">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2" aria-hidden="true"></i>ZOOM</span></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="asset/img/gambar paintball/download4.webp" alt="Shooting Action Shot Tacticore" width="400" height="250" loading="lazy">
-                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))" role="button" aria-label="Lihat gambar Action Shot" tabindex="0">
+                        <img src="asset/img/gambar paintball/download4.webp" alt="Action Shot Paintball" width="400" height="250" loading="lazy">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2" aria-hidden="true"></i>ZOOM</span></div>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="asset/img/gambar paintball/download5.webp" alt="Arena Jungle Paintball" width="400" height="250" loading="lazy">
-                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2"></i>ZOOM</span></div>
+                    <div class="gallery-card" onclick="openLightbox(this.querySelector('img'))" role="button" aria-label="Lihat gambar Jungle Arena" tabindex="0">
+                        <img src="asset/img/gambar paintball/download5.webp" alt="Jungle Arena Paintball" width="400" height="250" loading="lazy">
+                        <div class="gallery-overlay"><span class="gallery-title"><i class="fas fa-search-plus me-2" aria-hidden="true"></i>ZOOM</span></div>
                     </div>
                 </div>
             </div>
@@ -612,11 +586,11 @@
                         </div>
                         <div class="p-4 d-flex flex-column flex-grow-1">
                             <ul class="list-unstyled text-light lh-lg mb-4">
-                                <li><i class="fas fa-check-circle me-2"></i>Sewa Senjata (Marker)</li>
-                                <li><i class="fas fa-check-circle me-2"></i>30 Butir Peluru</li>
-                                <li><i class="fas fa-check-circle me-2"></i>Seragam Tim & Google Mask</li>
-                                <li><i class="fas fa-check-circle me-2"></i>Durasi 60 Menit</li>
-                                <li><i class="fas fa-check-circle me-2"></i>Air Mineral</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Sewa Senjata (Marker)</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>30 Butir Peluru</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Seragam Tim & Google Mask</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Durasi 60 Menit</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Air Mineral</li>
                             </ul>
                             <a href="paket-basic.html" class="btn btn-outline-custom w-100 mt-auto">LIHAT DETAIL</a>
                         </div>
@@ -633,12 +607,12 @@
                         </div>
                         <div class="p-4 d-flex flex-column flex-grow-1">
                             <ul class="list-unstyled text-light lh-lg fw-bold mb-4">
-                                <li><i class="fas fa-check-circle me-2"></i>Sewa Senjata (Marker)</li>
-                                <li><i class="fas fa-check-circle me-2"></i><strong>100 Butir Peluru</strong></li>
-                                <li><i class="fas fa-check-circle me-2"></i>Seragam & Google Mask</li>
-                                <li><i class="fas fa-check-circle me-2"></i><strong>Body Vest (Rompi)</strong></li>
-                                <li><i class="fas fa-check-circle me-2"></i>Durasi 90-120 Menit</li>
-                                <li><i class="fas fa-check-circle me-2"></i>Dokumentasi Foto</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Sewa Senjata (Marker)</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i><strong>100 Butir Peluru</strong></li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Seragam & Google Mask</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i><strong>Body Vest (Rompi)</strong></li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Durasi 90-120 Menit</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Dokumentasi Foto</li>
                             </ul>
                             <a href="paket-full.html" class="btn btn-primary-custom w-100 mt-auto">LIHAT DETAIL</a>
                         </div>
@@ -654,11 +628,11 @@
                         </div>
                         <div class="p-4 d-flex flex-column flex-grow-1">
                             <ul class="list-unstyled text-light lh-lg mb-4">
-                                <li><i class="fas fa-check-circle me-2"></i>Paket Full Combat (100 Peluru)</li>
-                                <li><i class="fas fa-check-circle me-2"></i><strong>Makan Siang (Box)</strong></li>
-                                <li><i class="fas fa-check-circle me-2"></i>Coffee Break & Snack</li>
-                                <li><i class="fas fa-check-circle me-2"></i>Aula / Ruang Meeting</li>
-                                <li><i class="fas fa-check-circle me-2"></i>Program Team Building</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Paket Full Combat (100 Peluru)</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i><strong>Makan Siang (Box)</strong></li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Coffee Break & Snack</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Aula / Ruang Meeting</li>
+                                <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>Program Team Building</li>
                             </ul>
                             <a href="paket-corporate.html" class="btn btn-outline-custom w-100 mt-auto">LIHAT DETAIL</a>
                         </div>
@@ -679,25 +653,25 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="facility-item">
-                                <div class="facility-icon"><i class="fas fa-parking"></i></div>
+                                <div class="facility-icon"><i class="fas fa-parking" aria-hidden="true"></i></div>
                                 <div><span class="text-white fw-bold">Area Parkir Luas</span><br><small class="text-dim">Bus & Mobil Pribadi</small></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="facility-item">
-                                <div class="facility-icon"><i class="fas fa-shower"></i></div>
+                                <div class="facility-icon"><i class="fas fa-shower" aria-hidden="true"></i></div>
                                 <div><span class="text-white fw-bold">Toilet & Shower</span><br><small class="text-dim">Bersih & Terpisah</small></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="facility-item">
-                                <div class="facility-icon"><i class="fas fa-mosque"></i></div>
+                                <div class="facility-icon"><i class="fas fa-mosque" aria-hidden="true"></i></div>
                                 <div><span class="text-white fw-bold">Musholla</span><br><small class="text-dim">Kapasitas 20 Orang</small></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="facility-item">
-                                <div class="facility-icon"><i class="fas fa-utensils"></i></div>
+                                <div class="facility-icon"><i class="fas fa-utensils" aria-hidden="true"></i></div>
                                 <div><span class="text-white fw-bold">Kantin / Cafe</span><br><small class="text-dim">Makanan Berat & Ringan</small></div>
                             </div>
                         </div>
@@ -706,10 +680,10 @@
                 <div class="col-lg-6">
                     <div class="card bg-dark border-0 overflow-hidden rounded-3 shadow">
                         <div style="width: 100%; height: 400px; background-color: #2a2a2a; display: flex; align-items: center; justify-content: center; color: #555;">
-                            <iframe title="Lokasi Tacticore" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.210469275997!2d112.60742131477652!3d-7.977209994254823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788281bdd08839%3A0xc915f268bffa831f!2sUniversitas%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1679901234567!5m2!1sid!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe title="Lokasi Tacticore Malang" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.210469275997!2d112.60742131477652!3d-7.977209994254823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788281bdd08839%3A0xc915f268bffa831f!2sUniversitas%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1679901234567!5m2!1sid!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <div class="card-body bg-dark border-top border-secondary">
-                            <h5 class="text-white"><i class="fas fa-map-marker-alt text-blue me-2"></i>LOKASI BASECAMP</h5>
+                            <h5 class="text-white"><i class="fas fa-map-marker-alt text-blue me-2" aria-hidden="true"></i>LOKASI BASECAMP</h5>
                             <p class="text-dim small mb-0">Jl. Raya Tlogomas No. 99, Kec. Lowokwaru, Kota Malang.</p>
                         </div>
                     </div>
@@ -726,7 +700,7 @@
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item bg-dark border-secondary mb-3">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
                                     Tips Aman Bermain Paintball untuk Pemula
                                 </button>
                             </h2>
@@ -738,7 +712,7 @@
                         </div>
                         <div class="accordion-item bg-dark border-secondary mb-3">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
                                     Apa yang harus disiapkan sebelum datang?
                                 </button>
                             </h2>
@@ -750,7 +724,7 @@
                         </div>
                         <div class="accordion-item bg-dark border-secondary mb-3">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
                                     Apakah sakit jika terkena tembakan paintball?
                                 </button>
                             </h2>
@@ -762,7 +736,7 @@
                         </div>
                         <div class="accordion-item bg-dark border-secondary mb-3">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
                                     Berapa minimal usia untuk bisa bermain?
                                 </button>
                             </h2>
@@ -796,9 +770,9 @@
                 <div class="col-lg-4 mb-4">
                     <h5 class="text-white mb-3 text-uppercase">Kontak Admin</h5>
                     <ul class="list-unstyled text-dim small">
-                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
-                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
-                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon" aria-hidden="true"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon" aria-hidden="true"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon" aria-hidden="true"></i>Buka Setiap Hari: 08.00 - 17.00</li>
                     </ul>
                 </div>
             </div>
@@ -808,7 +782,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     
     <script>
         // Lightbox Gallery
