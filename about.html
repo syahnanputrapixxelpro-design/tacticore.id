@@ -3,35 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - TACTICORE</title>
     
+    <title>Tentang TACTICORE - Provider Paintball & Outbound Profesional</title>
+    <meta name="description" content="Mengenal TACTICORE Indonesia: Provider jasa Paintball, Outbound, dan Team Building profesional dengan standar keamanan internasional dan instruktur bersertifikat.">
+    <meta name="keywords" content="tentang tacticore, profil perusahaan paintball, provider outbound jakarta bogor, eo paintball profesional, sejarah tacticore, visi misi perusahaan">
+    <meta name="author" content="TACTICORE Management">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.tacticore.id/about.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tentang TACTICORE - Profesional Paintball Provider">
+    <meta property="og:description" content="Mitra terpercaya untuk kegiatan outdoor, gathering perusahaan, dan simulasi tempur yang aman.">
+    <meta property="og:image" content="asset/img/gambar paintball/download2.webp">
+    <meta property="og:url" content="https://www.tacticore.id/about.html">
+    <meta property="og:site_name" content="TACTICORE Indonesia">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "TACTICORE Paintball",
+      "image": "asset/img/logo.png",
+      "description": "Provider layanan paintball dan outbound training profesional di Indonesia.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bogor",
+        "addressRegion": "Jawa Barat",
+        "addressCountry": "ID"
+      },
+      "telephone": "+62895639068080",
+      "url": "https://www.tacticore.id",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/favicon/favicon-16x16.png">
+    <link rel="manifest" href="asset/favicon/site.webmanifest">
+
+    <link rel="preload" as="image" href="asset/img/gambar paintball/download12.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- SYSTEM DESIGN KONSISTEN --- */
+        /* --- DESIGN SYSTEM KONSISTEN --- */
         :root {
-            --bg-deep: #0B0F19;
-            --bg-panel: #161F32;
-            --accent-blue: #3B82F6;
-            --accent-gold: #F59E0B;
-            --text-white: #FFFFFF;
-            --text-light: #E2E8F0;
-            --text-grey: #94A3B8;
+            --bg-deep: #0B0F19;       
+            --bg-panel: #161F32;      
+            --accent-blue: #3B82F6;   
+            --accent-gold: #F59E0B;   
+            --text-white: #FFFFFF;    
+            --text-light: #E2E8F0;    
+            --text-grey: #94A3B8;     
             --border-line: rgba(255, 255, 255, 0.15);
         }
 
-        /* BODY ADJUSTMENT */
         body {
             background-color: var(--bg-deep);
             color: var(--text-light); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 70px; 
+            padding-top: 70px; /* Navbar pendek */
         }
 
-        h1, h2, h3, h4, h5, .nav-link, .btn, .stat-number, .timeline-year, .cta-title {
+        h1, h2, h3, h4, h5, .nav-link, .btn, .stat-number {
             font-family: 'Barlow Condensed', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -50,153 +105,77 @@
         .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
-        /* BUTTONS */
         .btn-primary-custom {
             background-color: var(--accent-blue);
             color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
         }
-        .creative-hero .btn-primary-custom, .cta-section .btn-primary-custom { padding: 12px 30px; font-size: 1rem; }
-        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59,130,246,0.3); }
-        .btn-outline-light { border-width: 2px; font-weight: 700; padding: 12px 30px; }
-        .btn-outline-light:hover { background-color: white; color: black !important; }
+        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
-        /* --- HERO SECTION (REVISED PADDING) --- */
-        .creative-hero { 
-            padding: 40px 0 80px; /* Jarak atas dipendekkan dari 80px ke 40px */
-            position: relative; 
-            overflow: hidden; 
-        }
-        .hero-img-box {
-            position: relative;
-            z-index: 1;
-            padding: 10px;
-            display: flex;
-            flex-direction: column; 
-        }
-        .hero-img-main {
-            width: 100%; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-line);
-            filter: grayscale(20%); 
-            transition: 0.5s;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            min-height: 350px;
-            background-color: var(--bg-panel);
-            object-fit: cover;
-            order: 1; 
-        }
-        .hero-img-main:hover { filter: grayscale(0%); border-color: var(--accent-blue); }
-        
-        .hero-decor-box {
-            position: absolute; 
-            bottom: 0px; 
-            right: 0px; 
-            background: var(--bg-panel);
-            padding: 25px; 
-            border-left: 4px solid var(--accent-gold); 
-            border-radius: 8px;
-            width: 260px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-            z-index: 2;
-            border: 1px solid var(--border-line);
-            order: 2; 
-        }
-
-        /* --- STATS SECTION --- */
-        .stats-section {
-            background: var(--bg-panel);
-            border-top: 1px solid var(--border-line);
+        /* HERO MINI */
+        .page-header {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.8), var(--bg-deep)), url('asset/img/gambar paintball/download12.webp');
+            background-size: cover; background-position: center;
+            /* REVISI: Padding atas dikurangi jadi 40px */
+            padding: 40px 0 50px; 
             border-bottom: 1px solid var(--border-line);
-            padding: 60px 0;
         }
-        .stat-card {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            height: 100%;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .breadcrumb-item a { color: var(--text-grey); text-decoration: none; }
+        .breadcrumb-item.active { color: var(--accent-blue); }
+
+        /* ABOUT CONTENT */
+        .about-img-box {
+            position: relative;
+            padding-bottom: 30px;
+            padding-right: 30px;
         }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            background: rgba(59, 130, 246, 0.05);
+        .about-main-img {
+            width: 100%; border-radius: 12px; border: 1px solid var(--border-line);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative; z-index: 2;
         }
-        .stat-number { 
-            font-size: 3.5rem; 
-            font-weight: 800; 
-            color: var(--accent-blue); 
-            line-height: 1; 
-            margin-bottom: 10px;
-            display: block; 
-        }
-        .stat-label { 
-            font-size: 0.85rem; 
-            color: var(--text-grey); 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            font-weight: 600; 
+        .about-pattern {
+            position: absolute; bottom: 0; right: 0; width: 50%; height: 50%;
+            background-color: var(--accent-blue); opacity: 0.1; z-index: 1; border-radius: 12px;
         }
 
-        /* --- JOURNEY IMAGES --- */
-        .journey-img {
-            width: 100%;
-            height: 250px; 
-            object-fit: cover;
-            border-radius: 8px;
+        /* FEATURES ICON BOX */
+        .feature-box {
+            background: var(--bg-panel);
             border: 1px solid var(--border-line);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
             transition: 0.3s;
+            height: 100%;
         }
-        .journey-img:hover {
-            transform: scale(1.05);
-            border-color: var(--accent-blue);
+        .feature-box:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
+        .feature-icon {
+            font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;
         }
 
-        /* --- TIMELINE --- */
-        .timeline-wrapper { position: relative; padding: 50px 0; }
-        .timeline-line {
-            position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
-            background: var(--border-line); transform: translateX(-50%);
+        /* STATS SECTION */
+        .stats-section {
+            background: url('asset/img/gambar paintball/download.webp') no-repeat center center/cover;
+            position: relative;
+            padding: 80px 0;
+            background-attachment: fixed;
         }
-        
-        .timeline-item { 
-            margin-bottom: 120px; 
-            position: relative; 
-            width: 100%; 
-            clear: both; 
+        .stats-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 15, 25, 0.9);
         }
-        
-        .timeline-content {
-            background: var(--bg-panel); padding: 30px; border-radius: 12px; border: 1px solid var(--border-line);
-            width: 45%; position: relative; transition: 0.3s;
-        }
-        .timeline-content:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
-        .timeline-item:nth-child(odd) .timeline-content { float: left; text-align: right; }
-        .timeline-item:nth-child(even) .timeline-content { float: right; text-align: left; }
-        .timeline-dot {
-            position: absolute; left: 50%; top: 20px; width: 20px; height: 20px;
-            background: var(--accent-blue); border: 4px solid var(--bg-deep);
-            border-radius: 50%; transform: translateX(-50%); z-index: 2;
-            box-shadow: 0 0 10px rgba(59,130,246,0.5);
-        }
-        .timeline-year { color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 10px; display: block; font-weight: 700; }
-        .timeline-wrapper::after { content: ""; display: table; clear: both; }
+        .stat-item { position: relative; z-index: 2; text-align: center; margin-bottom: 30px; }
+        .stat-number { font-size: 3.5rem; font-weight: 800; color: var(--accent-blue); display: block; margin-bottom: 5px; }
+        .stat-label { font-family: 'Inter'; font-size: 1rem; color: var(--text-grey); letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- CTA SECTION --- */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.95)), url('asset/img/gambar paintball/download1.webp');
-            background-size: cover; background-attachment: fixed; background-position: center;
-            border-top: 1px solid var(--border-line); text-align: center;
+        /* TEAM / VISI MISI */
+        .vision-box {
+            border-left: 4px solid var(--accent-blue);
+            background: rgba(255,255,255,0.02);
+            padding: 30px;
+            height: 100%;
         }
-        .cta-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
 
-        /* --- FOOTER --- */
+        /* FOOTER */
         footer { background: #05080f; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
         .footer-icon { color: var(--accent-blue); margin-right: 10px; }
         footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
@@ -288,29 +267,10 @@
 
         /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 991px) {
-            .hero-img-box { margin-top: 30px; display: flex; flex-direction: column; }
-            .hero-decor-box { position: relative; bottom: auto; right: auto; width: 100%; margin-bottom: 20px; order: 1; padding: 20px; }
-            .hero-img-main { order: 2; min-height: 250px; }
+            .about-img-box { padding: 0; margin-bottom: 30px; }
+            .about-pattern { display: none; }
+            .display-4 { font-size: 2.5rem; }
             
-            .journey-img { height: 140px !important; }
-
-            .creative-hero .d-flex, .cta-section .d-flex { flex-direction: column; width: 100%; }
-            .creative-hero .btn, .cta-section .btn { width: 100%; margin-bottom: 10px; font-size: 0.95rem; padding: 10px 0; }
-
-            .display-3 { font-size: 2.5rem; }
-            .cta-title { font-size: 2.2rem; }
-            
-            .timeline-line { left: 20px; transform: none; }
-            
-            .timeline-item { margin-bottom: 70px; }
-            
-            .timeline-content { width: calc(100% - 50px); float: right !important; text-align: left !important; margin-left: 50px; padding: 20px; }
-            .timeline-dot { left: 20px; transform: translateX(-50%); }
-            
-            .stats-section .row { --bs-gutter-x: 1rem; --bs-gutter-y: 1.5rem; } 
-            .stat-number { font-size: 2.5rem; margin-bottom: 5px; } 
-            .stat-card { padding: 25px 15px; border-radius: 12px; background: rgba(255, 255, 255, 0.03); }
-
             /* Mobile Float */
             .floating-container { bottom: 20px; right: 20px; }
             .btn-float-wa { width: 50px; height: 50px; font-size: 26px; }
@@ -338,8 +298,8 @@
                 <span class="fas fa-bars text-white"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center"> 
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li> 
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -353,26 +313,49 @@
         </div>
     </nav>
 
-    <section class="creative-hero">
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">TENTANG KAMI</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
-                    <span class="text-white bg-primary bg-opacity-25 px-3 py-1 rounded-1 small fw-bold mb-3 d-inline-block border border-primary border-opacity-25">SINCE 2018</span>
-                    <h1 class="display-3 fw-bold mb-4">MEMBANGUN MENTAL <br><span style="color: var(--accent-blue);">JUARA & STRATEGI</span></h1>
-                    <p class="text-grey lead mb-4" style="line-height: 1.8;">
-                        Tacticore bukan sekadar penyedia lapangan paintball. Kami adalah arsitek pengalaman yang menggabungkan adrenalin, kepemimpinan, dan kerjasama tim dalam satu arena pertempuran simulasi yang aman dan profesional.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a href="paket.html" class="btn btn-outline-light rounded-1 px-4 py-2 fw-bold">LIHAT PAKET KAMI</a>
+                <div class="col-lg-6">
+                    <div class="about-img-box">
+                        <img src="asset/img/gambar paintball/download2.webp" alt="Tim Tacticore" class="about-main-img" fetchpriority="high">
+                        <div class="about-pattern"></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="hero-img-box">
-                        <div class="hero-decor-box">
-                            <h4 class="h5 mb-1"><i class="fas fa-crosshairs me-2 text-warning"></i>MISI KAMI</h4>
-                            <p class="text-grey small mb-0">Menciptakan simulasi tempur paling realistis dan aman di Jawa Timur.</p>
+                    <h5 class="text-gold mb-2">SIAPA KAMI?</h5>
+                    <h2 class="display-5 text-white fw-bold mb-4">LEBIH DARI SEKADAR PERMAINAN PERANG</h2>
+                    <p class="mb-4">
+                        TACTICORE Indonesia didirikan pada tahun 2020 oleh sekumpulan profesional yang memiliki passion di bidang outdoor activity dan pengembangan SDM. Kami percaya bahwa Paintball bukan hanya sekadar tembak-menembak, melainkan sebuah metode efektif untuk membangun karakter, kepemimpinan, dan kerjasama tim.
+                    </p>
+                    <p class="mb-4">
+                        Dengan pengalaman menangani ratusan event corporate dan grup, kami berkomitmen menghadirkan pengalaman simulasi tempur yang <strong>Aman, Profesional, dan Tak Terlupakan</strong>.
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="border-start border-primary border-4 ps-3">
+                                <h4 class="mb-1">SAFETY FIRST</h4>
+                                <small class="text-grey">Peralatan standar internasional</small>
+                            </div>
                         </div>
-                        <img src="asset/img/gambar paintball/download5.webp" class="hero-img-main" alt="Team Paintball">
+                        <div class="col-6">
+                            <div class="border-start border-warning border-4 ps-3">
+                                <h4 class="mb-1">PRO INSTRUCTOR</h4>
+                                <small class="text-grey">Tim fasilitator berpengalaman</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -380,30 +363,63 @@
     </section>
 
     <section class="stats-section">
-        <div class="container">
-            <div class="row g-3 g-md-4">
-                <div class="col-6 col-md-3">
-                    <div class="stat-card">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Tahun<br>Pengalaman</span>
+        <div class="stats-overlay"></div>
+        <div class="container position-relative z-2">
+            <div class="row text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Event Sukses</span>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-card">
-                        <span class="stat-number">30K+</span>
-                        <span class="stat-label">Pemain<br>Puas</span>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Peserta Happy</span>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-card">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Corporate<br>Events</span>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Corporate Client</span>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-card">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">Safety<br>Record</span>
+                        <span class="stat-label">Safety Record</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-panel">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h5 class="text-gold">MENGAPA KAMI?</h5>
+                <h2 class="display-5 text-white fw-bold">KEUNGGULAN TACTICORE</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h4>GEAR TERBAIK</h4>
+                        <p class="text-grey mb-0">Kami menggunakan Marker Tippmann 98 Custom yang legendaris dan Google Mask Thermal anti-embun untuk kenyamanan maksimal.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fas fa-map-marked-alt feature-icon"></i>
+                        <h4>LOKASI STRATEGIS</h4>
+                        <p class="text-grey mb-0">Bekerja sama dengan berbagai venue terbaik di Sentul, Bogor, dan Puncak dengan medan hutan pinus yang asri.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fas fa-briefcase feature-icon"></i>
+                        <h4>PAKET FLEKSIBEL</h4>
+                        <p class="text-grey mb-0">Dari paket hemat pelajar hingga paket corporate gathering lengkap dengan meeting room dan catering.</p>
                     </div>
                 </div>
             </div>
@@ -411,76 +427,22 @@
     </section>
 
     <section class="py-5">
-        <div class="container py-5">
-            
-            <div class="row g-3 mb-5">
-                <div class="col-6 col-lg-3">
-                    <img src="asset/img/gambar paintball/download.webp" class="journey-img" alt="Perjalanan 1">
-                </div>
-                <div class="col-6 col-lg-3">
-                    <img src="asset/img/gambar paintball/download2.webp" class="journey-img" alt="Perjalanan 2">
-                </div>
-                <div class="col-6 col-lg-3">
-                    <img src="asset/img/gambar paintball/download3.webp" class="journey-img" alt="Perjalanan 3">
-                </div>
-                <div class="col-6 col-lg-3">
-                    <img src="asset/img/gambar paintball/download4.webp" class="journey-img" alt="Perjalanan 4">
-                </div>
-            </div>
-
-            <div class="text-center mb-5">
-                <h2 class="display-5">PERJALANAN KAMI</h2>
-                <p class="text-grey">Dari komunitas kecil menjadi provider terbesar.</p>
-            </div>
-
-            <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2018</span>
-                        <h4>AWAL MULA</h4>
-                        <p class="text-grey mb-0">Didirikan oleh sekumpulan hobiis paintball di Malang yang ingin menyediakan wadah bermain yang aman namun tetap menantang.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2020</span>
-                        <h4>EKSPANSI ARENA</h4>
-                        <p class="text-grey mb-0">Membuka arena "Jungle Warfare" di Lowokwaru dengan luas 1 hektar, menambah fasilitas tribun dan ruang briefing.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2023</span>
-                        <h4>PARTNER KORPORAT</h4>
-                        <p class="text-grey mb-0">Resmi menjadi vendor outbound pilihan untuk lebih dari 50 perusahaan besar di Jawa Timur untuk pelatihan kepemimpinan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="cta-title">SIAP UNTUK BERAKSI?</h2>
-                    <p class="lead text-light mb-5">
-                        Jangan biarkan rencana gathering Anda hanya menjadi wacana. Hubungi kami sekarang untuk konsultasi jadwal dan penawaran terbaik.
-                    </p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom btn-lg px-5 py-3 fs-5" target="_blank">
-                            <i class="fab fa-whatsapp me-2"></i> BOOKING SEKARANG
-                        </a>
-                        <a href="paket.html" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">
-                            LIHAT PAKET
-                        </a>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="vision-box">
+                        <h3 class="text-white mb-3">VISI KAMI</h3>
+                        <p class="text-light mb-0">Menjadi provider outbound dan paintball terdepan di Indonesia yang mengutamakan keselamatan, inovasi permainan, dan kepuasan pelanggan dalam setiap event.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="vision-box" style="border-color: var(--accent-gold);">
+                        <h3 class="text-white mb-3">MISI KAMI</h3>
+                        <ul class="text-light mb-0 ps-3">
+                            <li class="mb-2">Menyediakan peralatan yang terawat dan higienis.</li>
+                            <li class="mb-2">Menghadirkan skenario permainan yang edukatif dan menghibur.</li>
+                            <li class="mb-2">Membangun karakter positif peserta melalui aktivitas luar ruang.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -491,19 +453,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h3 class="text-white mb-3">TACTICORE<span style="color: var(--accent-blue);">.ID</span></h3>
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
                     <p class="text-grey small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
                 </div>
                 <div class="col-lg-4 mb-4">
-                    <h5 class="text-white mb-3 text-uppercase">Navigasi</h5>
+                    <h5 class="text-white mb-3">NAVIGASI</h5>
                     <ul class="list-unstyled text-grey small">
-                        <li class="mb-2"><a href="index.html">Beranda</a></li>
-                        <li class="mb-2"><a href="about.html">Tentang Kami</a></li>
-                        <li class="mb-2"><a href="paket.html">Paket</a></li>
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-grey hover-white">Beranda</a></li>
+                        <li class="mb-2"><a href="paket.html" class="text-decoration-none text-grey hover-white">Daftar Paket</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-grey hover-white">Tentang Kami</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 mb-4">
-                    <h5 class="text-white mb-3 text-uppercase">Kontak Admin</h5>
+                    <h5 class="text-white mb-3">KONTAK ADMIN</h5>
                     <ul class="list-unstyled text-grey small">
                         <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
                         <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
