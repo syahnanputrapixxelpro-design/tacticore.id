@@ -4,427 +4,734 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Tentang Kami: Sejarah & Dedikasi TiaBakery - TiaBakery</title>
-    <meta name="description" content="Mengenal lebih dekat TiaBakery: Bermula dari dapur rumah kecil di tahun 2020 hingga menjadi bakery artisan favorit Jakarta. Komitmen kami pada bahan alami dan rasa autentik.">
-    <meta name="keywords" content="tentang tiabakery, sejarah tiabakery, profil bakery jakarta, toko roti artisan, chef tia, bakery open kitchen jakarta">
-    <meta name="author" content="TiaBakery Team">
-    <link rel="canonical" href="https://www.tiabakery.com/about.html">
+    <title>Blog & Berita: Tips Strategi, Edukasi & Event - TACTICORE</title>
+    <meta name="description" content="Temukan artikel terbaru seputar dunia paintball: Tips strategi pemula, review gear, psikologi olahraga ekstrem, hingga info event corporate gathering dari TACTICORE.">
+    <meta name="keywords" content="blog paintball, tips main paintball, strategi paintball pemula, review marker, berita tacticore, edukasi olahraga ekstrem, team building info">
+    <meta name="author" content="TACTICORE Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.tacticore.id/blog.html">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tentang TiaBakery - Cerita Rasa & Dedikasi">
-    <meta property="og:description" content="Dari dapur kecil menuju hati pelanggan. Simak perjalanan kami menghadirkan roti artisan berkualitas.">
-    <meta property="og:image" content="assets/img/img dapur/dapurawaltiabakery.webp">
-    <meta property="og:url" content="https://www.tiabakery.com/about.html">
+    <meta property="og:title" content="Blog & Berita TACTICORE - Tips & Strategi Paintball">
+    <meta property="og:description" content="Kumpulan artikel edukatif, tips strategi, dan berita terbaru dari dunia paintball Indonesia.">
+    <meta property="og:image" content="asset/img/gambar paintball/senjatapaintball.webp">
+    <meta property="og:url" content="https://www.tacticore.id/blog.html">
+    <meta property="og:site_name" content="TACTICORE Indonesia">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "TiaBakery",
-      "url": "https://www.tiabakery.com",
-      "logo": "assets/img/logo.png",
-      "foundingDate": "2020",
-      "founders": [
-        {
-          "@type": "Person",
-          "name": "Chef Tia"
+      "@type": "CollectionPage",
+      "headline": "Blog & Berita TACTICORE",
+      "description": "Kumpulan artikel edukatif dan tips seputar paintball.",
+      "url": "https://www.tacticore.id/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TACTICORE",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "asset/img/logo.png"
         }
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+62-895-6390-68080",
-        "contactType": "customer service"
       },
-      "sameAs": [
-        "https://www.instagram.com/tiabakery",
-        "https://www.facebook.com/tiabakery"
-      ]
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://www.tacticore.id/blog-detail-1.html",
+            "name": "5 Strategi Jitu Menang Paintball untuk Pemula"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://www.tacticore.id/blog-detail-2.html",
+            "name": "Mengenal Gear Paintball: Safety First!"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://www.tacticore.id/blog-detail-3.html",
+            "name": "Paintball untuk Team Building Perusahaan?"
+          }
+        ]
+      }
     }
     </script>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/favicon/favicon-16x16.png">
+    <link rel="manifest" href="asset/favicon/site.webmanifest">
+
+    <link rel="preload" as="image" href="asset/img/gambar paintball/senjatapaintball.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- STYLE DASAR --- */
+        /* --- DESIGN SYSTEM --- */
         :root {
-            --bg-white: #FFFFFF; --bg-warm: #FFFBF2; --text-dark: #3E2723; --text-light: #795548;
-            --red: #FF5252; --yellow: #FFD740; --yellow-soft: #FFF9C4; --green: #69F0AE; --blue: #448AFF;
-            --container-width: 1200px;
+            --bg-deep: #0B0F19;       
+            --bg-panel: #161F32;      
+            --accent-blue: #3B82F6;   
+            --accent-gold: #F59E0B;   
+            --text-white: #FFFFFF;    
+            --text-light: #E2E8F0;    
+            --text-grey: #94A3B8;     
+            --border-line: rgba(255, 255, 255, 0.15);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--bg-white); color: var(--text-dark); font-family: 'Montserrat', sans-serif; overflow-x: hidden; width: 100%; }
-        h1, h2, h3, h4 { font-family: 'Fraunces', serif; color: var(--text-dark); }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+
+        h1, h2, h3, h4, h5, .nav-link, .btn, .widget-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-white);
+        }
 
         /* NAVBAR */
-        nav { background: rgba(255, 255, 255, 0.95); padding: 12px 0; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 800; color: var(--text-dark); letter-spacing: -1px; z-index: 1001; }
-        .nav-menu { display: flex; gap: 25px; align-items: center; }
-        .nav-menu a { font-weight: 600; font-size: 0.9rem; text-transform: uppercase; color: var(--text-dark); cursor: pointer; }
-        .nav-menu a:hover { color: var(--red); }
-        .nav-icons { display: flex; gap: 15px; align-items: center; z-index: 1001; }
-        .nav-icon-btn { width: 40px; height: 40px; border-radius: 50%; background: white; border: 1px solid #eee; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--text-dark); cursor: pointer; position: relative; }
-        .nav-icon-btn:hover { background: var(--text-dark); color: white; border-color: var(--text-dark); }
-        .btn-nav-wa { background: #25D366; color: white; padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 5px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); }
-        .btn-nav-wa:hover { background: #1ebc57; transform: translateY(-1px); }
-        .hamburger-btn { display: none; font-size: 1.8rem; color: var(--text-dark); cursor: pointer; z-index: 1001; }
+        .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid var(--border-line);
+            padding: 0.5rem 0;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; font-style: italic; color: white !important; }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { color: var(--text-grey) !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 0.95rem; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-blue) !important; }
 
-        /* MOBILE MENU OVERLAY */
-        .menu-overlay-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: 0.3s; }
-        .menu-overlay-bg.active { opacity: 1; visibility: visible; }
-        .mobile-menu-dropdown { position: fixed; top: 0; left: 0; width: 100%; height: auto; padding-top: 80px; padding-bottom: 40px; background: white; z-index: 999; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); flex-direction: column; align-items: center; justify-content: center; gap: 25px; transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); display: flex; }
-        .mobile-menu-dropdown.active { transform: translateY(0); }
-        .mobile-link { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
-        .mobile-btn-wa { background: #25D366; color: white; padding: 12px 35px; border-radius: 50px; font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); margin-top: 10px; }
+        .btn-primary-custom {
+            background-color: var(--accent-blue);
+            color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; border: none; transition: 0.3s; font-size: 0.9rem;
+        }
+        .btn-primary-custom:hover { background-color: #2563eb; transform: translateY(-2px); }
 
-        /* --- ABOUT SPECIFIC STYLES --- */
+        /* HERO SECTION (REVISED PADDING) */
+        .page-header {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.8), var(--bg-deep)), url('asset/img/gambar paintball/senjatapaintball.webp');
+            background-size: cover; background-position: center;
+            padding: 40px 0 50px; 
+            border-bottom: 1px solid var(--border-line);
+        }
+
+        /* --- BLOG LAYOUT --- */
+        .blog-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: 0.3s;
+            display: none; /* Hidden by default, JS will show */
+        }
+        .blog-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
         
-        /* 1. HERO */
-        .about-header { 
-            position: relative; 
-            height: 40vh; 
+        .blog-thumb {
             width: 100%; 
-            overflow: hidden; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            color: white; 
+            height: 400px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-line);
         }
-        .about-header img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.6); }
-        .about-header-content { position: relative; z-index: 2; padding: 0 20px; }
-        .about-header h1 { font-size: 4rem; margin-bottom: 15px; color: white; line-height: 1.1; }
-        .about-header p { 
-            font-size: 1.2rem; 
-            font-weight: 300; 
-            letter-spacing: 1px; 
-            margin-top: 10px; 
-            opacity: 0.9;
+        .blog-content { padding: 25px; }
+        
+        .blog-meta { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 10px; display: flex; gap: 15px; }
+        .blog-meta i { color: var(--accent-gold); margin-right: 5px; }
+        
+        .blog-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; }
+        .blog-title a { color: var(--text-white); text-decoration: none; transition: 0.3s; }
+        .blog-title a:hover { color: var(--accent-blue); }
+        
+        .blog-excerpt { color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+
+        .btn-read-more {
+            color: var(--accent-blue); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 2px solid transparent; transition: 0.3s;
+        }
+        .btn-read-more:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        /* --- SIDEBAR WIDGETS --- */
+        .sidebar-widget {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .widget-title {
+            font-size: 1.4rem; border-bottom: 2px solid var(--border-line); padding-bottom: 15px; margin-bottom: 20px;
+            position: relative;
+        }
+        .widget-title::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 50px; height: 2px; background: var(--accent-blue);
         }
 
-        /* 2. INTRO */
-        .intro-section { padding: 100px 0; background: var(--bg-white); }
-        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
-        .intro-text h2 { font-size: 2.8rem; margin-bottom: 25px; line-height: 1.2; }
-        .intro-text p { font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 20px; }
-        .intro-highlight { border-left: 4px solid var(--yellow); padding-left: 20px; font-style: italic; color: var(--text-dark); margin: 30px 0; }
+        /* Search Input */
+        .search-form { position: relative; }
+        .search-input {
+            width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--border-line);
+            padding: 12px 15px; padding-right: 45px; border-radius: 6px; color: var(--text-white);
+        }
+        .search-input:focus { outline: none; border-color: var(--accent-blue); }
+        .search-btn {
+            position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: var(--text-grey); cursor: pointer;
+        }
+        .search-btn:hover { color: var(--accent-blue); }
 
-        /* 3. MIDDLE IMAGE */
-        .middle-image-section { padding: 0 20px; margin-bottom: 100px; }
-        .middle-img-container { height: 500px; width: 100%; max-width: 1200px; margin: 0 auto; border-radius: 30px; overflow: hidden; position: relative; }
-        .middle-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .middle-img-container:hover img { transform: scale(1.05); }
+        /* Recent Posts */
+        .recent-post-item { display: flex; align-items: center; margin-bottom: 15px; }
+        .recent-thumb { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; margin-right: 15px; }
+        .recent-info h6 { margin: 0 0 5px; line-height: 1.3; }
+        .recent-info h6 a { color: var(--text-white); text-decoration: none; font-family: 'Inter'; font-weight: 600; font-size: 0.95rem; }
+        .recent-info h6 a:hover { color: var(--accent-blue); }
+        .recent-date { font-size: 0.8rem; color: var(--text-grey); }
 
-        /* 4. TIMELINE */
-        .timeline-section { background: var(--bg-warm); padding: 100px 0; }
-        .timeline-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
-        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
-        .timeline::after { content: ''; position: absolute; width: 4px; background-color: #ddd; top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
-        .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
-        .timeline-item.left { left: 0; text-align: right; }
-        .timeline-item.right { left: 50%; text-align: left; }
-        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--bg-white); border: 4px solid var(--red); top: 20px; border-radius: 50%; z-index: 1; }
-        .timeline-item.right::after { left: -10px; border-color: var(--blue); }
-        .timeline-content { padding: 20px 30px; background-color: white; position: relative; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .year-badge { display: inline-block; padding: 5px 15px; background: var(--text-dark); color: white; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 10px; }
-        .timeline-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .timeline-content p { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; }
+        /* Sticky Sidebar */
+        @media (min-width: 992px) {
+            .sticky-sidebar { position: sticky; top: 100px; }
+        }
 
-        /* 5. GALLERY SECTION */
-        .gallery-section { padding: 100px 0; background: var(--bg-white); }
-        .gallery-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .gallery-item { height: 300px; overflow: hidden; border-radius: 15px; position: relative; cursor: pointer; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); opacity: 0; transition: 0.3s; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        #noResults {
+            display: none; text-align: center; padding: 40px; background: var(--bg-panel); border-radius: 12px; border: 1px dashed var(--text-grey);
+        }
 
-        /* 6. CTA SECTION */
-        .story-section { background: #E3F2FD; overflow: hidden; padding: 100px 0; }
-        .story-wrapper { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; }
-        .story-content h2 { font-size: 3rem; margin-bottom: 20px; }
-        .btn-cta-wa { background: #25D366; color: white; padding: 15px 40px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); text-decoration: none; transition: 0.3s;}
-        .btn-cta-wa:hover { transform: translateY(-3px); }
-        .story-img img { width: 100%; max-width: 600px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; box-shadow: 0 20px 40px rgba(0,0,0,0.1); animation: float 6s ease-in-out infinite; object-fit: cover; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        /* --- CUSTOM PAGINATION --- */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .page-custom {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-line);
+            color: var(--text-white);
+            padding: 10px 20px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+            cursor: pointer;
+        }
 
-        /* FOOTER & FLOATING */
-        footer { background: white; padding: 80px 0 30px; border-top: 1px solid #eee; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-        .footer-col h4 { margin-bottom: 25px; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; } .footer-col ul li { margin-bottom: 12px; color: var(--text-light); font-size: 0.95rem; }
-        .social-icons a { width: 40px; height: 40px; background: #f5f5f5; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 10px; transition: 0.3s; color: var(--text-dark); text-decoration: none;}
-        .social-icons a:hover { background: var(--text-dark); color: white; }
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; transition: 0.3s; }
-        .wa-float:hover { transform: scale(1.1); }
-        .back-to-top { position: fixed; bottom: 110px; right: 38px; width: 50px; height: 50px; background: var(--text-dark); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 998; opacity: 0; visibility: hidden; transition: 0.3s; text-decoration: none; cursor: pointer; }
-        .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-        .back-to-top:hover { background: var(--red); transform: translateY(-3px); }
+        .page-custom:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
 
-        /* --- RESPONSIVE FIXES (MOBILE) --- */
-        @media (max-width: 900px) {
-            .nav-menu, .btn-nav-wa { display: none; }
-            .hamburger-btn { display: block; }
-            
-            .about-header { height: 30vh; } 
-            .about-header h1 { font-size: 2.5rem; }
-            
-            .middle-img-container { height: 300px; }
-            
-            /* 1. Fix Intro Section Mobile (REVISI PADDING DI SINI) */
-            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
-            
-            .intro-text { 
-                padding: 0 30px; 
-                text-align: left; 
-            }
-            
-            .intro-img {
-                padding: 0 30px; /* Memberi jarak kiri-kanan pada gambar */
-            }
-            .intro-img img { width: 100%; border-radius: 15px; }
+        .page-custom.active {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
 
-            /* 2. Fix Timeline Mobile */
-            .timeline-section { padding: 60px 0; }
-            .timeline::after { left: 31px; } /* Geser garis ke kiri */
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 15px; } /* Geser item ke kanan garis */
-            .timeline-item.left, .timeline-item.right { left: 0; text-align: left; }
-            .timeline-item::after { left: 21px; right: auto; } /* Geser titik ke garis */
-            .timeline-item.left::after { border-color: var(--red); }
-            
-            /* 3. Fix Gallery Mobile */
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .gallery-item { height: 200px; }
+        .page-custom.disabled {
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.2); 
+            cursor: default;
+            pointer-events: none;
+        }
 
-            .story-wrapper { grid-template-columns: 1fr; text-align: center; }
-            .story-content h2 { font-size: 2.2rem; }
-            .story-img img { margin: 0 auto; display: block; max-width: 90%; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+        /* FOOTER */
+        footer { background: #05080f; padding: 60px 0 30px; border-top: 1px solid var(--border-line); }
+        .footer-icon { color: var(--accent-blue); margin-right: 10px; }
+        footer a { color: var(--text-grey); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+
+        /* --- FLOATING BUTTONS STYLE --- */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9990;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Tombol WA */
+        .btn-float-wa {
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .btn-float-wa:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Pulse Animation WA */
+        .btn-float-wa::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #25d366;
+            opacity: 0.7;
+            z-index: -1;
+            animation: pulse-wa 2s infinite;
+        }
+
+        @keyframes pulse-wa {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* Tombol Back Top */
+        .btn-back-top {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .btn-back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-back-top:hover {
+            background-color: #2563eb;
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 991px) {
+            /* Mobile Float */
+            .floating-container { bottom: 20px; right: 20px; }
+            .btn-float-wa { width: 50px; height: 50px; font-size: 26px; }
+            .btn-back-top { width: 40px; height: 40px; font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="menu-overlay-bg" id="menuOverlay" onclick="toggleMobileMenu()"></div>
+    <div class="floating-container">
+        <a href="#" class="btn-back-top" id="backToTop" title="Kembali ke Atas">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" class="btn-float-wa" target="_blank" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
-    <nav>
-        <div class="container nav-wrapper">
-            <a href="index.html" class="nav-logo">TiaBakery.</a>
-            
-            <div class="nav-menu">
-                <a href="about.html" style="color: var(--red);">Tentang Kami</a>
-                <a href="product.html">Produk</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="blog.html">Blog</a>
-            </div>
-
-            <div class="nav-icons">
-                <div class="nav-icon-btn" onclick="alert('Belanja di halaman Produk ya!')">
-                    <i class="ri-shopping-bag-3-line"></i>
-                </div>
-                <a href="https://wa.me/62895639068080" target="_blank" class="btn-nav-wa">
-                    <i class="ri-whatsapp-line"></i> Kontak
-                </a>
-                <div class="hamburger-btn" onclick="toggleMobileMenu()">
-                    <i class="ri-menu-3-line"></i>
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
+            </a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="https://wa.me/62895639068080" class="btn btn-primary-custom" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> KONTAK
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="mobile-menu-dropdown" id="mobileMenu">
-        <a href="about.html" class="mobile-link">Tentang Kami</a>
-        <a href="product.html" class="mobile-link">Produk</a>
-        <a href="gallery.html" class="mobile-link">Gallery</a>
-        <a href="blog.html" class="mobile-link">Blog</a>
-        <a href="https://wa.me/62895639068080" target="_blank" class="mobile-btn-wa">
-            <i class="ri-whatsapp-line"></i> Kontak WhatsApp
-        </a>
-    </div>
-
-    <header class="about-header">
-        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1600&auto=format&fit=crop" alt="Suasana Dapur TiaBakery" fetchpriority="high">
-        <div class="about-header-content">
-            <h1>Cerita Kami</h1>
-            <p>Dari Dapur Kecil Menuju Hati Pelanggan.</p>
-        </div>
-    </header>
-
-    <section class="intro-section container">
-        <div class="intro-grid">
-            <div class="intro-text">
-                <span style="color: var(--blue); font-weight: 700; letter-spacing: 2px;">SIAPA KAMI</span>
-                <h2>Menciptakan Kebahagiaan <br> Lewat Sepotong Roti.</h2>
-                <p>
-                    TiaBakery bukan sekadar toko roti. Kami adalah rumah bagi para pencinta rasa autentik. Berdiri di tengah hiruk pikuk kota, kami hadir membawa kehangatan roti yang baru keluar dari oven.
-                </p>
-                <div class="intro-highlight">
-                    "Kami percaya bahwa bahan terbaik tidak butuh banyak rekayasa. Cukup tepung berkualitas, butter asli, dan ketulusan hati."
-                </div>
-                <p>
-                    Setiap adonan kami uleni dengan tangan, setiap resep kami jaga keasliannya. Kami tidak menggunakan pengawet buatan karena kami ingin Anda merasakan rasa alami dari setiap bahan yang kami gunakan.
-                </p>
-            </div>
-            <div class="intro-img">
-                <img src="assets/img/img dapur/dapurawaltiabakery.webp" style="width:100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" alt="Proses Pembuatan Roti" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <div class="middle-image-section">
-        <div class="middle-img-container">
-            <img src="assets/img/img dapur/kuedipanggangan.webp" alt="Fresh Bread Display" loading="lazy">
-        </div>
-    </div>
-
-    <section class="timeline-section">
+    <section class="page-header text-center">
         <div class="container">
-            <h2 class="timeline-title">Perjalanan Kami</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="year-badge" style="background: var(--red);">2020</span>
-                        <h3>Awal Mula di Dapur Ibu</h3>
-                        <p>TiaBakery dimulai dari dapur rumah sederhana berukuran 3x3 meter. Hanya menerima pesanan tetangga dengan menu andalan Roti Sisir Mentega.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="year-badge" style="background: var(--blue);">2021</span>
-                        <h3>Orderan Online Meledak</h3>
-                        <p>Berkat media sosial, pesanan kami meningkat pesat. Kami mulai merekrut 2 asisten baker dan menyewa ruko kecil untuk produksi.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="year-badge" style="background: var(--green);">2023</span>
-                        <h3>Toko Fisik Pertama</h3>
-                        <p>Mimpi menjadi nyata. Outlet resmi TiaBakery dibuka di Jakarta Selatan dengan konsep "Open Kitchen" agar pelanggan bisa mencium aroma roti.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="year-badge" style="background: var(--yellow); color: black;">2025</span>
-                        <h3>Ekspansi & Inovasi</h3>
-                        <p>Kini kami memiliki 15 varian menu signature dan melayani pengiriman hampers ke seluruh Indonesia. Perjalanan kami masih panjang!</p>
-                    </div>
-                </div>
-            </div>
+            <h1 class="display-3 fw-bold">BERITA & TIPS</h1>
+            <p class="text-light lead">Informasi terbaru seputar dunia paintball dan tips strategi.</p>
         </div>
     </section>
 
-    <section class="gallery-section">
+    <section class="py-5">
         <div class="container">
-            <h2 class="gallery-title">Galeri Momen</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/img/kue/chocolavabo.webp" alt="Choco Lava" loading="lazy">
-                    <div class="gallery-overlay"><i class="ri-heart-3-fill"></i></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/img/kue/BlueberryCupcake.webp" alt="Cupcake" loading="lazy">
-                    <div class="gallery-overlay"><i class="ri-heart-3-fill"></i></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/img/kue/cheesegarlicbread.webp" alt="Garlic Bread" loading="lazy">
-                    <div class="gallery-overlay"><i class="ri-heart-3-fill"></i></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/img/kue/RotiSisirMenteg.webp" alt="Roti Sisir" loading="lazy">
-                    <div class="gallery-overlay"><i class="ri-heart-3-fill"></i></div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="row">
+                
+                <div class="col-lg-8">
+                    
+                    <div class="sidebar-widget d-lg-none mb-4">
+                        <h4 class="widget-title">CARI ARTIKEL</h4>
+                        <div class="search-form">
+                            <input type="text" class="search-input search-input-field" placeholder="Ketik kata kunci...">
+                            <button type="button" class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
 
-    <section class="story-section">
-        <div class="container story-wrapper">
-            <div class="story-content">
-                <h2>Ingin Menjadi Bagian <br> dari Cerita Kami?</h2>
-                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">
-                    Rasakan sendiri kehangatan dan kelembutan roti TiaBakery. Pesan sekarang dan nikmati bersama orang tersayang.
-                </p>
-                <a href="product.html" class="btn-cta-wa">
-                    <i class="ri-shopping-bag-3-line" style="font-size: 1.2rem;"></i> Pesan Sekarang
-                </a>
-            </div>
-            <div class="story-img">
-                <img src="assets/img/img dapur/sourdough.webp" alt="Produk Bakery" loading="lazy">
+                    <div id="blogContainer">
+                        
+                        <div class="blog-card" data-title="Tips Strategi Menang Paintball Pemula">
+                            <img src="asset/img/gambar paintball/download.webp" alt="Strategi Paintball Pemula" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 12 Jan 2024</span><span><i class="fas fa-folder"></i> Tips & Trik</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball untuk Pemula</a></h3>
+                                <p class="blog-excerpt">Jangan hanya asal tembak! Pelajari formasi dasar dan komunikasi tim yang efektif agar tidak mudah tereliminasi di menit awal permainan.</p>
+                                <a href="blog-detail-1.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Perlengkapan Keamanan Wajib Safety Gear">
+                            <img src="asset/img/gambar paintball/download2.webp" alt="Gear Paintball Safety" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 08 Feb 2024</span><span><i class="fas fa-folder"></i> Edukasi</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-2.html">Mengenal Gear Paintball: Safety First!</a></h3>
+                                <p class="blog-excerpt">Mengapa masker tidak boleh dilepas? Apa fungsi body vest? Simak penjelasan lengkap mengenai standar keamanan internasional yang kami gunakan.</p>
+                                <a href="blog-detail-2.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Manfaat Gathering Kantor Corporate Team Building">
+                            <img src="asset/img/gambar paintball/download3.webp" alt="Team Building Corporate" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 20 Feb 2024</span><span><i class="fas fa-folder"></i> Corporate</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-3.html">Paintball untuk Team Building Perusahaan?</a></h3>
+                                <p class="blog-excerpt">Studi menunjukkan simulasi tempur dapat meningkatkan kerjasama antar divisi dan melatih leadership dalam kondisi di bawah tekanan.</p>
+                                <a href="blog-detail-3.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Sejarah Paintball Dunia">
+                            <img src="asset/img/gambar paintball/download4.webp" alt="Sejarah Paintball" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 05 Mar 2024</span><span><i class="fas fa-folder"></i> Trivia</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-4.html">Asal Usul Paintball: Dari Peternakan ke Medan Tempur</a></h3>
+                                <p class="blog-excerpt">Tahukah Anda bahwa senjata paintball awalnya digunakan untuk menandai ternak sapi? Simak sejarah unik olahraga ekstrem ini.</p>
+                                <a href="blog-detail-4.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Marker Paintball Elektronik Mekanik">
+                            <img src="asset/img/gambar paintball/download5.webp" alt="Review Marker Paintball" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 25 Mar 2024</span><span><i class="fas fa-folder"></i> Review Gear</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-5.html">Memilih Marker: Elektronik vs Mekanik</a></h3>
+                                <p class="blog-excerpt">Bingung memilih senjata untuk turnamen? Pelajari perbedaan mendasar antara marker sistem mekanik yang bandel dan elektronik yang presisi.</p>
+                                <a href="blog-detail-5.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Psikologi Adrenalin Paintball">
+                            <img src="asset/img/gambar paintball/download6.webp" alt="Psikologi Paintball" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 10 Apr 2024</span><span><i class="fas fa-folder"></i> Edukasi</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-6.html">Psikologi di Balik Adrenalin Paintball</a></h3>
+                                <p class="blog-excerpt">Mengapa jantung berdebar saat bersembunyi di balik bunker? Temukan fakta ilmiah tentang respon 'Fight or Flight' dalam simulasi tempur.</p>
+                                <a href="blog-detail-6.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Istilah Kamus Paintball Wajib">
+                            <img src="asset/img/gambar paintball/download7.webp" alt="Kamus Paintball" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 22 Apr 2024</span><span><i class="fas fa-folder"></i> Tips Pemula</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-7.html">Kamus Paintball: Istilah yang Wajib Diketahui</a></h3>
+                                <p class="blog-excerpt">Jangan bingung saat Marshal berteriak "Blind Fire" atau "Dead Man Walking". Pelajari kode komunikasi standar di arena internasional.</p>
+                                <a href="blog-detail-7.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-card" data-title="Tips Merawat Google Mask Anti Embun">
+                            <img src="asset/img/gambar paintball/download8.webp" alt="Tips Merawat Masker" class="blog-thumb" loading="lazy">
+                            <div class="blog-content">
+                                <div class="blog-meta"><span><i class="fas fa-calendar"></i> 05 Mei 2024</span><span><i class="fas fa-folder"></i> Tips & Trik</span></div>
+                                <h3 class="blog-title"><a href="blog-detail-8.html">Cara Merawat Masker Agar Tidak Cepat Berembun</a></h3>
+                                <p class="blog-excerpt">Embun pada lensa adalah musuh utama pemain. Simak tips sederhana merawat lensa thermal agar pandangan tetap jernih sepanjang permainan.</p>
+                                <a href="blog-detail-8.html" class="btn-read-more">BACA SELENGKAPNYA <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="noResults">
+                        <i class="fas fa-search fa-3x text-grey mb-3"></i>
+                        <h4 class="text-white">Artikel Tidak Ditemukan</h4>
+                        <p class="text-grey">Coba gunakan kata kunci lain.</p>
+                    </div>
+
+                    <div class="pagination-container">
+                        <a href="javascript:void(0)" class="page-custom disabled" id="btnPrev" onclick="changePage('prev')">
+                            <i class="fas fa-arrow-left me-2"></i> PREVIOUS
+                        </a>
+
+                        <a href="javascript:void(0)" class="page-custom active" id="btnPage1" onclick="changePage(1)">1</a>
+                        <a href="javascript:void(0)" class="page-custom" id="btnPage2" onclick="changePage(2)">2</a>
+
+                        <a href="javascript:void(0)" class="page-custom" id="btnNext" onclick="changePage('next')">
+                            NEXT <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sticky-sidebar">
+                        
+                        <div class="sidebar-widget d-none d-lg-block">
+                            <h4 class="widget-title">CARI ARTIKEL</h4>
+                            <div class="search-form">
+                                <input type="text" class="search-input search-input-field" placeholder="Ketik kata kunci...">
+                                <button type="button" class="search-btn"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">TERPOPULER</h4>
+                            
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download.webp" class="recent-thumb" alt="Strategi Menang" loading="lazy">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-1.html">5 Strategi Jitu Menang Paintball</a></h6>
+                                    <span class="recent-date">12 Jan 2024</span>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download3.webp" class="recent-thumb" alt="Manfaat Corporate" loading="lazy">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-3.html">Manfaat Team Building Kantor</a></h6>
+                                    <span class="recent-date">20 Feb 2024</span>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-post-item">
+                                <img src="asset/img/gambar paintball/download2.webp" class="recent-thumb" alt="Review Gear" loading="lazy">
+                                <div class="recent-info">
+                                    <h6><a href="blog-detail-2.html">Review Gear Paintball Safety</a></h6>
+                                    <span class="recent-date">08 Feb 2024</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3 class="nav-logo" style="margin-bottom: 20px;">TiaBakery.</h3>
-                    <p style="color: #666; line-height: 1.6; max-width: 250px;">
-                        Bakery modern dengan cita rasa autentik. Fresh from the oven, straight to your heart.
-                    </p>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-3">TACTICORE<span class="text-blue">.ID</span></h3>
+                    <p class="text-grey small">Penyedia jasa outbound dan paintball profesional dengan standar keamanan tinggi.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Eksplorasi</h4>
-                    <ul>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="product.html">Produk</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">NAVIGASI</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-grey hover-white">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-grey hover-white">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-decoration-none text-grey hover-white">Blog</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li>Jl. Bakery No. 88, Jakarta</li>
-                        <li>hello@tiabakery.com</li>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-3">KONTAK ADMIN</h5>
+                    <ul class="list-unstyled text-grey small">
+                        <li class="mb-2"><i class="fab fa-whatsapp footer-icon"></i>0895-6390-68080 (Booking)</li>
+                        <li class="mb-2"><i class="fas fa-envelope footer-icon"></i>booking@tacticore.id</li>
+                        <li class="mb-2"><i class="fas fa-clock footer-icon"></i>Buka Setiap Hari: 08.00 - 17.00</li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Ikuti Kami</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="ri-instagram-line"></i></a>
-                        <a href="#"><i class="ri-tiktok-fill"></i></a>
-                        <a href="#"><i class="ri-facebook-fill"></i></a>
-                    </div>
                 </div>
             </div>
-            <div style="text-align: center; font-size: 0.9rem; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
-                &copy; 2024 TiaBakery. Dibuat dengan cinta.
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <small class="text-grey">© 2024 Tacticore Paintball Provider. All Rights Reserved.</small>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/62895639068080" target="_blank" class="wa-float"><i class="ri-whatsapp-line"></i></a>
-    <a href="#" class="back-to-top" id="backToTop"><i class="ri-arrow-up-line"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { backToTopBtn.classList.add('show'); } 
-            else { backToTopBtn.classList.remove('show'); }
+        // CONFIG
+        const itemsPerPage = 4;
+        let currentPage = 1;
+        const totalItems = 8; // Total artikel di HTML
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        // DOM Elements
+        const blogCards = document.querySelectorAll('.blog-card');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        const btnPage1 = document.getElementById('btnPage1');
+        const btnPage2 = document.getElementById('btnPage2');
+        
+        // REVISI: Mengambil semua input search (Mobile & Desktop)
+        const searchInputs = document.querySelectorAll('.search-input-field');
+        const noResults = document.getElementById('noResults');
+
+        // Initial Load
+        showPage(1);
+
+        // FUNGSI GANTI HALAMAN
+        function changePage(action) {
+            if (action === 'prev') {
+                if (currentPage > 1) currentPage--;
+            } else if (action === 'next') {
+                if (currentPage < totalPages) currentPage++;
+            } else {
+                currentPage = action;
+            }
+            showPage(currentPage);
+        }
+
+        // FUNGSI TAMPILKAN ARTIKEL
+        function showPage(page) {
+            // Scroll ke atas sedikit (UX smooth)
+            document.getElementById('blogContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Hitung Index
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            // Cek apakah ada pencarian aktif (ambil value dari salah satu input)
+            const activeSearchTerm = searchInputs[0].value || searchInputs[1]?.value || '';
+
+            // Reset Search jika ada (agar pagination normal kembali)
+            if(activeSearchTerm === '') {
+                blogCards.forEach((card, index) => {
+                    if (index >= start && index < end) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            updateButtons(page);
+        }
+
+        // UPDATE TOMBOL (Active / Disabled)
+        function updateButtons(page) {
+            // Reset Active
+            btnPage1.classList.remove('active');
+            btnPage2.classList.remove('active');
+
+            // Set Active
+            if(page === 1) btnPage1.classList.add('active');
+            if(page === 2) btnPage2.classList.add('active');
+
+            // Handle Prev Disabled
+            if(page === 1) {
+                btnPrev.classList.add('disabled');
+            } else {
+                btnPrev.classList.remove('disabled');
+            }
+
+            // Handle Next Disabled
+            if(page === totalPages) {
+                btnNext.classList.add('disabled');
+            } else {
+                btnNext.classList.remove('disabled');
+            }
+        }
+
+        // SEARCH FUNCTION (Updated for Multiple Inputs)
+        searchInputs.forEach(input => {
+            input.addEventListener('keyup', function(e) {
+                const term = e.target.value.toLowerCase();
+                
+                // Sync value ke input satunya agar konsisten
+                searchInputs.forEach(otherInput => {
+                    if(otherInput !== input) otherInput.value = term;
+                });
+
+                let visibleCount = 0;
+
+                if (term.length > 0) {
+                    blogCards.forEach(card => {
+                        const title = card.getAttribute('data-title').toLowerCase();
+                        const contentText = card.innerText.toLowerCase();
+
+                        if (title.includes(term) || contentText.includes(term)) {
+                            card.style.display = 'block';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    document.querySelector('.pagination-container').style.display = 'none';
+
+                    if (visibleCount === 0) noResults.style.display = 'block';
+                    else noResults.style.display = 'none';
+
+                } else {
+                    noResults.style.display = 'none';
+                    document.querySelector('.pagination-container').style.display = 'flex';
+                    showPage(currentPage);
+                }
+            });
         });
+
+        // --- Back to Top Logic ---
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-            document.getElementById('menuOverlay').classList.toggle('active');
-        }
     </script>
-
 </body>
 </html>
