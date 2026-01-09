@@ -9,11 +9,15 @@
     <meta name="keywords" content="paintball malang, outbound malang, jasa paintball, tacticore, gathering kantor malang, wisata batu malang, paket paintball murah">
     <meta name="author" content="TACTICORE Indonesia">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://tacticore.id/"> <meta property="og:type" content="website">
+    
+    <link rel="canonical" href="https://tacticore.id/"> 
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://tacticore.id/">
     <meta property="og:title" content="TACTICORE - Adrenalin Paintball & Outbound Malang">
     <meta property="og:description" content="Rasakan sensasi pertempuran nyata dengan standar keamanan internasional. Booking jadwal main paintball Anda sekarang!">
     <meta property="og:image" content="asset/img/gambar paintball/senjatapaintball.webp">
+
+    <link rel="preload" as="image" href="asset/img/gambar paintball/senjatapaintball.webp">
 
     <script type="application/ld+json">
     {
@@ -54,14 +58,18 @@
       }
     }
     </script>
+
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <meta name="theme-color" content="#0f172a"> <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <meta name="theme-color" content="#0f172a"> 
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -142,10 +150,9 @@
         }
         .navbar .btn-primary-custom { padding: 8px 20px; }
 
-        /* HERO SECTION (UPDATED PADDING) */
+        /* HERO SECTION */
         .hero-section {
-            padding: 40px 0 120px; /* Jarak atas dipendekkan sesuai request */
-            /* Optimasi: Pastikan gambar ini dikompres (webp) agar LCP cepat */
+            padding: 40px 0 120px; 
             background: linear-gradient(rgba(15, 23, 42, 0.85), var(--bg-darkest)), url('asset/img/gambar paintball/senjatapaintball.webp');
             background-size: cover;
             background-position: center;
@@ -156,14 +163,13 @@
             color: var(--accent-green);
         }
 
-        /* --- COOL TACTICAL ABOUT SECTION --- */
+        /* --- TACTICAL ABOUT SECTION --- */
         .tactical-about {
             position: relative;
             overflow: hidden;
             background-color: var(--bg-darkest);
         }
         
-        /* Efek Pola Grid Background */
         .bg-grid {
             position: absolute; width: 100%; height: 100%; top:0; left:0;
             background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
@@ -172,10 +178,9 @@
             z-index: 0;
         }
 
-        /* Tampilan Gambar Polygon */
         .tactical-img-box {
             position: relative;
-            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); /* Potong sudut */
+            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
             transition: 0.5s;
             background: #000;
         }
@@ -185,7 +190,7 @@
             object-fit: cover;
             opacity: 0.8;
             transition: 0.5s;
-            filter: contrast(1.1) saturate(0.8); /* Efek dramatis */
+            filter: contrast(1.1) saturate(0.8);
         }
         .tactical-img-box:hover img {
             opacity: 1;
@@ -193,7 +198,6 @@
             filter: contrast(1) saturate(1);
         }
         
-        /* Efek Scanline pada gambar */
         .scanline-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.5) 4px);
@@ -201,7 +205,6 @@
             z-index: 2;
         }
 
-        /* Dekorasi Sudut */
         .corner-deco-top {
             position: absolute; top: -15px; right: -15px; width: 80px; height: 80px;
             border-top: 4px solid var(--accent-blue); border-right: 4px solid var(--accent-blue);
@@ -275,7 +278,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 9990; /* High index, but below lightbox */
+            z-index: 9990;
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -369,15 +372,15 @@
 <body id="home">
 
     <div id="galleryLightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-btn" onclick="closeLightbox()">×</span>
-        <img class="lightbox-content" id="lightboxImg">
+        <span class="close-btn" aria-label="Close Lightbox" onclick="closeLightbox()">×</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Detail Gallery">
     </div>
 
     <div class="floating-container">
-        <a href="#" class="btn-back-top" id="backToTop" title="Kembali ke Atas">
+        <a href="#" class="btn-back-top" id="backToTop" title="Kembali ke Atas" aria-label="Kembali ke atas">
             <i class="fas fa-arrow-up"></i>
         </a>
-        <a href="https://wa.me/62895639068080" class="btn-float-wa" target="_blank" title="Chat WhatsApp">
+        <a href="https://wa.me/62895639068080" class="btn-float-wa" target="_blank" title="Chat WhatsApp" aria-label="Hubungi kami via WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -387,7 +390,7 @@
             <a class="navbar-brand" href="index.html">
                 <i class="fas fa-shield-alt me-2"></i>TACTICORE<span>.ID</span>
             </a>
-            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="fas fa-bars text-white"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -703,7 +706,7 @@
                 <div class="col-lg-6">
                     <div class="card bg-dark border-0 overflow-hidden rounded-3 shadow">
                         <div style="width: 100%; height: 400px; background-color: #2a2a2a; display: flex; align-items: center; justify-content: center; color: #555;">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.210469275997!2d112.60742131477652!3d-7.977209994254823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788281bdd08839%3A0xc915f268bffa831f!2sUniversitas%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1679901234567!5m2!1sid!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe title="Lokasi Tacticore" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.210469275997!2d112.60742131477652!3d-7.977209994254823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788281bdd08839%3A0xc915f268bffa831f!2sUniversitas%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1679901234567!5m2!1sid!2sid" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <div class="card-body bg-dark border-top border-secondary">
                             <h5 class="text-white"><i class="fas fa-map-marker-alt text-blue me-2"></i>LOKASI BASECAMP</h5>
